@@ -312,7 +312,7 @@
 
     <div class="mods" style="margin-top:28px" id="mods"></div>
 
-    <p class="note">* Precios de referencia en MXN + IVA, sujetos a alcance, temporadas y número de evaluaciones. Los viáticos y hospedaje de shoppers en Palenque están incluidos.</p>
+    <p class="note">* Precios de referencia en MXN + IVA, sujetos a alcance, temporadas y número de evaluaciones. Todos los módulos incluyen tablero en vivo durante el campo e informe ejecutivo al cierre. Viáticos y hospedaje de shoppers en Palenque incluidos.</p>
   </div>
 </section>
 
@@ -376,39 +376,36 @@
     <div class="grid3" style="margin-top:28px">
       <div class="pkg">
         <div class="pname">Paquete A</div>
-        <h3>Espejo</h3>
-        <p class="muted">Saber dónde estamos parados frente a la competencia.</p>
+        <h3>Lectura del mercado</h3>
+        <p class="muted">Por qué eligen otros — visto desde los datos y los propios viajeros.</p>
         <ul>
-          <li>M1 · Benchmarking digital</li>
-          <li>M2 · Minería de reseñas</li>
-          <li>M8 · Test del funnel de reserva</li>
-          <li>M10 · Informe ejecutivo</li>
+          <li>M1 · Radiografía competitiva</li>
+          <li>M2 · Encuestas de campo (n≈200)</li>
         </ul>
-        <div class="prange">$45,000<small>MXN + IVA · ~4 semanas</small></div>
+        <div class="prange">$40,000<small>MXN + IVA · ~5 semanas</small></div>
       </div>
       <div class="pkg rec">
         <div class="pname">Paquete B · Recomendado</div>
-        <h3>La decisión del huésped</h3>
-        <p class="muted">Por qué eligen otros + cómo se vive Nututún por dentro.</p>
+        <h3>Mercado + experiencia</h3>
+        <p class="muted">Por qué eligen otros y cómo se vive Nututún por dentro.</p>
         <ul>
-          <li>Todo lo del Paquete A</li>
-          <li>M3 · Mystery guest en Nututún (2 estadías)</li>
-          <li>M5 · Encuestas a huéspedes propios</li>
-          <li>M6 · Intercept en destino (n=200)</li>
+          <li>M1 · Radiografía competitiva</li>
+          <li>M2 · Encuestas de campo (n≈200)</li>
+          <li>M3 · Auditoría de experiencia y funnel</li>
         </ul>
-        <div class="prange">$90,000<small>MXN + IVA · ~8 semanas</small></div>
+        <div class="prange">$58,000<small>MXN + IVA · ~7 semanas</small></div>
       </div>
       <div class="pkg">
         <div class="pname">Paquete C</div>
-        <h3>Integral</h3>
-        <p class="muted">Radiografía completa: nosotros, la competencia y el mercado.</p>
+        <h3>360°</h3>
+        <p class="muted">Radiografía completa: el mercado, nosotros y la competencia por dentro.</p>
         <ul>
-          <li>Todo lo del Paquete B</li>
-          <li>M4 · Mystery guest en 2 competidores</li>
-          <li>M7 · Encuesta online a mercado potencial</li>
-          <li>M9 · Entrevistas a profundidad</li>
+          <li>M1 · Radiografía competitiva</li>
+          <li>M2 · Encuestas de campo (n≈200)</li>
+          <li>M3 · Auditoría de experiencia y funnel</li>
+          <li>M4 · Benchmark incógnito (2–3 competidores)</li>
         </ul>
-        <div class="prange">$140,000<small>MXN + IVA · ~10 semanas</small></div>
+        <div class="prange">$82,000<small>MXN + IVA · ~9 semanas</small></div>
       </div>
     </div>
   </div>
@@ -478,36 +475,18 @@
 
 <script>
 const MODULES = [
-  {id:"M1", name:"Benchmarking digital y desk research", price:16000, weeks:"2–3 sem",
-   desc:"Radiografía de presencia digital: fichas en OTAs, Tripadvisor, Google, sitio web, fotos, SEO local y share of voice vs. el set competitivo.",
-   q:"¿Nututún aparece cuando el viajero busca? ¿Con qué cara?"},
-  {id:"M2", name:"Minería de reseñas y análisis de sentimiento", price:14000, weeks:"2–3 sem",
-   desc:"Extracción y clasificación de miles de reseñas propias y de competidores: temas, quejas recurrentes, atributos que disparan 5★ vs. 1★.",
-   q:"¿Qué celebran y qué perdonan los huéspedes de cada hotel?"},
-  {id:"M3", name:"Mystery guest en Nututún", price:13000, weeks:"1 sem c/estadía",
-   desc:"Estadías incógnito completas (check-in a check-out) con checklist de 200+ puntos: reserva, recepción, habitación, restaurante, poza, Wi-Fi, posventa.",
-   q:"¿La experiencia real está a la altura del producto?"},
-  {id:"M4", name:"Mystery guest en competidores", price:19000, weeks:"1–2 sem",
-   desc:"El mismo guion aplicado en 2–3 hoteles competidores: comparación punto por punto de servicio, instalaciones y valor percibido.",
-   q:"¿Qué hacen mejor los que ganan la reserva?"},
-  {id:"M5", name:"Encuestas a huéspedes de Nututún", price:11000, weeks:"3–4 sem",
-   desc:"Encuesta en check-out con móviles + QR post-estadía: satisfacción, NPS, motivo de viaje, qué casi los hace no volver.",
-   q:"¿Qué piensan los que sí llegaron?"},
-  {id:"M6", name:"Intercept a huéspedes de otros hoteles", price:22000, weeks:"3–4 sem",
-   desc:"Encuestas en puntos clave del destino (ruinas, ADO, La Cañada, cascadas) a quienes se hospedaron en la competencia. n≈200.",
-   q:"¿Por qué eligieron otro hotel y no Nututún?"},
-  {id:"M7", name:"Encuesta online a mercado potencial", price:20000, weeks:"2–3 sem",
-   desc:"Panel online a viajeros del mercado origen (CDMX, sureste, internacional): awareness, imagen de marca y drivers de elección en Palenque.",
-   q:"¿Nututún existe en la mente del viajero que aún no viene?"},
-  {id:"M8", name:"Test del funnel de reserva", price:10000, weeks:"1–2 sem",
-   desc:"Mystery calls y contactos reales por teléfono, WhatsApp, correo y motor web: tiempos de respuesta, calidad de cotización, paridad vs. OTAs.",
-   q:"¿Se están perdiendo reservas ya ganadas en el último clic?"},
-  {id:"M9", name:"Entrevistas a profundidad", price:16000, weeks:"2–3 sem",
-   desc:"10–15 entrevistas cualitativas: ex-huéspedes, agentes de viajes, operadores de tours y staff. El 'por qué' detrás de los números.",
-   q:"¿Qué dicen los intermediarios cuando nadie escucha?"},
-  {id:"M10", name:"Tablero en vivo + informe ejecutivo", price:11000, weeks:"continuo",
-   desc:"Panel con resultados en tiempo real durante el campo + informe final con plan de acción priorizado por impacto y esfuerzo.",
-   q:"¿Cómo se convierte todo esto en decisiones el lunes?"}
+  {id:"M1", name:"Radiografía competitiva y reputación digital", price:15000, weeks:"2–3 sem",
+   desc:"Qué dice el mercado sin preguntar: minería de reseñas de Nututún y competidores (temas, quejas recurrentes, drivers de 5★ vs. 1★), presencia en OTAs, fotos, SEO local y share of voice.",
+   q:"¿Cómo se ve Nututún cuando el viajero compara en pantalla?"},
+  {id:"M2", name:"La decisión del huésped — encuestas de campo", price:28000, weeks:"3–4 sem",
+   desc:"Encuestas con captura móvil en puntos clave del destino —ruinas, ADO, La Cañada, cascadas— a quienes se hospedaron en la competencia (n≈200), más QR post-estadía a huéspedes propios. Resultados en tablero en vivo.",
+   q:"¿Por qué eligieron otro hotel — y qué los haría cambiar?"},
+  {id:"M3", name:"Auditoría de experiencia y funnel de reserva", price:20000, weeks:"2–3 sem",
+   desc:"Estadía incógnito en Nututún con checklist de 200+ puntos (reserva a check-out) + test del canal de venta: mystery calls, WhatsApp, correo y motor web — tiempos de respuesta, cotización y paridad vs. OTAs.",
+   q:"¿La experiencia y la venta están a la altura del producto?"},
+  {id:"M4", name:"Benchmark incógnito en la competencia", price:24000, weeks:"2–3 sem",
+   desc:"El mismo guion de evaluación aplicado en 2–3 hoteles competidores + entrevistas a intermediarios del destino (agencias, operadores de tours): comparación punto por punto.",
+   q:"¿Qué hacen mejor los que ganan la reserva?"}
 ];
 
 const fmt = n => "$" + n.toLocaleString("es-MX");
