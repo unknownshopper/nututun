@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta — Hotel Nututún Palenque · The Unknown Shopper</title>
+<meta name="description" content="Estudio de competitividad y experiencia de huésped para Hotel Nututún Palenque. Por qué los viajeros eligen otros hoteles en Palenque — menú modular de investigación: mystery guest, encuestas, minería de reseñas y benchmarking.">
+<meta name="author" content="The Unknown Shopper">
+<meta name="theme-color" content="#f6f4ee">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Estudio de competitividad — Hotel Nututún Palenque">
+<meta property="og:description" content="Por qué los viajeros eligen otros hoteles en Palenque, y qué hacer al respecto. Propuesta modular de The Unknown Shopper.">
+<meta property="og:image" content="nut.png">
+<link rel="icon" type="image/png" href="nut.png">
+<style>
+  :root{
+    --bg:#f6f4ee;
+    --paper:#ffffff;
+    --ink:#23282d;
+    --deep:#1b2733;
+    --line:#e6e1d4;
+    --red:#c0392b;
+    --red-dark:#96271c;
+    --red-soft:#fdf0ee;
+    --navy:#26355c;
+    --navy-soft:#eef1f7;
+    --stone:#7d766a;
+    --amber:#b0791f;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    padding-bottom:90px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--deep)}
+  h2{font-size:1.9rem;margin-bottom:.4em}
+  h3{font-size:1.25rem}
+  .kicker{
+    text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:10px;
+  }
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  .lead{font-size:1.08rem;color:#3d453d;max-width:760px}
+  a{color:var(--red-dark)}
+
+  /* ===== Portada ===== */
+  .cover{
+    background:
+      radial-gradient(900px 420px at 85% 0%,rgba(192,57,43,.05),transparent 60%),
+      linear-gradient(180deg,#fdfcf8 0%,#f6f4ee 100%);
+    color:var(--ink);padding:64px 0 60px;border-bottom:1px solid var(--line);
+    border-top:4px solid var(--red);
+  }
+  .cover .brandrow{
+    display:flex;align-items:center;gap:26px;margin-bottom:52px;flex-wrap:wrap;
+  }
+  .brandrow img{object-fit:contain}
+  .brandrow .tus{height:56px}
+  .brandrow .x{color:var(--red);font-size:1.4rem;font-weight:300}
+  .brandrow .nut{height:84px}
+  .cover h1{color:var(--deep);font-size:2.9rem;max-width:820px}
+  .cover h1 em{color:var(--red);font-style:normal}
+  .cover .sub{color:#55584f;font-size:1.1rem;max-width:640px;margin-top:18px}
+  .cover .meta{
+    display:flex;flex-wrap:wrap;gap:28px;margin-top:48px;
+    font-size:.85rem;color:var(--stone);
+  }
+  .cover .meta b{display:block;color:var(--deep);font-size:.95rem;font-weight:600}
+  .badge-doc{
+    display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);padding:6px 14px;border-radius:999px;font-size:.75rem;
+    text-transform:uppercase;letter-spacing:.14em;margin-bottom:22px;font-weight:700;
+  }
+
+  /* ===== Tarjetas y grids ===== */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;box-shadow:0 1px 3px rgba(27,39,51,.04);
+  }
+  .card h3{margin-bottom:8px}
+  .muted{color:var(--stone);font-size:.9rem}
+
+  /* ===== Gráficas ===== */
+  .chart{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+    box-shadow:0 1px 3px rgba(27,39,51,.04)}
+  .chart h3{margin-bottom:4px}
+  .chart .src{font-size:.75rem;color:var(--stone);margin-top:14px}
+  .bar-row{display:flex;align-items:center;gap:12px;margin:9px 0}
+  .bar-label{width:190px;font-size:.82rem;color:#3d453d;text-align:right;flex-shrink:0}
+  .bar-track{flex:1;background:#f0ede2;border-radius:6px;height:26px;position:relative;overflow:hidden}
+  .bar-fill{height:100%;border-radius:6px;background:#9aa6ad;
+    display:flex;align-items:center;justify-content:flex-end;padding-right:8px;
+    color:#fff;font-size:.72rem;font-weight:700;min-width:34px}
+  .bar-fill.hl{background:#3c4d68}
+  .bar-fill.warn{background:var(--red)}
+  .bar-fill.dim{background:#c8c2b2}
+  .bar-fill.nut{background:var(--navy)}
+
+  /* ===== Tablas ===== */
+  table{width:100%;border-collapse:collapse;background:var(--paper);
+    border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);font-size:.9rem}
+  th{background:var(--deep);color:#f2efe7;text-align:left;padding:12px 14px;font-weight:600;font-size:.8rem;
+    text-transform:uppercase;letter-spacing:.06em}
+  td{padding:12px 14px;border-bottom:1px solid #efece1;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tr.nut td{background:var(--navy-soft)}
+  .tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.72rem;font-weight:600}
+  .tag.alta{background:#f6ded8;color:var(--red-dark)}
+  .tag.media{background:#f7ecd4;color:#8a6116}
+  .tag.baja{background:#e8e5dc;color:#5c5648}
+
+  /* ===== Hipótesis ===== */
+  .hyp{background:var(--paper);border-left:4px solid var(--red);border-radius:0 var(--radius) var(--radius) 0;
+    padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 3px rgba(27,39,51,.04)}
+  .hyp b{color:var(--deep)}
+
+  /* ===== Módulos seleccionables ===== */
+  .mod{
+    background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);
+    padding:24px;cursor:pointer;transition:border-color .15s,box-shadow .15s;position:relative;
+  }
+  .mod:hover{border-color:#c9c2ae}
+  .mod.sel{border-color:var(--red);box-shadow:0 4px 18px rgba(192,57,43,.15)}
+  .mod .check{
+    position:absolute;top:18px;right:18px;width:26px;height:26px;border-radius:8px;
+    border:2px solid #c9c2ae;display:flex;align-items:center;justify-content:center;
+    font-size:.85rem;color:transparent;transition:all .15s;background:#fff;
+  }
+  .mod.sel .check{background:var(--red);border-color:var(--red);color:#fff}
+  .mod .num{font-size:.72rem;font-weight:800;letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+  .mod h3{margin:6px 0 8px;padding-right:36px}
+  .mod p{font-size:.88rem;color:#4a534a}
+  .mod .q{font-size:.82rem;color:var(--navy);margin-top:10px;font-style:italic}
+  .mod .foot{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;
+    padding-top:12px;border-top:1px dashed #ddd8c8;font-size:.8rem;color:var(--stone)}
+  .mod .price{font-weight:700;color:var(--deep);font-size:.92rem}
+  .mods{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:820px){.mods{grid-template-columns:1fr}}
+
+  /* ===== Barra de selección ===== */
+  .stickybar{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:rgba(255,255,255,.97);border-top:3px solid var(--red);
+    color:var(--ink);padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    box-shadow:0 -6px 24px rgba(27,39,51,.12);
+  }
+  .stickybar .n{font-size:.85rem;color:var(--stone)}
+  .stickybar .n b{color:var(--deep);font-size:1rem}
+  .stickybar .total{text-align:right}
+  .stickybar .total .amt{font-size:1.15rem;font-weight:800;color:var(--red)}
+  .stickybar .total small{display:block;color:var(--stone);font-size:.7rem}
+  .stickybar .hint{font-size:.78rem;color:#a49d8d}
+
+  /* ===== Fases ===== */
+  .phase{display:flex;gap:18px;margin-bottom:18px}
+  .phase .dot{
+    width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-weight:800;
+  }
+  .phase .body b{color:var(--deep)}
+
+  /* ===== Paquetes ===== */
+  .pkg{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;
+    box-shadow:0 1px 3px rgba(27,39,51,.04)}
+  .pkg.rec{border-color:var(--red);box-shadow:0 6px 24px rgba(192,57,43,.14)}
+  .pkg .pname{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+  .pkg h3{font-size:1.4rem;margin:6px 0 4px}
+  .pkg ul{list-style:none;margin:14px 0;flex:1}
+  .pkg li{padding:7px 0 7px 24px;position:relative;font-size:.88rem;border-bottom:1px dashed #efece1}
+  .pkg li::before{content:"✓";position:absolute;left:0;color:var(--red);font-weight:800}
+  .pkg .prange{font-size:1.3rem;font-weight:800;color:var(--deep)}
+  .pkg .prange small{font-size:.75rem;color:var(--stone);font-weight:400;display:block}
+
+  .questions li{margin-bottom:10px;font-size:.92rem}
+  .note{font-size:.8rem;color:var(--stone);margin-top:18px;font-style:italic}
+  .footer{padding:48px 0 32px;text-align:center;color:var(--stone);font-size:.85rem}
+  .footer b{color:var(--deep)}
+  .footer img{height:34px;object-fit:contain;margin-bottom:10px;opacity:.9}
+  .print-note{display:none}
+  @media print{
+    .stickybar{display:none}
+    .print-note{display:block}
+    body{padding-bottom:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<header class="cover">
+  <div class="wrap">
+    <div class="brandrow">
+      <img class="tus" src="tusxx.png" alt="The Unknown Shopper">
+      <span class="x">×</span>
+      <img class="nut" src="nut.png" alt="Nututun Palenque Hotel">
+    </div>
+    <span class="badge-doc">Documento de trabajo · Reunión exploratoria</span>
+    <h1>Estudio de competitividad y experiencia de huésped para <em>Hotel Nututún Palenque</em></h1>
+    <p class="sub">Por qué los viajeros eligen otros hoteles en Palenque — y qué hacer al respecto.
+       Un menú modular de investigación: cada bloque puede contratarse por separado o como paquete integral.</p>
+    <div class="meta">
+      <div><b>Preparado para</b>Dirección · Hotel Nututún Palenque</div>
+      <div><b>Presenta</b>The Unknown Shopper</div>
+      <div><b>Fecha</b>Octubre 2026</div>
+      <div><b>Vigencia</b>90 días</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 1. CONTEXTO ================= -->
+<section id="contexto">
+  <div class="wrap">
+    <div class="kicker">01 · El punto de partida</div>
+    <h2>Nututún tiene el producto. ¿Por qué no siempre gana la reserva?</h2>
+    <p class="lead">
+      Hotel Nututún Palenque cuenta con un activo que casi ningún competidor puede copiar: su propia poza natural
+      sobre el río Chacamax, una reserva privada de selva, 72 habitaciones en 7 categorías y calificaciones
+      sólidas (8.7 en Booking, ~4.5 en Google). Sin embargo, en volumen de opiniones —un proxy razonable del
+      <i>share of voice</i> y de la consideración del viajero— aparece por debajo de competidores directos.
+      Este estudio busca responder, con evidencia: <b>¿a dónde se van los huéspedes que Nututún no captura, y por qué?</b>
+    </p>
+
+    <div class="grid2" style="margin-top:36px">
+      <div class="chart">
+        <h3>Volumen de reseñas en Tripadvisor (aprox.)</h3>
+        <p class="muted">Nututún es #9 de ~152 hospedajes, pero sus competidores de segmento acumulan el doble o triple de opiniones — más visibilidad, más prueba social, más reservas.</p>
+        <div style="margin-top:18px">
+          <div class="bar-row"><div class="bar-label">Chan-Kah Resort Village</div><div class="bar-track"><div class="bar-fill hl" style="width:100%">1,436</div></div></div>
+          <div class="bar-row"><div class="bar-label">Maya Tulipanes</div><div class="bar-track"><div class="bar-fill hl" style="width:80%">1,148</div></div></div>
+          <div class="bar-row"><div class="bar-label">La Aldea del Halach Huinic</div><div class="bar-track"><div class="bar-fill hl" style="width:76%">1,086</div></div></div>
+          <div class="bar-row"><div class="bar-label">Cabañas Kin Balam</div><div class="bar-track"><div class="bar-fill dim" style="width:60%">868</div></div></div>
+          <div class="bar-row"><div class="bar-label">Villa Mercedes</div><div class="bar-track"><div class="bar-fill hl" style="width:54%">778</div></div></div>
+          <div class="bar-row"><div class="bar-label"><b>Hotel Nututún</b></div><div class="bar-track"><div class="bar-fill nut" style="width:35%">497</div></div></div>
+          <div class="bar-row"><div class="bar-label">Casa Janaab</div><div class="bar-track"><div class="bar-fill dim" style="width:28%">407</div></div></div>
+        </div>
+        <p class="src">Fuente: reseñas públicas Tripadvisor, oct. 2026 (cifras aproximadas; se validarán en la minería formal).</p>
+      </div>
+
+      <div class="chart">
+        <h3>Nututún en Booking: subpuntuaciones</h3>
+        <p class="muted">El diagnóstico rápido ya muestra la primera grieta: el Wi-Fi arrastra la experiencia (6.5 vs. 8.7 general) y la relación calidad-precio es el segundo punto más débil.</p>
+        <div style="margin-top:18px">
+          <div class="bar-row"><div class="bar-label">Personal</div><div class="bar-track"><div class="bar-fill hl" style="width:88%">8.8</div></div></div>
+          <div class="bar-row"><div class="bar-label">Ubicación</div><div class="bar-track"><div class="bar-fill hl" style="width:88%">8.8</div></div></div>
+          <div class="bar-row"><div class="bar-label">Limpieza</div><div class="bar-track"><div class="bar-fill hl" style="width:87%">8.7</div></div></div>
+          <div class="bar-row"><div class="bar-label">Confort</div><div class="bar-track"><div class="bar-fill hl" style="width:87%">8.7</div></div></div>
+          <div class="bar-row"><div class="bar-label">Instalaciones</div><div class="bar-track"><div class="bar-fill hl" style="width:84%">8.4</div></div></div>
+          <div class="bar-row"><div class="bar-label">Calidad-precio</div><div class="bar-track"><div class="bar-fill hl" style="width:82%">8.2</div></div></div>
+          <div class="bar-row"><div class="bar-label">Wi-Fi</div><div class="bar-track"><div class="bar-fill warn" style="width:65%">6.5</div></div></div>
+        </div>
+        <p class="src">Fuente: Booking.com, ficha pública de Hotel Nututun Palenque (408 evaluaciones).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. COMPETENCIA ================= -->
+<section id="competencia">
+  <div class="wrap">
+    <div class="kicker">02 · El campo de juego</div>
+    <h2>Mapa competitivo preliminar</h2>
+    <p class="lead">Palenque compite en tres frentes: los resorts "selva" junto a la zona arqueológica, los hoteles de la Cañada y las opciones económicas con ratings sorprendentemente altos. Esta tabla es el punto de partida — el estudio la convertirá en un benchmarking verificado.</p>
+    <div style="overflow-x:auto;margin-top:28px">
+      <table>
+        <thead>
+          <tr><th>Competidor</th><th>Segmento</th><th>Ubicación</th><th>Fortaleza percibida</th><th>Amenaza p/ Nututún</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Chan-Kah Resort Village</b></td><td>Resort selva</td><td>Carretera a las ruinas</td><td>El hospedaje más cercano a la zona arqueológica; bungalós en selva</td><td><span class="tag alta">Alta</span></td></tr>
+          <tr><td><b>Cabañas Kin Balam</b></td><td>Eco / económico</td><td>Camino a ruinas</td><td>4.7★ con 868 reseñas: el mejor rating relativo del destino, a precio bajo</td><td><span class="tag alta">Alta</span></td></tr>
+          <tr><td><b>La Aldea del Halach Huinic</b></td><td>Medio</td><td>La Cañada</td><td>Zona hotelera peatonal, restaurantes a pie, gran volumen de reseñas</td><td><span class="tag alta">Alta</span></td></tr>
+          <tr><td><b>Hotel Maya Tulipanes</b></td><td>Medio</td><td>La Cañada</td><td>Clásico consolidado; canal de agencias y grupos</td><td><span class="tag media">Media</span></td></tr>
+          <tr><td><b>Villa Mercedes</b></td><td>Medio-alto</td><td>Cerca de ruinas</td><td>Marca regional conocida, jardines amplios</td><td><span class="tag media">Media</span></td></tr>
+          <tr><td><b>Ciudad Real Palenque</b></td><td>Medio</td><td>Ciudad / Pakal-Ná</td><td>Cadena nacional; viajeros de negocio y tours</td><td><span class="tag media">Media</span></td></tr>
+          <tr><td><b>Quinta Chanabnal</b></td><td>Boutique lujo</td><td>Carretera ruinas</td><td>Experiencia boutique premium, diseño maya; captura el ticket alto</td><td><span class="tag media">Media</span></td></tr>
+          <tr class="nut"><td><b>Hotel Nututún</b></td><td>Resort naturaleza</td><td>Km 3.5 carr. Ocosingo</td><td>Poza natural propia, reserva de selva, río — activo irrepetible</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">La debilidad histórica citada en guías (Fodor's): "lejos del pueblo pero tampoco más cerca de las ruinas" — una posición intermedia que hay que convertir en ventaja o compensar con transporte y paquetes.</p>
+  </div>
+</section>
+
+<!-- ================= 3. HIPÓTESIS ================= -->
+<section id="hipotesis">
+  <div class="wrap">
+    <div class="kicker">03 · Qué creemos que está pasando</div>
+    <h2>Hipótesis iniciales a validar</h2>
+    <p class="lead">Del desk research rápido emergen seis hipótesis. El estudio existe para confirmarlas, refutarlas o descubrir las que no vemos.</p>
+    <div style="margin-top:28px">
+      <div class="hyp"><b>H1 — Descubribilidad digital.</b> Menor volumen de reseñas → menor ranking en OTAs y Tripadvisor → Nututún ni siquiera entra en la lista corta de muchos viajeros.</div>
+      <div class="hyp"><b>H2 — Ubicación ambigua.</b> A 3.5 km del pueblo y a ~10 min del parque: ni "caminando a restaurantes" ni "a un paso de las ruinas". El viajero sin coche propio descarta.</div>
+      <div class="hyp"><b>H3 — Percepción de precio-valor.</b> Calidad-precio 8.2 y Wi-Fi 6.5: para el segmento que compara en OTAs, dos señales de alerta en la pantalla de decisión.</div>
+      <div class="hyp"><b>H4 — Canal de tours y agencias.</b> Kin Balam, Chan-Kah y La Aldea capturan el flujo de operadores y mochileros; Nututún depende más del huésped que ya lo conoce.</div>
+      <div class="hyp"><b>H5 — El diferenciador no se comunica.</b> Una poza natural privada es un activo casi único en México; si no domina las primeras 3 fotos del listado, se vende como "un hotel más con alberca".</div>
+      <div class="hyp"><b>H6 — Fricción en el funnel.</b> Posibles fugas en respuesta de WhatsApp, cotizaciones, paridad de tarifas directo vs. OTA y experiencia del motor de reservas.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. MÓDULOS ================= -->
+<section id="modulos">
+  <div class="wrap">
+    <div class="kicker">04 · Menú a la carta</div>
+    <h2>Módulos del estudio — seleccione lo que Nututún requiere</h2>
+    <p class="lead">Cada módulo es independiente y entregable por separado. En la reunión, marquen los que apliquen: la barra inferior va sumando la inversión estimada. Los rangos son de referencia y se cotizan fino al definir alcance.</p>
+    <p class="print-note">(Versión impresa: la barra de selección interactiva solo funciona en pantalla.)</p>
+
+    <div class="mods" style="margin-top:28px" id="mods"></div>
+
+    <p class="note">* Rangos de referencia en MXN + IVA, sujetos a alcance, temporadas y número de evaluaciones. Los viáticos y hospedaje de shoppers en Palenque se incluyen dentro de cada rango.</p>
+  </div>
+</section>
+
+<!-- ================= 5. ENCUESTAS / TECNOLOGÍA ================= -->
+<section id="metodologia">
+  <div class="wrap">
+    <div class="kicker">05 · Cómo se captura la información</div>
+    <h2>Encuestas móviles con captura en tiempo real</h2>
+    <p class="lead">Las encuestas de campo no se levantan en papel: se capturan en móvil, se sincronizan a la nube y Nututún las ve llegar en un tablero en vivo.</p>
+    <div class="grid3" style="margin-top:28px">
+      <div class="card"><h3>Captura en móvil</h3><p class="muted">Encuestadores con app propia conectada a Firebase. Funciona sin señal (offline-first) y sincroniza al recuperar cobertura — clave en selva y carretera.</p></div>
+      <div class="card"><h3>Evidencia verificable</h3><p class="muted">Cada entrevista queda validada con geolocalización, hora y foto opcional. Cero entrevistas "de escritorio": el tablero muestra el mapa de captura.</p></div>
+      <div class="card"><h3>Tablero en vivo</h3><p class="muted">Panel web tipo panel.unknownshopper.com: Nututún ve avance de campo, resultados parciales y alertas desde el primer día de levantamiento.</p></div>
+    </div>
+
+    <div class="grid2" style="margin-top:24px">
+      <div class="card">
+        <h3>Puntos de interceptación propuestos</h3>
+        <ul class="muted" style="padding-left:18px;margin-top:8px">
+          <li>Zona arqueológica de Palenque (salida)</li>
+          <li>Central ADO / transporte del destino</li>
+          <li>Restaurantes y zona La Cañada</li>
+          <li>Cascadas Misol-Ha y Agua Azul (tours)</li>
+          <li>Lobby del propio Nututún (check-out)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Muestra del cuestionario (versión intercept)</h3>
+        <ul class="muted questions" style="padding-left:18px;margin-top:8px">
+          <li>¿En qué hotel se hospedó / se hospedará en Palenque?</li>
+          <li>¿Qué otros hoteles consideró antes de decidir? <i>(¿Apareció Nututún?)</i></li>
+          <li>¿Cuál fue el factor decisivo? <i>(precio, ubicación, reseñas, fotos, recomendación, paquete…)</i></li>
+          <li>¿Conoce Hotel Nututún? Si sí: ¿por qué no lo eligió?</li>
+          <li>¿Qué tendría que ofrecer un hotel para que cambie en su próxima visita?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. FASES ================= -->
+<section id="fases">
+  <div class="wrap">
+    <div class="kicker">06 · Ruta de trabajo</div>
+    <h2>Fases y tiempos estimados</h2>
+    <div style="margin-top:28px;max-width:760px">
+      <div class="phase"><div class="dot">1</div><div class="body"><b>Diseño (semana 1–2).</b> Definición de módulos, guiones de mystery guest, cuestionarios, matriz de ponderación acordada con dirección. Arranque en 1–2 semanas tras firma.</div></div>
+      <div class="phase"><div class="dot">2</div><div class="body"><b>Campo (semana 3–6).</b> Estadías incógnito, interceptaciones, mystery calls y levantamiento de encuestas. Tablero en vivo desde el día uno.</div></div>
+      <div class="phase"><div class="dot">3</div><div class="body"><b>Análisis (semana 7–8).</b> Cruce de fuentes: mystery + encuestas + minería de reseñas + benchmarking. Doble control de calidad de reportes.</div></div>
+      <div class="phase"><div class="dot">4</div><div class="body"><b>Entrega (semana 9).</b> Informe ejecutivo, presentación a dirección y plan de acción priorizado por impacto/esfuerzo. Datos crudos incluidos.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. PAQUETES ================= -->
+<section id="paquetes">
+  <div class="wrap">
+    <div class="kicker">07 · Si prefieren una ruta ya armada</div>
+    <h2>Paquetes sugeridos</h2>
+    <p class="lead">Tres combinaciones de módulos pensadas para distintos presupuestos. Totalmente ajustables — el menú de la sección 04 manda.</p>
+    <div class="grid3" style="margin-top:28px">
+      <div class="pkg">
+        <div class="pname">Paquete A</div>
+        <h3>Espejo</h3>
+        <p class="muted">Saber dónde estamos parados frente a la competencia.</p>
+        <ul>
+          <li>M1 · Benchmarking digital</li>
+          <li>M2 · Minería de reseñas</li>
+          <li>M8 · Test del funnel de reserva</li>
+          <li>M10 · Informe ejecutivo</li>
+        </ul>
+        <div class="prange">$60–110 mil<small>MXN + IVA · ~4 semanas</small></div>
+      </div>
+      <div class="pkg rec">
+        <div class="pname">Paquete B · Recomendado</div>
+        <h3>La decisión del huésped</h3>
+        <p class="muted">Por qué eligen otros + cómo se vive Nututún por dentro.</p>
+        <ul>
+          <li>Todo lo del Paquete A</li>
+          <li>M3 · Mystery guest en Nututún (2 estadías)</li>
+          <li>M5 · Encuestas a huéspedes propios</li>
+          <li>M6 · Intercept en destino (n=200)</li>
+        </ul>
+        <div class="prange">$140–230 mil<small>MXN + IVA · ~8 semanas</small></div>
+      </div>
+      <div class="pkg">
+        <div class="pname">Paquete C</div>
+        <h3>Integral</h3>
+        <p class="muted">Radiografía completa: nosotros, la competencia y el mercado.</p>
+        <ul>
+          <li>Todo lo del Paquete B</li>
+          <li>M4 · Mystery guest en 2 competidores</li>
+          <li>M7 · Encuesta online a mercado potencial</li>
+          <li>M9 · Entrevistas a profundidad</li>
+        </ul>
+        <div class="prange">$220–360 mil<small>MXN + IVA · ~10 semanas</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. POR QUÉ TUS ================= -->
+<section id="nosotros">
+  <div class="wrap">
+    <div class="kicker">08 · Quién propone</div>
+    <h2>Por qué The Unknown Shopper</h2>
+    <div class="grid3" style="margin-top:28px">
+      <div class="card"><h3>Estamos aquí</h3><p class="muted">Con base en el sureste de México (Villahermosa y cobertura regional), Palenque es territorio propio: campo más rápido y más barato que una consultora del centro.</p></div>
+      <div class="card"><h3>Sistema, no reportes</h3><p class="muted">Plataforma con credenciales por rol, evidencia verificable, alertas en tiempo real e históricos. Lo mismo que ya opera para retail, salud y automotriz.</p></div>
+      <div class="card"><h3>Confidencialidad por principio</h3><p class="muted">Nunca publicamos clientes, logos ni casos. La operación y los resultados de Nututún permanecen confidenciales, siempre.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 9. SIGUIENTES PASOS ================= -->
+<section id="pasos" style="border-bottom:none">
+  <div class="wrap">
+    <div class="kicker">09 · Siguientes pasos</div>
+    <h2>De esta propuesta al arranque</h2>
+    <div class="grid2" style="margin-top:28px">
+      <div class="card">
+        <h3>En la reunión</h3>
+        <ul class="muted" style="padding-left:18px;margin-top:8px">
+          <li>Seleccionar módulos (o un paquete sugerido)</li>
+          <li>Definir fechas objetivo y restricciones de campo</li>
+          <li>Acordar quién de Nututún será contraparte</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Después de la reunión</h3>
+        <ul class="muted" style="padding-left:18px;margin-top:8px">
+          <li>Cotización fina por módulos en 3 días hábiles</li>
+          <li>Carta de confidencialidad + orden de servicio</li>
+          <li>Kick-off y diseño de guiones: arranque en 1–2 semanas</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:32px"><b>Contacto:</b> The Unknown Shopper · <a href="https://unknownshoppers.com">unknownshoppers.com</a> · <a href="https://wa.me/529932171855">WhatsApp +52 993 217 1855</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="tusxx.png" alt="The Unknown Shopper"><br>
+    <b>The Unknown Shopper</b> · Auditoría de experiencia del cliente mediante shoppers.<br>
+    Datos reales, decisiones mejores. © 2026 · Documento confidencial preparado para Hotel Nututún Palenque.
+  </div>
+</footer>
+
+<!-- ================= BARRA DE SELECCIÓN ================= -->
+<div class="stickybar">
+  <div class="n"><b id="selCount">0</b> módulos seleccionados <span class="hint">— clic en las tarjetas de la sección 04 para armar el paquete en la reunión</span></div>
+  <div class="total">
+    <div class="amt" id="selTotal">$0 – $0 MXN</div>
+    <small>inversión estimada + IVA (rangos de referencia)</small>
+  </div>
+</div>
+
+<script>
+const MODULES = [
+  {id:"M1", name:"Benchmarking digital y desk research", min:25, max:45, weeks:"2–3 sem",
+   desc:"Radiografía de presencia digital: fichas en OTAs, Tripadvisor, Google, sitio web, fotos, SEO local y share of voice vs. el set competitivo.",
+   q:"¿Nututún aparece cuando el viajero busca? ¿Con qué cara?"},
+  {id:"M2", name:"Minería de reseñas y análisis de sentimiento", min:20, max:40, weeks:"2–3 sem",
+   desc:"Extracción y clasificación de miles de reseñas propias y de competidores: temas, quejas recurrentes, atributos que disparan 5★ vs. 1★.",
+   q:"¿Qué celebran y qué perdonan los huéspedes de cada hotel?"},
+  {id:"M3", name:"Mystery guest en Nututún", min:20, max:35, weeks:"1 sem c/estadía",
+   desc:"Estadías incógnito completas (check-in a check-out) con checklist de 200+ puntos: reserva, recepción, habitación, restaurante, poza, Wi-Fi, posventa.",
+   q:"¿La experiencia real está a la altura del producto?"},
+  {id:"M4", name:"Mystery guest en competidores", min:25, max:45, weeks:"1–2 sem",
+   desc:"El mismo guion aplicado en 2–3 hoteles competidores: comparación punto por punto de servicio, instalaciones y valor percibido.",
+   q:"¿Qué hacen mejor los que ganan la reserva?"},
+  {id:"M5", name:"Encuestas a huéspedes de Nututún", min:15, max:30, weeks:"3–4 sem",
+   desc:"Encuesta en check-out con móviles + QR post-estadía: satisfacción, NPS, motivo de viaje, qué casi los hace no volver.",
+   q:"¿Qué piensan los que sí llegaron?"},
+  {id:"M6", name:"Intercept a huéspedes de otros hoteles", min:35, max:60, weeks:"3–4 sem",
+   desc:"Encuestas en puntos clave del destino (ruinas, ADO, La Cañada, cascadas) a quienes se hospedaron en la competencia. n≈200.",
+   q:"¿Por qué eligieron otro hotel y no Nututún?"},
+  {id:"M7", name:"Encuesta online a mercado potencial", min:30, max:55, weeks:"2–3 sem",
+   desc:"Panel online a viajeros del mercado origen (CDMX, sureste, internacional): awareness, imagen de marca y drivers de elección en Palenque.",
+   q:"¿Nututún existe en la mente del viajero que aún no viene?"},
+  {id:"M8", name:"Test del funnel de reserva", min:15, max:25, weeks:"1–2 sem",
+   desc:"Mystery calls y contactos reales por teléfono, WhatsApp, correo y motor web: tiempos de respuesta, calidad de cotización, paridad vs. OTAs.",
+   q:"¿Se están perdiendo reservas ya ganadas en el último clic?"},
+  {id:"M9", name:"Entrevistas a profundidad", min:25, max:45, weeks:"2–3 sem",
+   desc:"10–15 entrevistas cualitativas: ex-huéspedes, agentes de viajes, operadores de tours y staff. El 'por qué' detrás de los números.",
+   q:"¿Qué dicen los intermediarios cuando nadie escucha?"},
+  {id:"M10", name:"Tablero en vivo + informe ejecutivo", min:15, max:25, weeks:"continuo",
+   desc:"Panel con resultados en tiempo real durante el campo + informe final con plan de acción priorizado por impacto y esfuerzo.",
+   q:"¿Cómo se convierte todo esto en decisiones el lunes?"}
+];
+
+const fmt = n => "$" + n + "k";
+const modsEl = document.getElementById("mods");
+const sel = new Set();
+
+MODULES.forEach(m => {
+  const el = document.createElement("div");
+  el.className = "mod";
+  el.innerHTML = `
+    <div class="check">✓</div>
+    <div class="num">Módulo ${m.id} · ${m.weeks}</div>
+    <h3>${m.name}</h3>
+    <p>${m.desc}</p>
+    <div class="q">${m.q}</div>
+    <div class="foot"><span>Entregable independiente</span><span class="price">${fmt(m.min)}–${fmt(m.max)} MXN</span></div>`;
+  el.addEventListener("click", () => {
+    sel.has(m.id) ? sel.delete(m.id) : sel.add(m.id);
+    el.classList.toggle("sel");
+    updateBar();
+  });
+  modsEl.appendChild(el);
+});
+
+function updateBar(){
+  let lo = 0, hi = 0;
+  MODULES.forEach(m => { if (sel.has(m.id)) { lo += m.min; hi += m.max; } });
+  document.getElementById("selCount").textContent = sel.size;
+  document.getElementById("selTotal").textContent =
+    sel.size === 0 ? "$0 – $0 MXN" : `${fmt(lo)} – ${fmt(hi)} MXN`;
+}
+</script>
+</body>
+</html>
