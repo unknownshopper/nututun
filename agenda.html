@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de ataque — Estudio Nututún · The Unknown Shopper</title>
+<meta name="description" content="Plan de ejecución módulo por módulo del estudio de competitividad para Hotel Nututún Palenque.">
+<meta name="author" content="The Unknown Shopper">
+<meta name="theme-color" content="#f6f4ee">
+<link rel="icon" type="image/png" href="nut.png">
+<style>
+  :root{
+    --bg:#f6f4ee;--paper:#fff;--ink:#23282d;--deep:#1b2733;--line:#e6e1d4;
+    --red:#c0392b;--red-dark:#96271c;--red-soft:#fdf0ee;
+    --navy:#26355c;--navy-soft:#eef1f7;--stone:#7d766a;--radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--deep)}
+  h2{font-size:1.9rem;margin-bottom:.4em}
+  h3{font-size:1.25rem}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  .lead{font-size:1.08rem;color:#3d453d;max-width:760px}
+  a{color:var(--red-dark)}
+
+  .cover{
+    background:radial-gradient(900px 420px at 85% 0%,rgba(192,57,43,.05),transparent 60%),
+      linear-gradient(180deg,#fdfcf8 0%,#f6f4ee 100%);
+    padding:64px 0 60px;border-bottom:1px solid var(--line);border-top:4px solid var(--red);
+  }
+  .cover .brandrow{display:flex;align-items:center;gap:26px;margin-bottom:52px;flex-wrap:wrap}
+  .brandrow img{object-fit:contain}
+  .brandrow .tus{height:56px}
+  .brandrow .x{color:var(--red);font-size:1.4rem;font-weight:300}
+  .brandrow .nut{height:84px}
+  .cover h1{color:var(--deep);font-size:2.9rem;max-width:820px}
+  .cover h1 em{color:var(--red);font-style:normal}
+  .cover .sub{color:#55584f;font-size:1.1rem;max-width:640px;margin-top:18px}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:48px;font-size:.85rem;color:var(--stone)}
+  .cover .meta b{display:block;color:var(--deep);font-size:.95rem;font-weight:600}
+  .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);padding:6px 14px;border-radius:999px;font-size:.75rem;
+    text-transform:uppercase;letter-spacing:.14em;margin-bottom:22px;font-weight:700}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;box-shadow:0 1px 3px rgba(27,39,51,.04)}
+  .card h3{margin-bottom:8px}
+  .muted{color:var(--stone);font-size:.9rem}
+
+  /* ===== Timeline ===== */
+  .gantt{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;overflow-x:auto}
+  .gantt table{border-collapse:collapse;min-width:680px;width:100%;font-size:.82rem}
+  .gantt td,.gantt th{padding:8px 6px;text-align:center}
+  .gantt th{color:var(--stone);font-weight:600;font-size:.72rem}
+  .gantt td.lbl{text-align:left;font-weight:600;color:var(--deep);white-space:nowrap;padding-right:14px}
+  .gantt .cell{border-radius:4px;height:14px}
+  .gantt .on{background:var(--red)}
+  .gantt .on.navy{background:var(--navy)}
+  .gantt .off{background:#f0ede2}
+
+  /* ===== Módulos ===== */
+  .modplan{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;box-shadow:0 1px 3px rgba(27,39,51,.04);margin-top:24px}
+  .modplan .mhead{background:var(--deep);color:#f2efe7;padding:18px 26px;
+    display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .modplan .mhead .mid{color:#c0392b;background:#fff;border-radius:8px;
+    font-weight:800;font-size:.8rem;padding:4px 12px;letter-spacing:.08em}
+  .modplan .mhead h3{color:#fff;font-size:1.3rem;flex:1;min-width:220px}
+  .modplan .mhead .dur{font-size:.8rem;color:#b9c4cf}
+  .modplan .mbody{display:grid;grid-template-columns:2fr 1fr;gap:0}
+  @media(max-width:820px){.modplan .mbody{grid-template-columns:1fr}}
+  .modplan .acts{padding:22px 26px}
+  .modplan .acts h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--red);margin-bottom:12px}
+  .modplan .acts ol{padding-left:20px;font-size:.9rem;color:#4a534a}
+  .modplan .acts li{margin-bottom:8px}
+  .modplan .acts li b{color:var(--deep)}
+  .modplan .side{background:var(--navy-soft);padding:22px 26px;border-left:1px solid var(--line)}
+  .modplan .side h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--navy);margin-bottom:12px}
+  .modplan .side .kv{margin-bottom:16px}
+  .modplan .side .kv .k{font-size:.72rem;color:var(--stone);text-transform:uppercase;letter-spacing:.08em}
+  .modplan .side .kv .v{font-size:.9rem;color:var(--deep);font-weight:600}
+  .modplan .win{margin-top:6px;font-size:.82rem;color:#3d453d;font-style:italic;
+    border-top:1px dashed #ccd4e4;padding-top:12px}
+
+  .note{font-size:.8rem;color:var(--stone);margin-top:18px;font-style:italic}
+  .footer{padding:48px 0 32px;text-align:center;color:var(--stone);font-size:.85rem}
+  .footer b{color:var(--deep)}
+  .footer img{height:34px;object-fit:contain;margin-bottom:10px;opacity:.9}
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;border-radius:12px;padding:14px 22px;font-weight:700;font-size:.9rem;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35);font-family:inherit}
+  .fab:hover{background:var(--red-dark)}
+  @media print{
+    .fab{display:none}
+    .modplan,.card{page-break-inside:avoid}
+    section{padding:32px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<header class="cover">
+  <div class="wrap">
+    <div class="brandrow">
+      <img class="tus" src="tusxx.png" alt="The Unknown Shopper">
+      <span class="x">×</span>
+      <img class="nut" src="nut.png" alt="Nututun Palenque Hotel">
+    </div>
+    <span class="badge-doc">Plan de ataque · Documento de trabajo</span>
+    <h1>Ejecución del estudio, <em>módulo por módulo</em></h1>
+    <p class="sub">Cómo se opera cada módulo contratado: tácticas, calendario, equipo y entregables.
+       Documento vivo — se ajusta al alcance final seleccionado.</p>
+    <div class="meta">
+      <div><b>Cliente</b>Hotel Nututún Palenque</div>
+      <div><b>Ejecuta</b>The Unknown Shopper</div>
+      <div><b>Versión</b>Octubre 2026 · v1</div>
+      <div><b>Estatus</b>Interno</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= VISTA GENERAL ================= -->
+<section id="general">
+  <div class="wrap">
+    <div class="kicker">01 · Vista general</div>
+    <h2>Calendario de ejecución (escenario completo)</h2>
+    <p class="lead">Si se contratan los cuatro módulos, el campo corre en paralelo para entregar todo en ~9 semanas. Con menos módulos, el calendario se compacta.</p>
+    <div class="gantt" style="margin-top:28px">
+      <table>
+        <thead>
+          <tr><td class="lbl"></td><th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th><th>S6</th><th>S7</th><th>S8</th><th>S9</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="lbl">Kick-off y diseño de guiones</td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">M1 · Radiografía competitiva</td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">M2 · Encuestas de campo</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">M3 · Auditoría experiencia + funnel</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">M4 · Benchmark en competidores</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">Análisis cruzado</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">Informe final + presentación</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on navy"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">El tablero en vivo se alimenta desde la primera actividad de campo — el cliente no espera a la semana 9 para ver resultados.</p>
+  </div>
+</section>
+
+<!-- ================= M1 ================= -->
+<section id="m1">
+  <div class="wrap">
+    <div class="kicker">02 · Módulo M1</div>
+    <h2>Radiografía competitiva y reputación digital · $15,000</h2>
+    <div class="modplan">
+      <div class="mhead"><span class="mid">M1</span><h3>Qué dice el mercado y quién lo recomienda</h3><span class="dur">2–3 semanas</span></div>
+      <div class="mbody">
+        <div class="acts">
+          <h4>Plan de ataque</h4>
+          <ol>
+            <li><b>Minería de reseñas.</b> Extraer las reseñas de Nututún y de los 7 competidores del set (Tripadvisor, Booking, Google). Clasificar por tema: habitación, comida, ubicación, personal, precio, ruido, Wi-Fi. Salida: ranking de drivers de 5★ vs. 1★ por hotel.</li>
+            <li><b>Audit de fichas.</b> Captura comparativa de OTAs: posición en ranking del destino, primeras 5 fotos, texto de descripción, respuestas del hotel a reseñas negativas.</li>
+            <li><b>Mystery calls a agencias de viaje.</b> Shopper simula ser un viajero que busca "un hotel de selva con alberca, cerca de las ruinas" (descripción de Nututún sin nombrarlo). Se registra: ¿qué hotel recomiendan?, ¿Nututún aparece?, ¿qué argumentan? <b>Todo con audio grabado.</b> n≈8–10 agencias (locales y de mercados origen).</li>
+            <li><b>Auditoría de Google Ads.</b> Diagnóstico de por qué la inversión no aparece: keywords pujadas vs. búsquedas reales del destino, segmentación geográfica, presupuesto, quality score, extensiones y términos de búsqueda que activan el anuncio. Requiere acceso de lectura a la cuenta (o análisis externo de SERP si no lo otorgan).</li>
+          </ol>
+        </div>
+        <div class="side">
+          <h4>Ficha del módulo</h4>
+          <div class="kv"><div class="k">Ejecuta</div><div class="v">Analista senior + 1 shopper de voz</div></div>
+          <div class="kv"><div class="k">Entregable</div><div class="v">Informe de posición + matriz de temas + audios de agencias + diagnóstico Ads con correcciones concretas</div></div>
+          <div class="kv"><div class="k">Requiere</div><div class="v">Acceso de lectura a Google Ads (ideal) o autorización para análisis externo</div></div>
+          <div class="win">Señal de éxito: el audio de una agencia recomendando a la competencia — o el anuncio mal configurado — paga el módulo solo con el momento "ajá" de la reunión.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= M2 ================= -->
+<section id="m2">
+  <div class="wrap">
+    <div class="kicker">03 · Módulo M2</div>
+    <h2>La decisión del huésped — encuestas de campo · $28,000</h2>
+    <div class="modplan">
+      <div class="mhead"><span class="mid">M2</span><h3>Por qué eligieron otro hotel</h3><span class="dur">3–4 semanas</span></div>
+      <div class="mbody">
+        <div class="acts">
+          <h4>Plan de ataque</h4>
+          <ol>
+            <li><b>Piloto.</b> Cuestionario en <i>encuesta.html</i> validado con 10 entrevistas de prueba; ajuste de redacción y tiempos antes del despliegue.</li>
+            <li><b>Intercepts en destino.</b> Encuestadores con captura móvil en: salida de la zona arqueológica, central ADO, La Cañada y tours a cascadas. Rotación de horarios para cubrir perfiles distintos.</li>
+            <li><b>Day pass en competidores.</b> Compra de acceso legítimo a 2–3 hoteles del set: encuestas a huéspedes en alberca, restaurante y áreas comunes, mientras viven la experiencia. Entrevistas cortas, naturales, rotando días.</li>
+            <li><b>Huéspedes propios.</b> QR post-estadía en recepción + encuesta a la salida en lobby de Nututún (mismo instrumento, cohorte separada).</li>
+            <li><b>Verificación.</b> Cada entrevista con timestamp + geolocalización; el mapa de captura es visible en el tablero en vivo. Meta: n≈200 intercepts + n propios.</li>
+          </ol>
+        </div>
+        <div class="side">
+          <h4>Ficha del módulo</h4>
+          <div class="kv"><div class="k">Ejecuta</div><div class="v">2–3 encuestadores + coordinador de campo</div></div>
+          <div class="kv"><div class="k">Entregable</div><div class="v">Base de datos completa + tablero en vivo + análisis: consideración de Nututún, factor decisivo, razones de rechazo</div></div>
+          <div class="kv"><div class="k">Métrica clave</div><div class="v">% de viajeros que incluyeron a Nututún en su lista corta (<code>consideroNututun</code>)</div></div>
+          <div class="win">Señal de éxito: poder decir con número exacto en qué momento de la decisión se pierde al huésped — ¿nunca oyeron hablar del hotel, o lo conocían y eligieron otro?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= M3 ================= -->
+<section id="m3">
+  <div class="wrap">
+    <div class="kicker">04 · Módulo M3</div>
+    <h2>Auditoría de experiencia y funnel de reserva · $20,000</h2>
+    <div class="modplan">
+      <div class="mhead"><span class="mid">M3</span><h3>Cómo se vive y cómo se vende Nututún</h3><span class="dur">2–3 semanas</span></div>
+      <div class="mbody">
+        <div class="acts">
+          <h4>Plan de ataque</h4>
+          <ol>
+            <li><b>Estadías incógnito.</b> 2 estadías completas con perfiles distintos (pareja y familia): reserva real, check-in, habitación, restaurante, poza, Wi-Fi, ruido, check-out y posventa. Checklist ponderado de 200+ puntos con fotos y audio.</li>
+            <li><b>Test del funnel.</b> Contactos de prueba por cada canal: llamada telefónica, WhatsApp, correo y motor de reservas web. Se mide tiempo de respuesta, calidad de la cotización, intento de cierre y seguimiento.</li>
+            <li><b>Paridad de tarifas.</b> Comparación de precio y condiciones del canal directo vs. OTAs para las mismas fechas — ¿dónde sale más barato reservar y qué mensaje manda eso?</li>
+            <li><b>Wi-Fi y señal.</b> Medición real de velocidad en habitaciones, lobby, restaurante y poza — el punto más débil conocido, medido con número.</li>
+          </ol>
+        </div>
+        <div class="side">
+          <h4>Ficha del módulo</h4>
+          <div class="kv"><div class="k">Ejecuta</div><div class="v">2 mystery guests (perfiles distintos) + shopper remoto para el funnel</div></div>
+          <div class="kv"><div class="k">Entregable</div><div class="v">Reporte por área con score ponderado + evidencias (fotos/audio) + bitácora del funnel con tiempos</div></div>
+          <div class="kv"><div class="k">Requiere</div><div class="v">Nada del cliente — las estadías se reservan como cliente normal</div></div>
+          <div class="win">Señal de éxito: un mapa honesto de dónde se cae la experiencia vs. lo que el producto físico promete.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= M4 ================= -->
+<section id="m4">
+  <div class="wrap">
+    <div class="kicker">05 · Módulo M4</div>
+    <h2>Benchmark incógnito en la competencia · $24,000</h2>
+    <div class="modplan">
+      <div class="mhead"><span class="mid">M4</span><h3>Qué hacen mejor los que ganan la reserva</h3><span class="dur">2–3 semanas</span></div>
+      <div class="mbody">
+        <div class="acts">
+          <h4>Plan de ataque</h4>
+          <ol>
+            <li><b>Estadías en competidores.</b> El mismo guion del M3 aplicado en 2–3 hoteles del set (sugeridos: Chan-Kah por sustituto directo, La Aldea por volumen, Kin Balam por rating-precio). Comparación punto por punto.</li>
+            <li><b>Entrevistas a intermediarios.</b> 10–15 conversaciones con agentes de viaje, operadores de tours y choferes/guias locales: qué venden, qué les pagan, qué piden los clientes.</li>
+            <li><b>Matriz comparativa.</b> Score por criterio con la misma matriz de ponderación aplicada a Nututún: dónde gana, dónde empata, dónde pierde.</li>
+            <li><b>Robable.</b> Lista de prácticas observadas en la competencia que Nututún puede copiar en 30 días sin inversión mayor.</li>
+          </ol>
+        </div>
+        <div class="side">
+          <h4>Ficha del módulo</h4>
+          <div class="kv"><div class="k">Ejecuta</div><div class="v">Mystery guests + analista para entrevistas</div></div>
+          <div class="kv"><div class="k">Entregable</div><div class="v">Informe comparativo + matriz de brechas + lista de prácticas copiables</div></div>
+          <div class="kv"><div class="k">Decisión clave</div><div class="v">Selección final de competidores a auditar (con dirección de Nututún)</div></div>
+          <div class="win">Señal de éxito: terminar la frase "ellos hacen X que nosotros no" con evidencia, no con sospecha.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NECESITAMOS ================= -->
+<section id="requerimientos">
+  <div class="wrap">
+    <div class="kicker">06 · Lo que pedimos al cliente</div>
+    <h2>Poco, pero necesario</h2>
+    <div class="grid3" style="margin-top:28px">
+      <div class="card"><h3>Acceso Google Ads</h3><p class="muted">Permiso de lectura a la cuenta publicitaria (o reportes exportados) para la auditoría del M1. Sin acceso, hacemos análisis externo de SERP — útil pero menos profundo.</p></div>
+      <div class="card"><h3>Aprobación de guiones</h3><p class="muted">Revisión del cuestionario de campo y del checklist de mystery guest en la semana 1 — 30 minutos con quien decida.</p></div>
+      <div class="card"><h3>Contraparte única</h3><p class="muted">Una persona con quien validar hallazgos semanales y que reciba las alertas del tablero en vivo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGLAS ================= -->
+<section id="reglas" style="border-bottom:none">
+  <div class="wrap">
+    <div class="kicker">07 · Reglas de operación</div>
+    <h2>Cómo se juega limpio</h2>
+    <div class="grid2" style="margin-top:28px">
+      <div class="card">
+        <h3>Evidencia o no pasó</h3>
+        <p class="muted">Todo hallazgo va con su prueba: audio, foto, geolocalización o captura de pantalla. Las entrevistas de campo se marcan en el mapa del tablero — cero encuestas de escritorio.</p>
+      </div>
+      <div class="card">
+        <h3>Incógnito real</h3>
+        <p class="muted">Las estadías y compras se hacen como cliente normal — incluidos los day passes en competidores. Si un hotel pide retirarse del levantamiento, se retira: los demás puntos de captura cubren la muestra.</p>
+      </div>
+      <div class="card">
+        <h3>Doble control de calidad</h3>
+        <p class="muted">Un segundo analista revisa cada reporte antes de entregarlo. Los criterios son binarios o escalares, nunca "a criterio del shopper".</p>
+      </div>
+      <div class="card">
+        <h3>Confidencialidad</h3>
+        <p class="muted">Sin nombres en público, sin casos publicados. Los datos crudos y el tablero son del cliente al finalizar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="tusxx.png" alt="The Unknown Shopper"><br>
+    <b>The Unknown Shopper</b> · Plan de ataque · Hotel Nututún Palenque<br>
+    Documento interno de trabajo © 2026 · Confidencial.
+  </div>
+</footer>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+</body>
+</html>
