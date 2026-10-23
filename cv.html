@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alberto García — Publicista · Mystery Shopping · Software</title>
+<meta name="description" content="CV de Alberto García: fundador de The Unknown Shopper y Olmeca Code. Investigación de campo, recolección de datos y desarrollo de software a la medida.">
+<meta name="author" content="Alberto García">
+<meta name="theme-color" content="#f6f4ee">
+<link rel="icon" type="image/png" href="nut.png">
+<style>
+  :root{
+    --bg:#f6f4ee;--paper:#fff;--ink:#23282d;--deep:#1b2733;--line:#e6e1d4;
+    --red:#c0392b;--red-dark:#96271c;--red-soft:#fdf0ee;
+    --navy:#26355c;--navy-soft:#eef1f7;--stone:#7d766a;--radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;max-width:900px;margin:0 auto;padding-bottom:60px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;color:var(--deep);line-height:1.2}
+  a{color:var(--red-dark)}
+
+  .cv{background:var(--paper);box-shadow:0 2px 20px rgba(27,39,51,.08)}
+
+  /* ===== Encabezado ===== */
+  .head{
+    padding:52px 56px 36px;border-bottom:1px solid var(--line);border-top:5px solid var(--red);
+    display:flex;align-items:flex-start;gap:28px;flex-wrap:wrap;
+  }
+  .head .id{flex:1;min-width:280px}
+  .head h1{font-size:2.4rem}
+  .head .role{color:var(--red);font-weight:700;font-size:.95rem;margin-top:6px;letter-spacing:.04em}
+  .head .loc{color:var(--stone);font-size:.85rem;margin-top:4px}
+  .head img{height:52px;object-fit:contain;opacity:.95}
+  .head .contact{margin-top:14px;font-size:.85rem;color:#4a534a;display:flex;flex-wrap:wrap;gap:6px 20px}
+  .head .contact span b{color:var(--deep);font-weight:600}
+
+  .body{padding:40px 56px 48px}
+  section{margin-bottom:36px}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:26px;height:2px;background:var(--red)}
+  .lead{font-size:1rem;color:#3d453d}
+
+  /* ===== Timeline ===== */
+  .exp{position:relative;padding-left:28px;margin-bottom:22px}
+  .exp::before{content:"";position:absolute;left:7px;top:8px;bottom:-14px;width:2px;background:var(--line)}
+  .exp:last-child::before{display:none}
+  .exp .dot{position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;
+    background:var(--paper);border:3px solid var(--red)}
+  .exp .when{font-size:.75rem;font-weight:800;letter-spacing:.1em;color:var(--stone);text-transform:uppercase}
+  .exp h3{font-size:1.15rem;margin:2px 0}
+  .exp .org{font-size:.85rem;color:var(--red-dark);font-weight:600}
+  .exp p{font-size:.9rem;color:#4a534a;margin-top:6px}
+  .exp ul{margin-top:6px;padding-left:18px;font-size:.88rem;color:#4a534a}
+  .exp li{margin-bottom:4px}
+  .exp li b{color:var(--deep)}
+
+  /* ===== Clientes ===== */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:.82rem;
+    background:#fbfaf6;color:#4a534a}
+  .chip b{color:var(--deep)}
+  .clabel{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--stone);margin:16px 0 10px}
+  .clabel:first-of-type{margin-top:2px}
+  .spotlight{margin-top:20px;padding:16px 18px;border-left:3px solid var(--red);
+    background:var(--red-soft);border-radius:0 10px 10px 0;font-size:.9rem;color:#3d453d}
+  .spotlight b{color:var(--red-dark)}
+
+  /* ===== Skills ===== */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:720px){.skills{grid-template-columns:1fr}}
+  .skill{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fbfaf6}
+  .skill .t{font-size:.72rem;font-weight:800;letter-spacing:.1em;color:var(--red);text-transform:uppercase;margin-bottom:6px}
+  .skill p{font-size:.85rem;color:#4a534a}
+
+  .footer{padding:24px 56px;text-align:center;color:var(--stone);font-size:.78rem;border-top:1px solid var(--line)}
+
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;border-radius:12px;padding:14px 22px;font-weight:700;font-size:.9rem;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35);font-family:inherit}
+  .fab:hover{background:var(--red-dark)}
+  @media print{
+    body{background:#fff;padding-bottom:0}
+    .cv{box-shadow:none}
+    .fab{display:none}
+    .exp,.skill{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="cv">
+
+  <!-- ===== ENCABEZADO ===== -->
+  <div class="head">
+    <div class="id">
+      <h1>Alberto García</h1>
+      <div class="role">Publicista · Investigación de campo · Desarrollo de software</div>
+      <div class="loc">Sureste de México · Trabajo en todo el país</div>
+      <div class="contact">
+        <span><b>Web:</b> <a href="https://unknownshoppers.com">unknownshoppers.com</a></span>
+        <span><b>Software:</b> <a href="https://olmecacode.pages.dev">olmecacode.pages.dev</a></span>
+        <span><b>WhatsApp:</b> <a href="https://wa.me/529932171855">+52 993 217 1855</a></span>
+      </div>
+    </div>
+    <img src="tusxx.png" alt="The Unknown Shopper">
+  </div>
+
+  <div class="body">
+
+    <!-- ===== PERFIL ===== -->
+    <section>
+      <div class="kicker">Perfil</div>
+      <p class="lead">
+        Publicista convertido en constructor de sistemas de información. Fundé una de las primeras
+        agencias de mystery shopping del sureste mexicano, sobreviví la pandemia construyendo un
+        sistema de delivery a precio de mostrador, y desde entonces escribo el software que recolecta,
+        organiza y convierte datos en decisiones — para restaurantes, hoteles, oil &amp; gas y
+        agencias de inteligencia. Mi especialidad: <b>ir a donde pasa la información y traerla estructurada.</b>
+      </p>
+    </section>
+
+    <!-- ===== EXPERIENCIA ===== -->
+    <section>
+      <div class="kicker">Trayectoria</div>
+
+      <div class="exp">
+        <div class="dot"></div>
+        <div class="when">2011 — Actualidad</div>
+        <h3>Fundador &amp; Director</h3>
+        <div class="org">The Unknown Shopper · unknownshoppers.com</div>
+        <p>Agencia de mystery shopping y auditoría de experiencia del cliente. Shoppers incógnito
+        verificados (geolocalización, fotos, audio), plataforma con credenciales por rol,
+        benchmarking de competencia y encuestas de campo con captura móvil.</p>
+        <ul>
+          <li><b>Clientes:</b> Café La Cabaña, Farmacias Unión, Grupo Cruces, Banquetakos, Atakear, A Toda Salsa, Hotel La Venta, Café Jade, entre otros.</li>
+          <li><b>Sectores:</b> restaurantería, farmacias, retail, hotelería y servicios.</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="dot"></div>
+        <div class="when">2020 — Pandemia</div>
+        <h3>Sistema de delivery a precio de mostrador</h3>
+        <div class="org">Pivote de crisis → especialización en datos</div>
+        <p>Construí una plataforma tipo Uber Eats que permitió a negocios locales seguir vendiendo
+        sin comisiones de intermediarios. El sistema llamó la atención de una agencia de
+        inteligencia en CDMX y abrió mi segunda línea de trabajo: <b>escritura de código para
+        recolección masiva de datos y web scraping</b>, con el CNI como cliente principal.</p>
+      </div>
+
+      <div class="exp">
+        <div class="dot"></div>
+        <div class="when">Actualidad</div>
+        <h3>Fundador &amp; Desarrollador</h3>
+        <div class="org">Olmeca Code · olmecacode.pages.dev</div>
+        <p>Agencia de desarrollo de software a la medida. Sistemas operativos reales en producción,
+        desde el punto de venta hasta la facturación automática.</p>
+        <ul>
+          <li><b>Restaurantes:</b> POS a la medida (Pata Negra) y sistema de reservaciones tipo OpenTable (Café Jade).</li>
+          <li><b>Oil &amp; Gas (PCT):</b> inventarios vivos con inspecciones pre/post trabajo, pruebas no destructivas, administración y tabulación automática de facturación.</li>
+          <li><b>Investigación:</b> sistemas integrales para estudios de mercado — captura, tabulación y tableros en vivo (omobilituy).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CAPACIDADES ===== -->
+    <section>
+      <div class="kicker">Capacidades</div>
+      <div class="skills">
+        <div class="skill"><div class="t">Investigación de campo</div><p>Mystery shopping, encuestas con captura móvil offline-first, geolocalización y evidencia verificable.</p></div>
+        <div class="skill"><div class="t">Recolección de datos</div><p>Web scraping, sistemas de captura, pipelines de datos y tabulación automática.</p></div>
+        <div class="skill"><div class="t">Software a la medida</div><p>POS, reservaciones, inventarios vivos, facturación, tableros en tiempo real (Firebase, web).</p></div>
+        <div class="skill"><div class="t">Publicidad &amp; mercado</div><p>Publicista de formación: investigación de mercados, branding y comunicación estratégica.</p></div>
+        <div class="skill"><div class="t">Operación en crisis</div><p>Sistemas que salvaron negocios en pandemia — rápidos, baratos y que sí se usan.</p></div>
+        <div class="skill"><div class="t">Clientes exigentes</div><p>Experiencia sirviendo a agencias de inteligencia: precisión, confidencialidad y evidencia.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== CLIENTES ===== -->
+    <section>
+      <div class="kicker">Clientes y proyectos</div>
+
+      <div class="clabel">Mystery shopping · The Unknown Shopper</div>
+      <div class="chips">
+        <span class="chip"><b>Café La Cabaña</b></span>
+        <span class="chip"><b>Farmacias Unión</b></span>
+        <span class="chip"><b>Grupo Cruces</b></span>
+        <span class="chip"><b>Banquetakos</b></span>
+        <span class="chip"><b>Atakear</b></span>
+        <span class="chip"><b>A Toda Salsa</b></span>
+        <span class="chip"><b>Hotel La Venta</b></span>
+        <span class="chip"><b>Café Jade</b></span>
+      </div>
+
+      <div class="clabel">Software a la medida · Olmeca Code</div>
+      <div class="chips">
+        <span class="chip"><b>Pata Negra</b> · POS</span>
+        <span class="chip"><b>Café Jade</b> · Reservaciones</span>
+        <span class="chip"><b>PCT</b> · Oil &amp; Gas</span>
+        <span class="chip"><b>TSJT</b> · Scraping de noticias</span>
+        <span class="chip"><b>Kuchen</b> · Cocinas de diseño — web + cotizador</span>
+        <span class="chip"><b>Portofino</b> · Mármoles y granitos — web + cotizador</span>
+        <span class="chip"><b>CNI</b> · Plataforma de inteligencia</span>
+      </div>
+
+      <div class="spotlight">
+        <b>Último en llamar:</b> Hotel Nututún Palenque nos buscó para responder la pregunta que
+        ningún hotelero contesta solo — <i>¿por qué el viajero elige otra casa?</i>
+        Estudio en evaluación.
+      </div>
+    </section>
+
+    <!-- ===== FORMACIÓN ===== -->
+    <section>
+      <div class="kicker">Formación</div>
+      <div class="exp" style="padding-left:28px">
+        <div class="dot"></div>
+        <div class="when">CDMX</div>
+        <h3>Publicista</h3>
+        <div class="org">CECC — Centro de Estudios en Ciencias de la Comunicación</div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="footer">
+    Alberto García · The Unknown Shopper + Olmeca Code · Documento generado octubre 2026
+  </div>
+</div>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+</body>
+</html>
