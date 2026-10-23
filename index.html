@@ -127,6 +127,17 @@
   .footer{padding:48px 0 32px;text-align:center;color:var(--stone);font-size:.85rem}
   .footer b{color:var(--deep)}
   .footer img{height:34px;object-fit:contain;margin-bottom:10px;opacity:.9}
+  .fab{
+    position:fixed;right:24px;bottom:24px;z-index:50;
+    background:var(--red);color:#fff;border:none;border-radius:12px;
+    padding:14px 22px;font-weight:700;font-size:.9rem;cursor:pointer;
+    box-shadow:0 6px 20px rgba(192,57,43,.35);font-family:inherit;
+  }
+  .fab:hover{background:var(--red-dark)}
+  @media print{
+    .fab{display:none}
+    .card,.map .row,.step{page-break-inside:avoid}
+  }
 </style>
 </head>
 <body>
@@ -270,6 +281,8 @@
     <p style="margin-top:32px"><b>Contacto:</b> The Unknown Shopper · <a href="https://unknownshoppers.com">unknownshoppers.com</a> · <a href="https://wa.me/529932171855">WhatsApp +52 993 217 1855</a></p>
   </div>
 </section>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
 
 <footer class="footer">
   <div class="wrap">

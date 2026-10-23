@@ -188,10 +188,31 @@
   .footer b{color:var(--deep)}
   .footer img{height:34px;object-fit:contain;margin-bottom:10px;opacity:.9}
   .print-note{display:none}
+  .dlbtn{
+    background:var(--red);color:#fff;border:none;border-radius:10px;
+    padding:10px 18px;font-weight:700;font-size:.85rem;cursor:pointer;
+    letter-spacing:.02em;font-family:inherit;white-space:nowrap;
+  }
+  .dlbtn:hover:not(:disabled){background:var(--red-dark)}
+  .dlbtn:disabled{opacity:.45;cursor:not-allowed}
+  .printdoc{display:none}
   @media print{
-    .stickybar{display:none}
-    .print-note{display:block}
-    body{padding-bottom:0}
+    body{padding-bottom:0;background:#fff}
+    body>*:not(.printdoc){display:none !important}
+    .printdoc{display:block;max-width:760px;margin:0 auto;padding:32px 16px}
+    .printdoc img{height:44px;object-fit:contain}
+    .printdoc h1{font-size:1.6rem;margin:14px 0 4px;color:#1b2733}
+    .printdoc .pm{font-size:.85rem;color:#7d766a;margin-bottom:24px}
+    .printdoc .pmod{border-bottom:1px solid #e6e1d4;padding:14px 0;page-break-inside:avoid}
+    .printdoc .pmod .ph{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+    .printdoc .pmod h3{font-size:1.05rem;color:#1b2733}
+    .printdoc .pmod .pp{font-weight:800;color:#1b2733;white-space:nowrap}
+    .printdoc .pmod p{font-size:.85rem;color:#4a534a;margin-top:4px}
+    .printdoc .pmod .pw{font-size:.78rem;color:#7d766a;margin-top:4px}
+    .printdoc .ptotal{margin-top:22px;text-align:right}
+    .printdoc .ptotal .amt{font-size:1.5rem;font-weight:800;color:#c0392b}
+    .printdoc .ptotal .cnt{font-size:.8rem;color:#7d766a}
+    .printdoc .pfoot{margin-top:34px;font-size:.78rem;color:#7d766a;border-top:1px solid #e6e1d4;padding-top:14px}
   }
 </style>
 </head>
@@ -476,11 +497,16 @@
 <!-- ================= BARRA DE SELECCIÓN ================= -->
 <div class="stickybar">
   <div class="n"><b id="selCount">0</b> módulos seleccionados <span class="hint">— clic en las tarjetas de la sección 04 para armar el paquete en la reunión</span></div>
-  <div class="total">
-    <div class="amt" id="selTotal">$0 – $0 MXN</div>
-    <small>inversión estimada + IVA (precios de referencia)</small>
+  <div style="display:flex;align-items:center;gap:22px">
+    <div class="total">
+      <div class="amt" id="selTotal">$0 MXN</div>
+      <small>inversión estimada + IVA (precios de referencia)</small>
+    </div>
+    <button class="dlbtn" id="dlbtn" disabled>Descargar PDF</button>
   </div>
 </div>
+
+<div class="printdoc" id="printdoc"></div>
 
 <script>
 const MODULES = [
@@ -543,7 +569,33 @@ function updateBar(){
   MODULES.forEach(m => { if (sel.has(m.id)) total += m.price; });
   document.getElementById("selCount").textContent = sel.size;
   document.getElementById("selTotal").textContent = fmt(total) + " MXN";
+  document.getElementById("dlbtn").disabled = sel.size === 0;
 }
+
+document.getElementById("dlbtn").addEventListener("click", () => {
+  if (!sel.size) return;
+  const items = MODULES.filter(m => sel.has(m.id));
+  let total = 0;
+  items.forEach(m => total += m.price);
+  const fecha = new Date().toLocaleDateString("es-MX", {day:"numeric", month:"long", year:"numeric"});
+  document.getElementById("printdoc").innerHTML = `
+    <img src="tusxx.png" alt="The Unknown Shopper">
+    <h1>Selección de módulos de estudio</h1>
+    <div class="pm">Hotel Nututún Palenque · ${fecha} · Presenta: The Unknown Shopper</div>
+    ${items.map(m => `
+      <div class="pmod">
+        <div class="ph"><h3>${m.id} · ${m.name}</h3><span class="pp">${fmt(m.price)} MXN</span></div>
+        <p>${m.desc}</p>
+        <p class="pw">Duración estimada: ${m.weeks}</p>
+      </div>`).join("")}
+    <div class="ptotal">
+      <div class="amt">${fmt(total)} MXN <span style="font-size:.85rem;font-weight:400;color:#7d766a">+ IVA</span></div>
+      <div class="cnt">${items.length} módulo(s) seleccionado(s)</div>
+    </div>
+    <div class="pfoot">Precios de referencia, sujetos a alcance final. Vigencia: 90 días.<br>
+    The Unknown Shopper · unknownshoppers.com · WhatsApp +52 993 217 1855</div>`;
+  window.print();
+});
 </script>
 </body>
 </html>
