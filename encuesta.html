@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Encuesta de campo — Nututún · The Unknown Shopper</title>
+<meta name="description" content="Levantamiento de campo: por qué los viajeros eligen otros hoteles en Palenque.">
+<meta name="theme-color" content="#f6f4ee">
+<link rel="icon" type="image/png" href="nut.png">
+<style>
+  :root{
+    --bg:#f6f4ee;--paper:#fff;--ink:#23282d;--deep:#1b2733;--line:#e6e1d4;
+    --red:#c0392b;--red-dark:#96271c;--red-soft:#fdf0ee;--navy:#26355c;--stone:#7d766a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;
+  }
+  .wrap{max-width:480px;margin:0 auto;padding:0 16px 140px}
+  header{
+    background:var(--paper);border-bottom:1px solid var(--line);border-top:4px solid var(--red);
+    padding:18px 0;position:sticky;top:0;z-index:20;
+  }
+  header .wrap{padding-bottom:0;display:flex;align-items:center;gap:14px}
+  header img{height:34px;object-fit:contain}
+  header .t{font-size:.8rem;color:var(--stone);line-height:1.3}
+  header .t b{display:block;color:var(--deep);font-size:.95rem}
+  .sync{
+    margin-left:auto;font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:999px;
+    background:#eef1f7;color:var(--navy);white-space:nowrap;
+  }
+  .sync.pend{background:var(--red-soft);color:var(--red-dark)}
+
+  .q{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .q h2{font-family:Georgia,serif;font-size:1.05rem;color:var(--deep);margin-bottom:4px}
+  .q .hint{font-size:.78rem;color:var(--stone);margin-bottom:14px}
+  .q .num{font-size:.68rem;font-weight:800;letter-spacing:.14em;color:var(--red);text-transform:uppercase;margin-bottom:6px}
+
+  select,input[type=text],textarea{
+    width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;
+    font-size:1rem;font-family:inherit;background:#fff;color:var(--ink);
+  }
+  select:focus,input:focus,textarea:focus{outline:2px solid var(--red);outline-offset:-1px}
+  textarea{min-height:90px;resize:vertical}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    padding:9px 15px;border:1.5px solid var(--line);border-radius:999px;font-size:.88rem;
+    background:#fff;cursor:pointer;user-select:none;transition:all .12s;color:#4a534a;
+  }
+  .chip.on{background:var(--red);border-color:var(--red);color:#fff}
+  .seg{display:flex;gap:8px}
+  .seg .chip{flex:1;text-align:center;padding:13px;font-weight:700}
+
+  .hide{display:none}
+
+  .actions{
+    position:fixed;left:0;right:0;bottom:0;z-index:30;
+    background:rgba(255,255,255,.97);border-top:3px solid var(--red);padding:14px 16px;
+    box-shadow:0 -6px 24px rgba(27,39,51,.12);
+  }
+  .actions .wrap{padding-bottom:0;display:flex;gap:10px}
+  .btn{
+    flex:1;border:none;border-radius:12px;padding:15px;font-size:1rem;font-weight:700;
+    font-family:inherit;cursor:pointer;
+  }
+  .btn-pri{background:var(--red);color:#fff}
+  .btn-pri:hover{background:var(--red-dark)}
+  .btn-sec{flex:0 0 auto;background:#eef1f7;color:var(--navy)}
+
+  .toast{
+    position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;
+    background:var(--deep);color:#fff;padding:12px 20px;border-radius:12px;
+    font-size:.88rem;box-shadow:0 8px 24px rgba(0,0,0,.25);display:none;max-width:90%;
+  }
+  .toast.ok{background:var(--navy)}
+  .toast.err{background:var(--red)}
+
+  .counter{font-size:.78rem;color:var(--stone);text-align:center;margin-top:22px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="tusxx.png" alt="TUS">
+    <div class="t"><b>Encuesta de campo · Palenque</b>¿Por qué eligen otro hotel?</div>
+    <span class="sync" id="syncBadge">…</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- ===== Datos de captura ===== -->
+  <div class="q">
+    <div class="num">Captura</div>
+    <h2>Datos del levantamiento</h2>
+    <div class="hint">Se guardan automáticamente para las siguientes encuestas del día.</div>
+    <select id="f-punto">
+      <option value="">Punto de interceptación…</option>
+      <option>Zona arqueológica (salida)</option>
+      <option>Central ADO / transporte</option>
+      <option>La Cañada / restaurantes</option>
+      <option>Misol-Ha / Agua Azul (tour)</option>
+      <option>Day pass — hotel competidor</option>
+      <option>Lobby Nututún (check-out)</option>
+      <option>Otro</option>
+    </select>
+    <div id="w-puntoOtro" class="hide" style="margin-top:10px">
+      <input type="text" id="f-puntoOtro" placeholder="¿Cuál hotel / punto?">
+    </div>
+    <div style="margin-top:10px">
+      <input type="text" id="f-encuestador" placeholder="Nombre del encuestador">
+    </div>
+  </div>
+
+  <!-- ===== Q1 ===== -->
+  <div class="q">
+    <div class="num">Pregunta 1</div>
+    <h2>¿En qué hotel se hospedó (o se hospedará) en Palenque?</h2>
+    <div class="chips" id="f-hotel" data-multi="0">
+      <span class="chip">Chan-Kah Resort Village</span>
+      <span class="chip">La Aldea del Halach Huinic</span>
+      <span class="chip">Maya Tulipanes</span>
+      <span class="chip">Kin Balam</span>
+      <span class="chip">Villa Mercedes</span>
+      <span class="chip">Casa Janaab</span>
+      <span class="chip">Quinta Chanabnal</span>
+      <span class="chip">Ciudad Real</span>
+      <span class="chip">Airbnb / cabaña</span>
+      <span class="chip">Otro</span>
+      <span class="chip">Aún no decide</span>
+    </div>
+    <div id="w-hotelOtro" class="hide" style="margin-top:10px">
+      <input type="text" id="f-hotelOtro" placeholder="¿Cuál?">
+    </div>
+  </div>
+
+  <!-- ===== Q2 ===== -->
+  <div class="q">
+    <div class="num">Pregunta 2</div>
+    <h2>¿Qué otros hoteles consideró antes de decidir?</h2>
+    <div class="hint">Marque todos los que mencione — clave: ¿apareció Nututún en su lista?</div>
+    <div class="chips" id="f-considerados" data-multi="1">
+      <span class="chip">Nututún</span>
+      <span class="chip">Chan-Kah</span>
+      <span class="chip">La Aldea</span>
+      <span class="chip">Maya Tulipanes</span>
+      <span class="chip">Kin Balam</span>
+      <span class="chip">Villa Mercedes</span>
+      <span class="chip">Casa Janaab</span>
+      <span class="chip">Quinta Chanabnal</span>
+      <span class="chip">Ciudad Real</span>
+      <span class="chip">Ninguno / no comparó</span>
+    </div>
+  </div>
+
+  <!-- ===== Q3 ===== -->
+  <div class="q">
+    <div class="num">Pregunta 3</div>
+    <h2>¿Cuál fue el factor decisivo para elegir ese hotel?</h2>
+    <div class="chips" id="f-factor" data-multi="1">
+      <span class="chip">Precio</span>
+      <span class="chip">Ubicación</span>
+      <span class="chip">Reseñas / calificación</span>
+      <span class="chip">Fotos / cómo se veía</span>
+      <span class="chip">Recomendación (agencia, amigo, tour)</span>
+      <span class="chip">Paquete / transporte incluido</span>
+      <span class="chip">Alberca / instalaciones</span>
+      <span class="chip">Disponibilidad de último momento</span>
+      <span class="chip">Otro</span>
+    </div>
+  </div>
+
+  <!-- ===== Q4 ===== -->
+  <div class="q">
+    <div class="num">Pregunta 4</div>
+    <h2>¿Conoce Hotel Nututún?</h2>
+    <div class="seg" id="f-conoce">
+      <span class="chip">Sí</span>
+      <span class="chip">No</span>
+    </div>
+    <div id="w-porque" class="hide" style="margin-top:16px">
+      <h2 style="font-size:.95rem">Si sí: ¿por qué no lo eligió?</h2>
+      <div class="chips" id="f-porque" data-multi="1" style="margin-top:10px">
+        <span class="chip">Precio alto</span>
+        <span class="chip">Lejos / mala ubicación</span>
+        <span class="chip">Pocas o malas reseñas</span>
+        <span class="chip">Las fotos no convencieron</span>
+        <span class="chip">No había disponibilidad</span>
+        <span class="chip">Le recomendaron otro</span>
+        <span class="chip">Otro</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Q5 ===== -->
+  <div class="q">
+    <div class="num">Pregunta 5</div>
+    <h2>¿Qué tendría que ofrecer un hotel para que lo elija en su próxima visita?</h2>
+    <div class="hint">Respuesta abierta — transcriba textual.</div>
+    <textarea id="f-abierta" placeholder="Respuesta del encuestado…"></textarea>
+  </div>
+
+  <div class="counter" id="counter"></div>
+</div>
+
+<div class="actions">
+  <div class="wrap">
+    <button class="btn btn-pri" id="btnSave">Guardar encuesta</button>
+    <button class="btn btn-sec" id="btnClear" title="Nueva encuesta">↺</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Firebase (compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* ============================================================
+   CONFIGURACIÓN FIREBASE — pegar aquí la config del proyecto.
+   Sin config, la encuesta funciona igual: guarda en cola local
+   (localStorage) y se puede volcar después.
+   ============================================================ */
+const firebaseConfig = null; // {apiKey:"", authDomain:"", projectId:"", appId:""}
+
+const QUEUE_KEY = "nututun_queue";
+const META_KEY  = "nututun_meta";
+let db = null, online = false;
+
+if (firebaseConfig) {
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.firestore();
+  db.enablePersistence({synchronizeTabs:true}).catch(()=>{});
+}
+
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const toast = (msg, cls="") => {
+  const t = $("toast"); t.textContent = msg; t.className = "toast " + cls;
+  t.style.display = "block"; setTimeout(()=>t.style.display="none", 2600);
+};
+const getQueue = () => JSON.parse(localStorage.getItem(QUEUE_KEY) || "[]");
+const setQueue = q => localStorage.setItem(QUEUE_KEY, JSON.stringify(q));
+
+function chips(id){
+  const el = $(id);
+  el.addEventListener("click", e => {
+    if (!e.target.classList.contains("chip")) return;
+    if (el.dataset.multi !== "1"){
+      el.querySelectorAll(".chip").forEach(c => c.classList.remove("on"));
+      e.target.classList.add("on");
+    } else e.target.classList.toggle("on");
+    onChange();
+  });
+}
+function chipsVal(id){
+  return [...$(id).querySelectorAll(".chip.on")].map(c => c.textContent.trim());
+}
+["f-hotel","f-considerados","f-factor","f-conoce","f-porque"].forEach(chips);
+
+/* ---------- condicionales ---------- */
+function onChange(){
+  const hotel = chipsVal("f-hotel");
+  $("w-hotelOtro").classList.toggle("hide", !hotel.includes("Otro"));
+  const conoce = chipsVal("f-conoce")[0];
+  $("w-porque").classList.toggle("hide", conoce !== "Sí");
+}
+$("f-punto").addEventListener("change", () => {
+  $("w-puntoOtro").classList.toggle("hide", $("f-punto").value !== "Otro");
+});
+
+/* ---------- persistencia de metadatos del encuestador ---------- */
+const meta = JSON.parse(localStorage.getItem(META_KEY) || "{}");
+$("f-punto").value = meta.punto || "";
+$("f-puntoOtro").value = meta.puntoOtro || "";
+$("f-encuestador").value = meta.encuestador || "";
+onChange();
+["f-punto","f-puntoOtro","f-encuestador"].forEach(id =>
+  $(id).addEventListener("input", () => localStorage.setItem(META_KEY, JSON.stringify({
+    punto: $("f-punto").value, puntoOtro: $("f-puntoOtro").value,
+    encuestador: $("f-encuestador").value
+  })))
+);
+
+/* ---------- geolocalización ---------- */
+function getGeo(){
+  return new Promise(res => {
+    if (!navigator.geolocation) return res(null);
+    navigator.geolocation.getCurrentPosition(
+      p => res({lat: p.coords.latitude, lng: p.coords.longitude, acc: Math.round(p.coords.accuracy)}),
+      () => res(null), {timeout: 6000}
+    );
+  });
+}
+
+/* ---------- sync ---------- */
+async function syncQueue(){
+  const q = getQueue();
+  if (!db || !q.length || !navigator.onLine) { updateBadge(); return; }
+  const rest = [];
+  for (const r of q){
+    try { await db.collection("respuestas").add(r); }
+    catch(e){ rest.push(r); }
+  }
+  setQueue(rest);
+  updateBadge();
+}
+function updateBadge(){
+  const n = getQueue().length;
+  const b = $("syncBadge");
+  if (n){ b.textContent = n + " pendientes"; b.classList.add("pend"); }
+  else { b.textContent = db ? (navigator.onLine ? "Sincronizado" : "Offline") : "Modo local"; b.classList.remove("pend"); }
+  $("counter").textContent = (JSON.parse(localStorage.getItem("nututun_count")||"0")) + " encuestas capturadas en este dispositivo";
+}
+window.addEventListener("online", syncQueue);
+setInterval(syncQueue, 30000);
+
+/* ---------- guardar ---------- */
+$("btnSave").addEventListener("click", async () => {
+  const hotel = chipsVal("f-hotel");
+  if (!$("f-punto").value) return toast("Falta el punto de interceptación","err");
+  if (!hotel.length)          return toast("Pregunta 1: falta el hotel elegido","err");
+
+  const geo = await getGeo();
+  const rec = {
+    ts: new Date().toISOString(),
+    punto: $("f-punto").value === "Otro" ? $("f-puntoOtro").value || "Otro" : $("f-punto").value,
+    encuestador: $("f-encuestador").value || "—",
+    geo,
+    hotel: hotel.join(", "),
+    hotelOtro: hotel.includes("Otro") ? ($("f-hotelOtro").value || "") : "",
+    considerados: chipsVal("f-considerados"),
+    consideroNututun: chipsVal("f-considerados").includes("Nututún"),
+    factor: chipsVal("f-factor"),
+    conoceNututun: chipsVal("f-conoce")[0] || "",
+    porqueNo: chipsVal("f-porque"),
+    abierta: $("f-abierta").value.trim()
+  };
+
+  const q = getQueue(); q.push(rec); setQueue(q);
+  localStorage.setItem("nututun_count", (parseInt(localStorage.getItem("nututun_count")||"0")+1));
+  toast("Encuesta guardada" + (geo ? " con ubicación" : ""), "ok");
+  resetForm(); syncQueue();
+});
+
+function resetForm(){
+  document.querySelectorAll(".chip.on").forEach(c => c.classList.remove("on"));
+  $("f-hotelOtro").value = ""; $("f-abierta").value = "";
+  onChange(); window.scrollTo({top:0, behavior:"smooth"});
+}
+$("btnClear").addEventListener("click", resetForm);
+
+updateBadge(); syncQueue();
+</script>
+</body>
+</html>
