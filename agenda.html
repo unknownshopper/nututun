@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan de ataque — Estudio Nututún · The Unknown Shopper</title>
-<meta name="description" content="Plan de ejecución módulo por módulo del estudio de competitividad para Hotel Nututún Palenque.">
+<title>Plan de ataque — Fase 1 · Nututún · The Unknown Shopper + Olmeca Code</title>
+<meta name="description" content="Plan de ejecución de la Fase 1 para Hotel Nututún Palenque: presencia en buscadores, estadísticas del motor de reserva y automatización WhatsApp.">
 <meta name="author" content="The Unknown Shopper">
 <meta name="theme-color" content="#f6f4ee">
 <link rel="icon" type="image/png" href="nut.png">
@@ -68,7 +68,7 @@
   .gantt .on.navy{background:var(--navy)}
   .gantt .off{background:#f0ede2}
 
-  /* ===== Módulos ===== */
+  /* ===== Frentes ===== */
   .modplan{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
     overflow:hidden;box-shadow:0 1px 3px rgba(27,39,51,.04);margin-top:24px}
   .modplan .mhead{background:var(--deep);color:#f2efe7;padding:18px 26px;
@@ -94,6 +94,11 @@
   .modplan .win{margin-top:6px;font-size:.82rem;color:#3d453d;font-style:italic;
     border-top:1px dashed #ccd4e4;padding-top:12px}
 
+  .next{background:var(--navy-soft);border:1px solid #d6ddef;border-radius:var(--radius);
+    padding:26px;margin-top:24px}
+  .next h3{margin-bottom:8px}
+  .next p{font-size:.92rem;color:#3d453d}
+
   .note{font-size:.8rem;color:var(--stone);margin-top:18px;font-style:italic}
   .footer{padding:48px 0 32px;text-align:center;color:var(--stone);font-size:.85rem}
   .footer b{color:var(--deep)}
@@ -104,7 +109,7 @@
   .fab:hover{background:var(--red-dark)}
   @media print{
     .fab{display:none}
-    .modplan,.card{page-break-inside:avoid}
+    .modplan,.card,.next{page-break-inside:avoid}
     section{padding:32px 0}
   }
 </style>
@@ -119,15 +124,15 @@
       <span class="x">×</span>
       <img class="nut" src="nut.png" alt="Nututun Palenque Hotel">
     </div>
-    <span class="badge-doc">Plan de ataque · Documento de trabajo</span>
-    <h1>Ejecución del estudio, <em>módulo por módulo</em></h1>
-    <p class="sub">Cómo se opera cada módulo contratado: tácticas, calendario, equipo y entregables.
-       Documento vivo — se ajusta al alcance final seleccionado.</p>
+    <span class="badge-doc">Plan de ataque · Fase 1 · Documento de trabajo</span>
+    <h1>Presencia digital y <em>automatización</em></h1>
+    <p class="sub">Lo que Nututún pidió directamente: aparecer en Google, sacar estadísticas del motor
+       de reserva y automatizar el WhatsApp del huésped. La investigación de mercado queda como Fase 2.</p>
     <div class="meta">
       <div><b>Cliente</b>Hotel Nututún Palenque</div>
-      <div><b>Ejecuta</b>The Unknown Shopper</div>
-      <div><b>Alcance</b>M1 + M2 · Lectura del mercado</div>
-      <div><b>Estatus</b>Interno</div>
+      <div><b>Ejecuta</b>The Unknown Shopper + Olmeca Code</div>
+      <div><b>Alcance</b>3 frentes digitales · ~4 semanas</div>
+      <div><b>Estatus</b>Interno — alcance por cotizar</div>
     </div>
   </div>
 </header>
@@ -136,79 +141,116 @@
 <section id="general">
   <div class="wrap">
     <div class="kicker">01 · Vista general</div>
-    <h2>Calendario de ejecución — M1 + M2</h2>
-    <p class="lead">Alcance contratado: <b>Lectura del mercado</b>. Los dos módulos corren en paralelo y el informe cruza ambas fuentes: <b>3 semanas de punta a punta</b>.</p>
+    <h2>Calendario de ejecución — Fase 1</h2>
+    <p class="lead">El cliente definió el problema: <b>pagan Google Ads y no aparecen</b>. La Fase 1 ataca
+       la presencia digital de frente y deja el sistema listo para la investigación de mercado después.
+       Tres frentes en paralelo, un entregable funcionando en 4 semanas.</p>
     <div class="gantt" style="margin-top:28px">
       <table>
         <thead>
-          <tr><td class="lbl"></td><th>S1</th><th>S2</th><th>S3</th></tr>
+          <tr><td class="lbl"></td><th>S1</th><th>S2</th><th>S3</th><th>S4</th></tr>
         </thead>
         <tbody>
-          <tr><td class="lbl">Kick-off y diseño de guiones</td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
-          <tr><td class="lbl">M1 · Radiografía competitiva</td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td></tr>
-          <tr><td class="lbl">M2 · Encuestas de campo</td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td></tr>
-          <tr><td class="lbl">Análisis cruzado</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td></tr>
-          <tr><td class="lbl">Informe final + presentación</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on navy"></div></td></tr>
+          <tr><td class="lbl">Kick-off + accesos</td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">D1 · Visibilidad en Google</td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">D2 · Motor de reserva → estadísticas</td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">D3 · WhatsApp check-in / check-out</td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td></tr>
+          <tr><td class="lbl">Integración + pruebas en vivo</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td></tr>
+          <tr><td class="lbl">Entrega + capacitación</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on navy"></div></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note">Para cumplir en 3 semanas: guiones aprobados a más tardar el viernes de S1 y levantamiento intensivo de encuestas en S1–S2 con cierre de campo el miércoles de S3. El tablero en vivo se alimenta desde el primer día. M3 y M4 quedan como siguiente fase si el cliente quiere profundizar.</p>
+    <p class="note">D3 arranca en S1 porque las plantillas de mensajes requieren aprobación de Meta
+       (días, no horas) — si se empieza tarde, se convierte en el cuello de botella. El resto depende
+       de los accesos entregados en la semana 1.</p>
   </div>
 </section>
 
-<!-- ================= M1 ================= -->
-<section id="m1">
+<!-- ================= D1 ================= -->
+<section id="d1">
   <div class="wrap">
-    <div class="kicker">02 · Módulo M1</div>
-    <h2>Radiografía competitiva y reputación digital · $15,000</h2>
+    <div class="kicker">02 · Frente D1</div>
+    <h2>Visibilidad en Google — por qué pagan y no aparecen</h2>
     <div class="modplan">
-      <div class="mhead"><span class="mid">M1</span><h3>Qué dice el mercado y quién lo recomienda</h3><span class="dur">S1–S2</span></div>
+      <div class="mhead"><span class="mid">D1</span><h3>Ads + buscador + ficha del hotel</h3><span class="dur">S1–S2</span></div>
       <div class="mbody">
         <div class="acts">
           <h4>Plan de ataque</h4>
           <ol>
-            <li><b>Minería de reseñas.</b> Extraer las reseñas de Nututún y de los 7 competidores del set (Tripadvisor, Booking, Google). Clasificar por tema: habitación, comida, ubicación, personal, precio, ruido, Wi-Fi. Salida: ranking de drivers de 5★ vs. 1★ por hotel.</li>
-            <li><b>Audit de fichas.</b> Captura comparativa de OTAs: posición en ranking del destino, primeras 5 fotos, texto de descripción, respuestas del hotel a reseñas negativas.</li>
-            <li><b>Mystery calls a agencias de viaje.</b> Shopper simula ser un viajero que busca "un hotel de selva con alberca, cerca de las ruinas" (descripción de Nututún sin nombrarlo). Se registra: ¿qué hotel recomiendan?, ¿Nututún aparece?, ¿qué argumentan? <b>Todo con audio grabado.</b> n≈8–10 agencias (locales y de mercados origen).</li>
-            <li><b>Auditoría de Google Ads.</b> Diagnóstico de por qué la inversión no aparece: keywords pujadas vs. búsquedas reales del destino, segmentación geográfica, presupuesto, quality score, extensiones y términos de búsqueda que activan el anuncio. Requiere acceso de lectura a la cuenta (o análisis externo de SERP si no lo otorgan).</li>
+            <li><b>Auditoría de la cuenta de Google Ads.</b> Acceso de lectura: qué keywords se pujan, presupuesto real, segmentación geográfica, impresiones perdidas, quality score y — clave — los <b>términos de búsqueda reales</b> que activan el anuncio. Ahí suele estar la respuesta a "pagamos y no figuramos".</li>
+            <li><b>Reestructura de campañas.</b> Keywords de intención real del viajero a Palenque ("hotel en la selva", "hotel cerca de las ruinas", "hotel con alberca palenque"), concordancias correctas, <b>keywords negativas</b> para dejar de pagar clics basura y extensiones con el diferenciador: poza natural, río, reserva.</li>
+            <li><b>Google Business Profile.</b> Ficha optimizada: categorías correctas, atributos, fotos priorizadas, Q&amp;A sembrado, descripción con keywords del destino. Es el activo gratis que aparece antes que el anuncio.</li>
+            <li><b>SEO técnico del sitio.</b> Indexación en Search Console, velocidad, meta títulos con intención de búsqueda, schema de <code>Hotel</code> (estrellas, precio, amenidades) para que Google entienda y enriquezca la ficha en resultados.</li>
+            <li><b>Línea base medible.</b> Antes de tocar nada: captura de impresiones, clics, posición promedio y CTR — para demostrar en S4 exactamente qué se movió.</li>
           </ol>
         </div>
         <div class="side">
-          <h4>Ficha del módulo</h4>
-          <div class="kv"><div class="k">Ejecuta</div><div class="v">Analista senior + 1 shopper de voz</div></div>
-          <div class="kv"><div class="k">Entregable</div><div class="v">Informe de posición + matriz de temas + audios de agencias + diagnóstico Ads con correcciones concretas</div></div>
-          <div class="kv"><div class="k">Requiere</div><div class="v">Acceso de lectura a Google Ads (ideal) o autorización para análisis externo</div></div>
-          <div class="win">Señal de éxito: el audio de una agencia recomendando a la competencia — o el anuncio mal configurado — paga el módulo solo con el momento "ajá" de la reunión.</div>
+          <h4>Ficha del frente</h4>
+          <div class="kv"><div class="k">Ejecuta</div><div class="v">Analista Ads/SEO</div></div>
+          <div class="kv"><div class="k">Entregable</div><div class="v">Diagnóstico del desperdicio + campañas reestructuradas + ficha GBP optimizada + sitio indexado y medible</div></div>
+          <div class="kv"><div class="k">Requiere</div><div class="v">Acceso de lectura a Google Ads, Google Business Profile, Search Console y administrador del sitio web</div></div>
+          <div class="win">Señal de éxito: encontrar la campaña que paga por clics que nunca fueron del huésped — el hallazgo que paga el frente completo en la primera reunión de resultados.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= M2 ================= -->
-<section id="m2">
+<!-- ================= D2 ================= -->
+<section id="d2">
   <div class="wrap">
-    <div class="kicker">03 · Módulo M2</div>
-    <h2>La decisión del huésped — encuestas de campo · $28,000</h2>
+    <div class="kicker">03 · Frente D2</div>
+    <h2>Motor de reserva → estadísticas que deciden</h2>
     <div class="modplan">
-      <div class="mhead"><span class="mid">M2</span><h3>Por qué eligieron otro hotel</h3><span class="dur">S1–S3</span></div>
+      <div class="mhead"><span class="mid">D2</span><h3>El motor ya sabe cosas que nadie está viendo</h3><span class="dur">S2</span></div>
       <div class="mbody">
         <div class="acts">
           <h4>Plan de ataque</h4>
           <ol>
-            <li><b>Piloto.</b> Cuestionario en <i>encuesta.html</i> validado con 10 entrevistas de prueba; ajuste de redacción y tiempos antes del despliegue.</li>
-            <li><b>Intercepts en destino.</b> Encuestadores con captura móvil en: salida de la zona arqueológica, central ADO, La Cañada y tours a cascadas. Rotación de horarios para cubrir perfiles distintos.</li>
-            <li><b>Day pass en competidores.</b> Compra de acceso legítimo a 2–3 hoteles del set: encuestas a huéspedes en alberca, restaurante y áreas comunes, mientras viven la experiencia. Entrevistas cortas, naturales, rotando días.</li>
-            <li><b>Huéspedes propios.</b> QR post-estadía en recepción + encuesta a la salida en lobby de Nututún (mismo instrumento, cohorte separada).</li>
-            <li><b>Verificación.</b> Cada entrevista con timestamp + geolocalización; el mapa de captura es visible en el tablero en vivo. Meta: n≈200 intercepts + n propios.</li>
+            <li><b>Reconocimiento del motor.</b> Qué plataforma es, qué expone: API, webhooks, exportaciones (CSV/Excel), o solo reportes manuales. Esto define qué tanto se puede automatizar.</li>
+            <li><b>Extracción y limpieza.</b> Reservas históricas y en curso exportadas y normalizadas: fechas, canal, tarifa, habitación, origen del huésped, antelación de compra, cancelaciones.</li>
+            <li><b>Radiografía estadística.</b> Presentación de la primera lectura cuantificada del negocio: ocupación por periodo, ADR, canal de reserva, lead time, estacionalidad y origen geográfico — con los hallazgos accionables marcados.</li>
+            <li><b>Sembrar la siguiente venta.</b> Documentar qué falta para el tablero en vivo (API del motor) — esa integración es la segunda iteración y se cotiza aparte.</li>
           </ol>
         </div>
         <div class="side">
-          <h4>Ficha del módulo</h4>
-          <div class="kv"><div class="k">Ejecuta</div><div class="v">2–3 encuestadores + coordinador de campo</div></div>
-          <div class="kv"><div class="k">Entregable</div><div class="v">Base de datos completa + tablero en vivo + análisis: consideración de Nututún, factor decisivo, razones de rechazo</div></div>
-          <div class="kv"><div class="k">Métrica clave</div><div class="v">% de viajeros que incluyeron a Nututún en su lista corta (<code>consideroNututun</code>)</div></div>
-          <div class="win">Señal de éxito: poder decir con número exacto en qué momento de la decisión se pierde al huésped — ¿nunca oyeron hablar del hotel, o lo conocían y eligieron otro?</div>
+          <h4>Ficha del frente</h4>
+          <div class="kv"><div class="k">Ejecuta</div><div class="v">Olmeca Code — análisis de datos</div></div>
+          <div class="kv"><div class="k">Entregable</div><div class="v">Presentación de estadísticas del negocio a partir de la exportación del motor (tablero en vivo con API: segunda iteración cotizable)</div></div>
+          <div class="kv"><div class="k">Requiere</div><div class="v">Credenciales del motor de reserva o exportación de reservas facilitada por recepción</div></div>
+          <div class="win">Señal de éxito: la primera vez que Francisco vea su ocupación, ADR y canales en una pantalla — datos que hoy solo viven dentro del motor.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= D3 ================= -->
+<section id="d3">
+  <div class="wrap">
+    <div class="kicker">04 · Frente D3</div>
+    <h2>WhatsApp automático — check-in y check-out</h2>
+    <div class="modplan">
+      <div class="mhead"><span class="mid">D3</span><h3>El huésped informado en la entrada, reseñando en la salida</h3><span class="dur">S1–S4</span></div>
+      <div class="mbody">
+        <div class="acts">
+          <h4>Plan de ataque</h4>
+          <ol>
+            <li><b>WhatsApp Business API.</b> Alta del número del hotel y plantillas de mensaje sometidas a aprobación de Meta desde la S1 (es el único paso que no controlamos al 100% — por eso arranca primero).</li>
+            <li><b>Disparador de check-in.</b> Al registrarse la entrada: mensaje automático con lo que hay en el hotel — poza natural sobre el Chacamax, reserva, río, restaurante, horarios y tours. Experiencia + venta suave desde el minuto uno.</li>
+            <li><b>Disparador de check-out.</b> A la salida: agradecimiento + solicitud de reseña con <b>links directos a Google y Tripadvisor</b>. Cada reseña nueva alimenta el posicionamiento que piden en D1 — el sistema se paga solo en visibilidad.</li>
+            <li><b>Integración.</b> Ideal: webhook/API del motor de reserva dispara el mensaje. Si el motor no lo permite: lista diaria de check-ins/check-outs exportada y envío programado — mismo resultado, cero fricción para recepción.</li>
+            <li><b>Opt-in y reglas de Meta.</b> Consentimiento registrado en la reserva; plantillas aprobadas, sin spam — la reputación del número del hotel no se juega.</li>
+            <li><b>Panel para mostrador y gerente.</b> Vista de la operación en tiempo real: mensajes enviados/entregados/leídos, clics en los links de reseña, reseñas resultantes y resumen diario — el staff ve el sistema trabajando sin pedir reportes.</li>
+            <li><b>Medición.</b> % de check-outs que dejan reseña → ritmo de reseñas nuevas en Google/Tripadvisor → impacto directo sobre el "share of voice" del destino.</li>
+          </ol>
+        </div>
+        <div class="side">
+          <h4>Ficha del frente</h4>
+          <div class="kv"><div class="k">Ejecuta</div><div class="v">Olmeca Code — desarrollo</div></div>
+          <div class="kv"><div class="k">Entregable</div><div class="v">Flujo WhatsApp en producción + panel con estadísticas para mostrador/gerente: enviados, clics, reseñas generadas, resumen diario</div></div>
+          <div class="kv"><div class="k">Requiere</div><div class="v">Número WhatsApp Business del hotel + textos de mensajes aprobados por el cliente + acceso a eventos del motor de reserva</div></div>
+          <div class="win">Señal de éxito: el primer huésped que deja su reseña de 5★ por WhatsApp automático — y la curva de reseñas empezando a despegar en el tablero.</div>
         </div>
       </div>
     </div>
@@ -218,12 +260,16 @@
 <!-- ================= NECESITAMOS ================= -->
 <section id="requerimientos">
   <div class="wrap">
-    <div class="kicker">04 · Lo que pedimos al cliente</div>
-    <h2>Poco, pero necesario</h2>
+    <div class="kicker">05 · Lo que pedimos al cliente</div>
+    <h2>Accesos y dos decisiones</h2>
     <div class="grid3" style="margin-top:28px">
-      <div class="card"><h3>Acceso Google Ads</h3><p class="muted">Permiso de lectura a la cuenta publicitaria (o reportes exportados) para la auditoría del M1. Sin acceso, hacemos análisis externo de SERP — útil pero menos profundo.</p></div>
-      <div class="card"><h3>Aprobación de guiones</h3><p class="muted">Revisión del cuestionario de campo y del checklist de mystery guest en la semana 1 — 30 minutos con quien decida.</p></div>
-      <div class="card"><h3>Contraparte única</h3><p class="muted">Una persona con quien validar hallazgos semanales y que reciba las alertas del tablero en vivo.</p></div>
+      <div class="card"><h3>Accesos de lectura</h3><p class="muted">Google Ads, Google Business Profile, Search Console y administrador del sitio web. Sin contraseñas maestras — permisos de lectura/analista bastan para la auditoría.</p></div>
+      <div class="card"><h3>Motor de reserva</h3><p class="muted">Credenciales o contacto del proveedor para habilitar exportaciones/API. Es la pieza que alimenta el tablero <i>y</i> dispara el WhatsApp.</p></div>
+      <div class="card"><h3>WhatsApp Business</h3><p class="muted">Número del hotel para la API (puede ser el actual) y aprobación de los textos de check-in/check-out — qué se dice y con qué tono.</p></div>
+    </div>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card"><h3>Contraparte única</h3><p class="muted">Una persona del hotel con quien validar avances semanales — una sola sesión de 30 minutos por semana.</p></div>
+      <div class="card"><h3>Contenidos del hotel</h3><p class="muted">Lista oficial de amenidades, horarios, tours y cualquier texto que deba decir el mensaje de check-in — lo que quieren que todo huésped sepa desde el día uno.</p></div>
     </div>
   </div>
 </section>
@@ -231,25 +277,39 @@
 <!-- ================= REGLAS ================= -->
 <section id="reglas" style="border-bottom:none">
   <div class="wrap">
-    <div class="kicker">05 · Reglas de operación</div>
-    <h2>Cómo se juega limpio</h2>
+    <div class="kicker">06 · Reglas de operación</div>
+    <h2>Cómo se trabaja sobre sistemas en producción</h2>
     <div class="grid2" style="margin-top:28px">
       <div class="card">
-        <h3>Evidencia o no pasó</h3>
-        <p class="muted">Todo hallazgo va con su prueba: audio, foto, geolocalización o captura de pantalla. Las entrevistas de campo se marcan en el mapa del tablero — cero encuestas de escritorio.</p>
+        <h3>Primero no romper</h3>
+        <p class="muted">Tocamos campañas de Ads y sistemas que ya operan: cada cambio va con respaldo, se prueba en staging cuando existe y siempre hay ruta de reversa. La línea base se captura antes de mover un solo píxel.</p>
       </div>
       <div class="card">
-        <h3>Incógnito real</h3>
-        <p class="muted">Las estadías y compras se hacen como cliente normal — incluidos los day passes en competidores. Si un hotel pide retirarse del levantamiento, se retira: los demás puntos de captura cubren la muestra.</p>
+        <h3>Meta manda</h3>
+        <p class="muted">Los mensajes automáticos cumplen las políticas de WhatsApp Business: opt-in registrado, plantillas aprobadas, nada de envíos masivos fuera de regla. La reputación del número del hotel es parte del activo.</p>
       </div>
       <div class="card">
-        <h3>Doble control de calidad</h3>
-        <p class="muted">Un segundo analista revisa cada reporte antes de entregarlo. Los criterios son binarios o escalares, nunca "a criterio del shopper".</p>
+        <h3>Evidencia, siempre</h3>
+        <p class="muted">Cada cambio documentado con capturas de antes/después. Los números de "pagábamos X y aparecíamos Y" vs. los de la semana 4 son la entrega real — no promesas.</p>
       </div>
       <div class="card">
         <h3>Confidencialidad</h3>
-        <p class="muted">Sin nombres en público, sin casos publicados. Los datos crudos y el tablero son del cliente al finalizar.</p>
+        <p class="muted">Credenciales del cliente almacenadas fuera del repositorio, datos de huéspedes tratados bajo aviso de privacidad y nada de nombres en casos públicos sin autorización.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FASE 2 ================= -->
+<section id="fase2" style="border-bottom:none;padding-top:0">
+  <div class="wrap">
+    <div class="next">
+      <div class="kicker">07 · Lo que sigue</div>
+      <h3>Fase 2 — Investigación de mercado (cuando estén listos)</h3>
+      <p>El cliente ya lo dijo: <i>"ya después de eso nos interesaría una investigación de mercado más a fondo"</i>.
+      La propuesta M1 + M2 sigue en pie y aterriza mejor sobre la Fase 1 — porque el tablero de estadísticas
+      del motor de reserva y el flujo de reseñas ya estarán vivos cuando empecemos a medir por qué el viajero
+      elige otra casa. Alcance y cotización: reunión aparte.</p>
     </div>
   </div>
 </section>
@@ -257,7 +317,7 @@
 <footer class="footer">
   <div class="wrap">
     <img src="tusxx.png" alt="The Unknown Shopper"><br>
-    <b>The Unknown Shopper</b> · Plan de ataque · Hotel Nututún Palenque<br>
+    <b>The Unknown Shopper + Olmeca Code</b> · Plan de ataque Fase 1 · Hotel Nututún Palenque<br>
     Documento interno de trabajo © 2026 · Confidencial.
   </div>
 </footer>
