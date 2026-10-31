@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accesos y visita técnica — Frente D1 · Nututún</title>
+<meta name="description" content="Checklist de accesos requeridos para el Frente D1 de Hotel Nututún Palenque: permisos de lectura, cómo compartirlos con seguridad y la visita técnica de medio día.">
+<meta name="author" content="The Unknown Shopper">
+<meta name="theme-color" content="#f6f4ee">
+<link rel="icon" type="image/png" href="nut.png">
+<style>
+  :root{
+    --bg:#f6f4ee;--paper:#fff;--ink:#23282d;--deep:#1b2733;--line:#e6e1d4;
+    --red:#c0392b;--red-dark:#96271c;--red-soft:#fdf0ee;
+    --navy:#26355c;--navy-soft:#eef1f7;--stone:#7d766a;--radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--deep)}
+  h2{font-size:1.9rem;margin-bottom:.4em}
+  h3{font-size:1.2rem}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .lead{font-size:1.06rem;color:#3d453d;max-width:720px}
+  a{color:var(--red-dark)}
+
+  .cover{
+    background:radial-gradient(900px 420px at 85% 0%,rgba(192,57,43,.05),transparent 60%),
+      linear-gradient(180deg,#fdfcf8 0%,#f6f4ee 100%);
+    padding:56px 0 52px;border-bottom:1px solid var(--line);border-top:4px solid var(--red);
+  }
+  .cover .brandrow{display:flex;align-items:center;gap:26px;margin-bottom:44px;flex-wrap:wrap}
+  .brandrow img{object-fit:contain}
+  .brandrow .tus{height:52px}
+  .brandrow .x{color:var(--red);font-size:1.4rem;font-weight:300}
+  .brandrow .nut{height:80px}
+  .cover h1{color:var(--deep);font-size:2.6rem;max-width:780px}
+  .cover h1 em{color:var(--red);font-style:normal}
+  .cover .sub{color:#55584f;font-size:1.05rem;max-width:640px;margin-top:16px}
+  .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);padding:6px 14px;border-radius:999px;font-size:.75rem;
+    text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px;font-weight:700}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;box-shadow:0 1px 3px rgba(27,39,51,.04)}
+  .card h3{margin-bottom:8px;font-size:1.1rem}
+  .muted{color:var(--stone);font-size:.9rem}
+
+  table{width:100%;border-collapse:collapse;background:var(--paper);
+    border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);font-size:.88rem}
+  th{background:var(--deep);color:#f2efe7;text-align:left;padding:11px 14px;font-weight:600;font-size:.78rem;
+    text-transform:uppercase;letter-spacing:.06em}
+  td{padding:11px 14px;border-bottom:1px solid #efece1;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--deep)}
+  .tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.72rem;font-weight:600;white-space:nowrap}
+  .tag.ok{background:#dcebe1;color:#2c5f43}
+  .tag.warn{background:#f7ecd4;color:#8a6116}
+
+  .step{display:flex;gap:18px;margin-bottom:16px}
+  .step .n{width:36px;height:36px;border-radius:50%;background:var(--red);color:#fff;
+    flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem}
+  .step .b b{color:var(--deep)}
+  .step .b p{font-size:.92rem;color:#4a534a}
+
+  .note{font-size:.8rem;color:var(--stone);margin-top:16px;font-style:italic}
+  .footer{padding:44px 0 30px;text-align:center;color:var(--stone);font-size:.85rem}
+  .footer b{color:var(--deep)}
+  .footer img{height:34px;object-fit:contain;margin-bottom:10px;opacity:.9}
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;border-radius:12px;padding:14px 22px;font-weight:700;font-size:.9rem;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35);font-family:inherit}
+  .fab:hover{background:var(--red-dark)}
+  @media print{
+    .fab{display:none}
+    .card{page-break-inside:avoid}
+    section{padding:30px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<header class="cover">
+  <div class="wrap">
+    <div class="brandrow">
+      <img class="tus" src="tusxx.png" alt="The Unknown Shopper">
+      <span class="x">×</span>
+      <img class="nut" src="nut.png" alt="Nututun Palenque Hotel">
+    </div>
+    <span class="badge-doc">Frente D1 · Checklist de accesos</span>
+    <h1>Qué necesitamos para <em>empezar</em></h1>
+    <p class="sub">Cinco permisos de lectura, una visita de medio día al hotel y nada más.
+       Todo compartido con seguridad y revocable en cualquier momento.</p>
+  </div>
+</header>
+
+<!-- ================= 1. LOS ACCESOS ================= -->
+<section id="accesos">
+  <div class="wrap">
+    <div class="kicker">01 · Los accesos</div>
+    <h2>Permiso de lectura, no la llave maestra</h2>
+    <p class="lead">No pedimos contraseñas: cada plataforma permite agregar usuarios con permisos
+       limitados. Ustedes nos invitan, nosotros miramos, ustedes pueden revocar cuando quieran.</p>
+    <div style="overflow-x:auto;margin-top:24px">
+      <table>
+        <thead>
+          <tr><th>Cuenta</th><th>Para qué</th><th>Permiso que se comparte</th><th>Nivel</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Google Ads</b></td>
+            <td>Ver campañas, búsquedas reales, presupuesto y resultados — el corazón del diagnóstico.</td>
+            <td>Agregar usuario desde la configuración de la cuenta (o acceso de administrador estándar si vamos a aplicar correcciones autorizadas).</td>
+            <td><span class="tag ok">Lectura</span></td>
+          </tr>
+          <tr>
+            <td><b>Google Business Profile</b></td>
+            <td>La ficha de Google Maps: categorías, fotos, atributos, reseñas, preguntas y respuestas.</td>
+            <td>Agregar como administrador o gerente de la ficha.</td>
+            <td><span class="tag ok">Gerente</span></td>
+          </tr>
+          <tr>
+            <td><b>Search Console</b></td>
+            <td>Si el sitio está indexado, errores de rastreo y qué búsquedas traen visitas orgánicas.</td>
+            <td>Agregar como usuario en Search Console.</td>
+            <td><span class="tag ok">Usuario</span></td>
+          </tr>
+          <tr>
+            <td><b>Google Analytics</b></td>
+            <td>Si existe: de dónde llega la gente al sitio y qué hace dentro.</td>
+            <td>Agregar como usuario con rol de lector.</td>
+            <td><span class="tag ok">Lector</span></td>
+          </tr>
+          <tr>
+            <td><b>Administrador del sitio web</b></td>
+            <td>Corregir títulos, indexación y detalles que afectan cómo aparece el hotel en Google.</td>
+            <td>Usuario del panel del sitio (o contacto con quien lo administra).</td>
+            <td><span class="tag warn">Edición*</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">* El único permiso de edición que pedimos es el del sitio web — las correcciones de texto e indexación se documentan y se pueden revertir. Todo lo demás es solo lectura.</p>
+  </div>
+</section>
+
+<!-- ================= 2. LA VISITA ================= -->
+<section id="visita">
+  <div class="wrap">
+    <div class="kicker">02 · La visita técnica</div>
+    <h2>Medio día en el hotel, el resto a distancia</h2>
+    <p class="lead">Una sola sesión presencial —en el equipo donde trabajan las cuentas— y de ahí en adelante todo se hace remotamente, sin interrumpir la operación.</p>
+    <div style="margin-top:24px">
+      <div class="step"><div class="n">1</div><div class="b"><b>Acceso en su presencia.</b><p>Abrimos cada cuenta en el equipo del hotel con quien ustedes indiquen — ustedes ven exactamente qué miramos desde el primer minuto.</p></div></div>
+      <div class="step"><div class="n">2</div><div class="b"><b>Configuración del acceso remoto.</b><p>Instalamos una herramienta de escritorio remoto (tipo Chrome Remote Desktop o similar) en el equipo que ustedes autoricen, con acceso protegido y registro de cuándo se usa.</p></div></div>
+      <div class="step"><div class="n">3</div><div class="b"><b>Verificación y cierre.</b><p>Probamos el acceso remoto antes de retirarnos y dejamos por escrito qué se configuró y cómo desactivarlo si algún día lo desean.</p></div></div>
+    </div>
+    <p class="note">Duración estimada: media jornada, agendada en el horario que menos moleste a recepción.</p>
+  </div>
+</section>
+
+<!-- ================= 3. SEGURIDAD ================= -->
+<section id="seguridad" style="border-bottom:none">
+  <div class="wrap">
+    <div class="kicker">03 · Reglas de seguridad</div>
+    <h2>Cómo cuidamos sus accesos</h2>
+    <div class="grid2" style="margin-top:24px">
+      <div class="card"><h3>Sin contraseñas por WhatsApp</h3><p class="muted">Los accesos se otorgan como permisos de usuario, no como contraseñas compartidas. Si alguna credencial debe compartirse, se entrega en persona o por canal cifrado — nunca en texto plano.</p></div>
+      <div class="card"><h3>Revocable en un clic</h3><p class="muted">Todos nuestros accesos son usuarios invitados: ustedes los pueden quitar en cualquier momento, desde su propio panel, sin depender de nosotros.</p></div>
+      <div class="card"><h3>Nada se guarda fuera</h3><p class="muted">No copiamos credenciales a archivos, correos ni notas. El registro de accesos se entrega al cliente al finalizar el frente.</p></div>
+      <div class="card"><h3>Solo lectura por defecto</h3><p class="muted">Cualquier corrección que toque presupuesto, pausa de campañas o contenido público se propone y se autoriza antes — se documenta todo.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="tusxx.png" alt="The Unknown Shopper"><br>
+    <b>The Unknown Shopper + Olmeca Code</b> · Frente D1 · Checklist de accesos · Hotel Nututún Palenque<br>
+    Documento confidencial © 2026 · <a href="https://unknownshoppers.com">unknownshoppers.com</a> · <a href="https://wa.me/529932171855">WhatsApp +52 993 217 1855</a>
+  </div>
+</footer>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist — Llamada con Google · Nututún</title>
+<meta name="description" content="Checklist para la llamada con soporte de Google Ads — Hotel Nututún Palenque.">
+<meta name="author" content="The Unknown Shopper">
+<meta name="theme-color" content="#f6f4ee">
+<link rel="icon" type="image/png" href="nut.png">
+<style>
+  :root{
+    --bg:#f6f4ee;--paper:#fff;--ink:#23282d;--deep:#1b2733;--line:#e6e1d4;
+    --red:#c0392b;--red-dark:#96271c;--red-soft:#fdf0ee;
+    --navy:#26355c;--navy-soft:#eef1f7;--stone:#7d766a;--radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--deep)}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  section{padding:34px 0;border-bottom:1px solid var(--line)}
+  .lead{font-size:.98rem;color:#3d453d;max-width:720px}
+  a{color:var(--red-dark)}
+
+  .cover{
+    background:radial-gradient(900px 420px at 85% 0%,rgba(192,57,43,.05),transparent 60%),
+      linear-gradient(180deg,#fdfcf8 0%,#f6f4ee 100%);
+    padding:44px 0 40px;border-bottom:1px solid var(--line);border-top:4px solid var(--red);
+  }
+  .cover .brandrow{display:flex;align-items:center;gap:22px;margin-bottom:32px;flex-wrap:wrap}
+  .brandrow img{object-fit:contain}
+  .brandrow .tus{height:44px}
+  .brandrow .x{color:var(--red);font-size:1.3rem;font-weight:300}
+  .brandrow .nut{height:64px}
+  .cover h1{color:var(--deep);font-size:2.1rem;max-width:720px}
+  .cover h1 em{color:var(--red);font-style:normal}
+  .cover .sub{color:#55584f;font-size:.98rem;max-width:600px;margin-top:12px}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:30px;font-size:.82rem;color:var(--stone)}
+  .cover .meta b{display:block;color:var(--deep);font-size:.9rem;font-weight:600}
+  .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);padding:5px 13px;border-radius:999px;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px;font-weight:700}
+
+  .chk{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed #efece1;align-items:flex-start}
+  .chk:last-child{border-bottom:none}
+  .chk .box{width:20px;height:20px;border:2px solid var(--red);border-radius:5px;flex-shrink:0;margin-top:2px}
+  .chk .t{font-size:.92rem;color:#3d453d}
+  .chk .t b{color:var(--deep)}
+  .chk .t .why{font-size:.78rem;color:var(--stone);display:block;margin-top:2px}
+
+  .warn{background:var(--red-soft);border:1px solid #ecc8c1;border-radius:var(--radius);padding:20px 22px}
+  .warn h3{color:var(--red-dark);margin-bottom:10px}
+  .warn .chk .box{border-color:var(--red-dark)}
+
+  .ok{background:var(--navy-soft);border:1px solid #d6ddef;border-radius:var(--radius);padding:20px 22px}
+  .ok h3{color:var(--navy);margin-bottom:10px}
+  .ok .chk .box{border-color:var(--navy)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr}}
+
+  .notes{margin-top:14px;border:1px dashed #c9c2ae;border-radius:var(--radius);
+    padding:14px;min-height:64px;color:var(--stone);font-size:.8rem;font-style:italic}
+
+  .footer{padding:34px 0 26px;text-align:center;color:var(--stone);font-size:.82rem}
+  .footer b{color:var(--deep)}
+  .footer img{height:30px;object-fit:contain;margin-bottom:8px;opacity:.9}
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;border-radius:12px;padding:13px 20px;font-weight:700;font-size:.9rem;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35);font-family:inherit}
+  .fab:hover{background:var(--red-dark)}
+  @media print{
+    .fab{display:none}
+    section{padding:22px 0}
+    .warn,.ok{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brandrow">
+      <img class="tus" src="tusxx.png" alt="The Unknown Shopper">
+      <span class="x">×</span>
+      <img class="nut" src="nut.png" alt="Nututun Palenque Hotel">
+    </div>
+    <span class="badge-doc">Checklist · Llamada con Google</span>
+    <h1>Objetivo de la llamada: <em>extraer información, no aprobar nada</em></h1>
+    <p class="sub">El asesor de Google trabaja para Google — su métrica es que gastemos más, no que aparezcamos mejor.
+       Escuchar mucho, apuntar todo, decidir nada.</p>
+    <div class="meta">
+      <div><b>Llamada</b>Hoy · 3:00 pm</div>
+      <div><b>Duración sugerida</b>20–30 min</div>
+      <div><b>Regla de oro</b>Todo cambio: "lo revisamos con administración"</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PREGUNTAS CLAVE ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">01 · Las cinco preguntas que importan</div>
+    <h2 style="font-size:1.5rem">Qué pedir</h2>
+    <div style="margin-top:16px">
+      <div class="chk"><div class="box"></div><div class="t"><b>"¿Qué frases teclea la gente en Google antes de que les salga nuestro anuncio?"</b> — pedir el informe de términos de búsqueda: las búsquedas reales que activan el anuncio, picadas o no.<span class="why">Si ahí aparecen "empleo palenque", "restaurante" o búsquedas de otras ciudades, estamos pagando por gente que nunca será huésped.</span></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>"En las búsquedas que sí nos interesan —hotel en Palenque, selva, cerca de las ruinas— ¿quién aparece y en qué posición estamos nosotros?"</b><span class="why">Si perdemos esas búsquedas por presupuesto es un problema de puja; si es por ranking del anuncio, es calidad del anuncio y la ficha. También revela qué competidores le están ganando esos resultados a Nututún.</span></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>"¿De dónde vienen nuestros clics?"</b> — desglose geográfico.<span class="why">Si pagamos clics de mercados que no mandan turistas a Palenque, es fuga directa de dinero.</span></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>"¿Quién administra la cuenta?"</b> — ¿está bajo un correo del hotel o de alguien más?<span class="why">Si una agencia o ex-empleado controla la cuenta, el hotel podría no ser dueño de su propia publicidad.</span></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>"¿Tenemos activadas las recomendaciones automáticas?"</b><span class="why">Si está prendido, Google aplica cambios solo que inflan el gasto. Pedir que lo apaguen o apuntarlo para apagarlo.</span></div></div>
+    </div>
+    <div class="notes">Notas de la llamada:</div>
+  </div>
+</section>
+
+<!-- ================= NO / SÍ ================= -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="grid2">
+      <div class="warn">
+        <h3>✗ No aprobar en la llamada</h3>
+        <div class="chk"><div class="box"></div><div class="t">Aumento de presupuesto — "lo revisamos con administración"</div></div>
+        <div class="chk"><div class="box"></div><div class="t">Cambios aplicados en vivo ("le activo esta optimización")</div></div>
+        <div class="chk"><div class="box"></div><div class="t">Nuevos tipos de campaña (Performance Max, concordancia amplia)</div></div>
+        <div class="chk"><div class="box"></div><div class="t">Ningún compromiso verbal — todo por escrito después</div></div>
+      </div>
+      <div class="ok">
+        <h3>✓ Sí pedir</h3>
+        <div class="chk"><div class="box"></div><div class="t">Que manden el resumen de la llamada por correo</div></div>
+        <div class="chk"><div class="box"></div><div class="t">El ID de la cuenta de Google Ads (10 dígitos)</div></div>
+        <div class="chk"><div class="box"></div><div class="t">Acceso de lectura a la cuenta (para la revisión del Frente D1)</div></div>
+        <div class="chk"><div class="box"></div><div class="t">Tomar notas o grabar — todo lo que digan se contrasta en la auditoría</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="tusxx.png" alt="The Unknown Shopper"><br>
+    <b>The Unknown Shopper + Olmeca Code</b> · Checklist llamada Google · Hotel Nututún Palenque<br>
+    Documento interno © 2026
+  </div>
+</footer>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+</body>
+</html>

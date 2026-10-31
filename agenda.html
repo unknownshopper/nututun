@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan de ataque — Fase 1 · Nututún · The Unknown Shopper + Olmeca Code</title>
-<meta name="description" content="Plan de ejecución de la Fase 1 para Hotel Nututún Palenque: presencia en buscadores, estadísticas del motor de reserva y automatización WhatsApp.">
+<title>Plan de trabajo — Frente D1 · Nututún · The Unknown Shopper + Olmeca Code</title>
+<meta name="description" content="Documento vivo de trabajo del Frente D1 para Hotel Nututún Palenque: antecedentes, hallazgos y plan de ejecución.">
 <meta name="author" content="The Unknown Shopper">
 <meta name="theme-color" content="#f6f4ee">
 <link rel="icon" type="image/png" href="nut.png">
@@ -25,41 +25,40 @@
   .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
     color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:10px}
   .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
-  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
   .lead{font-size:1.08rem;color:#3d453d;max-width:760px}
   a{color:var(--red-dark)}
 
   .cover{
     background:radial-gradient(900px 420px at 85% 0%,rgba(192,57,43,.05),transparent 60%),
       linear-gradient(180deg,#fdfcf8 0%,#f6f4ee 100%);
-    padding:64px 0 60px;border-bottom:1px solid var(--line);border-top:4px solid var(--red);
+    padding:56px 0 52px;border-bottom:1px solid var(--line);border-top:4px solid var(--red);
   }
-  .cover .brandrow{display:flex;align-items:center;gap:26px;margin-bottom:52px;flex-wrap:wrap}
+  .cover .brandrow{display:flex;align-items:center;gap:26px;margin-bottom:44px;flex-wrap:wrap}
   .brandrow img{object-fit:contain}
   .brandrow .tus{height:56px}
   .brandrow .x{color:var(--red);font-size:1.4rem;font-weight:300}
   .brandrow .nut{height:84px}
-  .cover h1{color:var(--deep);font-size:2.9rem;max-width:820px}
+  .cover h1{color:var(--deep);font-size:2.7rem;max-width:820px}
   .cover h1 em{color:var(--red);font-style:normal}
-  .cover .sub{color:#55584f;font-size:1.1rem;max-width:640px;margin-top:18px}
-  .cover .meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:48px;font-size:.85rem;color:var(--stone)}
+  .cover .sub{color:#55584f;font-size:1.08rem;max-width:640px;margin-top:16px}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:40px;font-size:.85rem;color:var(--stone)}
   .cover .meta b{display:block;color:var(--deep);font-size:.95rem;font-weight:600}
   .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
     color:var(--red-dark);padding:6px 14px;border-radius:999px;font-size:.75rem;
-    text-transform:uppercase;letter-spacing:.14em;margin-bottom:22px;font-weight:700}
+    text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px;font-weight:700}
 
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
-    padding:26px;box-shadow:0 1px 3px rgba(27,39,51,.04)}
-  .card h3{margin-bottom:8px}
+    padding:24px;box-shadow:0 1px 3px rgba(27,39,51,.04)}
+  .card h3{margin-bottom:8px;font-size:1.1rem}
   .muted{color:var(--stone);font-size:.9rem}
 
-  /* ===== Timeline ===== */
   .gantt{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
     padding:24px;overflow-x:auto}
-  .gantt table{border-collapse:collapse;min-width:680px;width:100%;font-size:.82rem}
+  .gantt table{border-collapse:collapse;min-width:640px;width:100%;font-size:.82rem}
   .gantt td,.gantt th{padding:8px 6px;text-align:center}
   .gantt th{color:var(--stone);font-weight:600;font-size:.72rem}
   .gantt td.lbl{text-align:left;font-weight:600;color:var(--deep);white-space:nowrap;padding-right:14px}
@@ -68,39 +67,29 @@
   .gantt .on.navy{background:var(--navy)}
   .gantt .off{background:#f0ede2}
 
-  /* ===== Frentes ===== */
-  .modplan{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
-    overflow:hidden;box-shadow:0 1px 3px rgba(27,39,51,.04);margin-top:24px}
-  .modplan .mhead{background:var(--deep);color:#f2efe7;padding:18px 26px;
-    display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
-  .modplan .mhead .mid{color:#c0392b;background:#fff;border-radius:8px;
-    font-weight:800;font-size:.8rem;padding:4px 12px;letter-spacing:.08em}
-  .modplan .mhead h3{color:#fff;font-size:1.3rem;flex:1;min-width:220px}
-  .modplan .mhead .dur{font-size:.8rem;color:#b9c4cf}
-  .modplan .mbody{display:grid;grid-template-columns:2fr 1fr;gap:0}
-  @media(max-width:820px){.modplan .mbody{grid-template-columns:1fr}}
-  .modplan .acts{padding:22px 26px}
-  .modplan .acts h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;
-    color:var(--red);margin-bottom:12px}
-  .modplan .acts ol{padding-left:20px;font-size:.9rem;color:#4a534a}
-  .modplan .acts li{margin-bottom:8px}
-  .modplan .acts li b{color:var(--deep)}
-  .modplan .side{background:var(--navy-soft);padding:22px 26px;border-left:1px solid var(--line)}
-  .modplan .side h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;
-    color:var(--navy);margin-bottom:12px}
-  .modplan .side .kv{margin-bottom:16px}
-  .modplan .side .kv .k{font-size:.72rem;color:var(--stone);text-transform:uppercase;letter-spacing:.08em}
-  .modplan .side .kv .v{font-size:.9rem;color:var(--deep);font-weight:600}
-  .modplan .win{margin-top:6px;font-size:.82rem;color:#3d453d;font-style:italic;
-    border-top:1px dashed #ccd4e4;padding-top:12px}
+  .finding{background:var(--paper);border-left:4px solid var(--red);border-radius:0 var(--radius) var(--radius) 0;
+    padding:16px 20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(27,39,51,.04);font-size:.92rem}
+  .finding b{color:var(--deep)}
+  .finding .tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.7rem;font-weight:700;
+    margin-right:8px;text-transform:uppercase;letter-spacing:.06em}
+  .tag.fuerte{background:#f6ded8;color:var(--red-dark)}
+  .tag.medio{background:#f7ecd4;color:#8a6116}
+  .tag.verif{background:#e8e5dc;color:#5c5648}
+
+  .step{display:flex;gap:18px;margin-bottom:16px}
+  .step .n{width:36px;height:36px;border-radius:50%;background:var(--red);color:#fff;
+    flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+  .step .b b{color:var(--deep)}
+  .step .b .when{font-size:.72rem;font-weight:800;letter-spacing:.08em;color:var(--red-dark);text-transform:uppercase}
+  .step .b p{font-size:.92rem;color:#4a534a}
 
   .next{background:var(--navy-soft);border:1px solid #d6ddef;border-radius:var(--radius);
     padding:26px;margin-top:24px}
   .next h3{margin-bottom:8px}
   .next p{font-size:.92rem;color:#3d453d}
 
-  .note{font-size:.8rem;color:var(--stone);margin-top:18px;font-style:italic}
-  .footer{padding:48px 0 32px;text-align:center;color:var(--stone);font-size:.85rem}
+  .note{font-size:.8rem;color:var(--stone);margin-top:16px;font-style:italic}
+  .footer{padding:44px 0 30px;text-align:center;color:var(--stone);font-size:.85rem}
   .footer b{color:var(--deep)}
   .footer img{height:34px;object-fit:contain;margin-bottom:10px;opacity:.9}
   .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
@@ -109,8 +98,8 @@
   .fab:hover{background:var(--red-dark)}
   @media print{
     .fab{display:none}
-    .modplan,.card,.next{page-break-inside:avoid}
-    section{padding:32px 0}
+    .card,.finding,.next{page-break-inside:avoid}
+    section{padding:30px 0}
   }
 </style>
 </head>
@@ -124,152 +113,104 @@
       <span class="x">×</span>
       <img class="nut" src="nut.png" alt="Nututun Palenque Hotel">
     </div>
-    <span class="badge-doc">Plan de ataque · Fase 1 · Documento de trabajo</span>
-    <h1>Presencia digital y <em>automatización</em></h1>
-    <p class="sub">Lo que Nututún pidió directamente: aparecer en Google, sacar estadísticas del motor
-       de reserva y automatizar el WhatsApp del huésped. La investigación de mercado queda como Fase 2.</p>
+    <span class="badge-doc">Frente D1 · Documento vivo de trabajo</span>
+    <h1>Plan de ejecución — <em>por qué pagan Ads y no aparecen</em></h1>
+    <p class="sub">Antecedentes, hallazgos preliminares y plan de trabajo ajustado.
+       Visita técnica en Palenque: <b>3 de noviembre</b>.</p>
     <div class="meta">
       <div><b>Cliente</b>Hotel Nututún Palenque</div>
       <div><b>Ejecuta</b>The Unknown Shopper + Olmeca Code</div>
-      <div><b>Alcance</b>3 frentes digitales · ~4 semanas</div>
-      <div><b>Estatus</b>Interno — alcance por cotizar</div>
+      <div><b>Contratado</b>Frente D1 · $4,000 + IVA</div>
+      <div><b>Actualizado</b>29 de octubre, 2026</div>
     </div>
   </div>
 </header>
 
-<!-- ================= VISTA GENERAL ================= -->
-<section id="general">
+<!-- ================= ANTECEDENTES ================= -->
+<section id="antecedentes">
   <div class="wrap">
-    <div class="kicker">01 · Vista general</div>
-    <h2>Calendario de ejecución — Fase 1</h2>
-    <p class="lead">El cliente definió el problema: <b>pagan Google Ads y no aparecen</b>. La Fase 1 ataca
-       la presencia digital de frente y deja el sistema listo para la investigación de mercado después.
-       Tres frentes en paralelo, un entregable funcionando en 4 semanas.</p>
+    <div class="kicker">01 · Antecedentes</div>
+    <h2>Cómo llegamos aquí</h2>
+    <div class="finding"><span class="tag verif">Contexto</span><b>El cliente nos buscó.</b> Nututún contactó por recomendación interna — su mayor preocupación declarada: <i>"pagamos Google Ads y no figuramos"</i>, además de querer estadísticas de su motor de reserva y automatización de WhatsApp.</div>
+    <div class="finding"><span class="tag verif">Contexto</span><b>Se contrató solo el Frente D1</b> ($4,000 + IVA): diagnóstico de la cuenta de Ads + correcciones aplicadas + presentación de hallazgos. D2 y D3 quedan abiertos como siguientes frentes.</div>
+    <div class="finding"><span class="tag medio">28 oct</span><b>Llamada del cliente con soporte de Google.</b> El asesor no entregó los datos pedidos, siguió el guion de vender más gasto y culpó a "el algoritmo" — su respuesta literal a por qué no aparecen fue <i>"lo peor que pueden hacer es autobuscarse"</i>. Cero términos de búsqueda, cero auction insights, cero explicación.</div>
+    <div class="finding"><span class="tag medio">28 oct</span><b>El cliente sí tiene acceso a la cuenta de Ads</b> — captura de pantalla de la interfaz lo confirma. Esto elimina el peor escenario (cuenta en poder de una agencia) y abre la vía rápida de permisos por invitación.</div>
+  </div>
+</section>
+
+<!-- ================= HALLAZGOS ================= -->
+<section id="hallazgos">
+  <div class="wrap">
+    <div class="kicker">02 · Hallazgos preliminares</div>
+    <h2>Lo que ya delata la captura de la cuenta</h2>
+    <p class="lead">Sin tocar nada todavía — esto es lo que una sola captura de pantalla de la interfaz de Ads ya revela:</p>
+    <div style="margin-top:24px">
+      <div class="finding"><span class="tag fuerte">Fuerte</span><b>Existe una campaña Performance Max</b> ("Sales-Performance Max-1"). Tipo de campaña que Google empuja a cuentas chicas: quema presupuesto en ubicaciones fuera de control y es famosa por inflar conversiones (cuenta búsquedas de marca como mérito propio).</div>
+      <div class="finding"><span class="tag fuerte">Fuerte</span><b>Hay una campaña "Busqueda by Google"</b> — el nombre indica que la creó Google (recomendaciones automáticas o el asesor), no el hotel. Si Google modifica la cuenta sola, el cliente paga decisiones que nadie autorizó.</div>
+      <div class="finding"><span class="tag fuerte">Fuerte</span><b>Las conversiones no cuadran.</b> 327 clics con 72 "conversiones" en PMax y 28.72 (fraccionadas) en búsqueda, valor total $2,590. Una reserva de hotel cuesta miles — esto huele a clics de WhatsApp ("Whatsapp Nututun" aparece como fila) contados como ventas. Números bonitos, negocio vacío.</div>
+      <div class="finding"><span class="tag medio">Medio</span><b>Hay un borrador de campaña en curso</b> ("Borradores en curso: 1") — ¿de quién y con qué intención? El historial de cambios lo revela.</div>
+      <div class="finding"><span class="tag medio">Medio</span><b>Ausente del carrusel de hoteles patrocinados y de los primeros resultados</b> — aparece hasta página 2 en "hotel palenque". El carrusel se alimenta de feeds de tarifas (Booking, Skyscanner); Nututún ya tiene Booking (8.7★) pero su precio directo no compite ahí. Conectar el "sitio oficial" a Google Hotel Center depende del motor de reserva — plataforma por confirmar (30 oct).</div>
+      <div class="finding"><span class="tag medio">Medio</span><b>Estrategia de Google documentada</b> — el asesor propuso exactamente lo previsto: más gasto, recomendaciones en vivo, cero datos. Material guardado para el momento "ajá" de la presentación.</div>
+    </div>
+    <p class="note">Todos los hallazgos de esta sección son preliminares — se verifican y documentan con el acceso completo durante la semana del 3 de noviembre.</p>
+  </div>
+</section>
+
+<!-- ================= PLAN AJUSTADO ================= -->
+<section id="plan">
+  <div class="wrap">
+    <div class="kicker">03 · Plan de trabajo ajustado</div>
+    <h2>Del 30 de octubre al cierre</h2>
+    <div style="margin-top:24px">
+      <div class="step"><div class="n">1</div><div class="b"><div class="when">Jue 30 oct — antes de la visita</div><b>Confirmar la plataforma de reserva</b> (qué motor usa el hotel — Cloudbeds, SiteMinder, propio, etc.) y que Ale obtenga el <b>ID de cuenta</b> de Ads (arriba a la derecha en la interfaz, formato XXX-XXX-XXXX). Con eso se envían las invitaciones de acceso.</div></div>
+      <div class="step"><div class="n">2</div><div class="b"><div class="when">Lun 3 nov — visita técnica en Palenque (~medio día)</div><b>Acceso en su presencia + configuración remota.</b> Abrimos las cuentas en el equipo del hotel, agregamos los permisos de usuario, verificamos el acceso remoto y capturamos la línea base (impresiones, clics, posición, costo). Sin contraseñas compartidas — todo por invitación.</div></div>
+      <div class="step"><div class="n">3</div><div class="b"><div class="when">4–7 nov — auditoría profunda (remoto)</div><b>La excavación.</b> Términos de búsqueda, historial de cambios (quién creó "Busqueda by Google" y el borrador), auction insights (quién gana las subastas), configuración de conversiones (qué cuentan como "venta"), presupuesto y segmentación geográfica. Revisión de ficha Google Business Profile y Search Console.</div></div>
+      <div class="step"><div class="n">4</div><div class="b"><div class="when">10–12 nov — correcciones autorizadas</div><b>Aplicar lo que esté mal.</b> Keywords negativas, reordenamiento de campañas, anuncios con el diferenciador real, ficha optimizada, indexación del sitio. Los cambios de presupuesto o pausa de campañas solo con autorización del cliente.</div></div>
+      <div class="step"><div class="n">5</div><div class="b"><div class="when">13–14 nov — presentación de hallazgos</div><b>La junta.</b> Esto estaba mal → esto ya quedó corregido → esto recomendamos. Con el comparativo antes/después documentado y la hoja de ruta (tablero vivo, hotel carousel vía motor, D2/D3).</div></div>
+    </div>
+
     <div class="gantt" style="margin-top:28px">
       <table>
         <thead>
-          <tr><td class="lbl"></td><th>S1</th><th>S2</th><th>S3</th><th>S4</th></tr>
+          <tr><td class="lbl"></td><th>30 oct</th><th>3 nov</th><th>4–7</th><th>10–12</th><th>13–14</th></tr>
         </thead>
         <tbody>
-          <tr><td class="lbl">Kick-off + accesos</td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
-          <tr><td class="lbl">D1 · Visibilidad en Google</td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
-          <tr><td class="lbl">D2 · Motor de reserva → estadísticas</td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
-          <tr><td class="lbl">D3 · WhatsApp check-in / check-out</td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td></tr>
-          <tr><td class="lbl">Integración + pruebas en vivo</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td></tr>
-          <tr><td class="lbl">Entrega + capacitación</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on navy"></div></td></tr>
+          <tr><td class="lbl">Motor de reserva + ID cuenta</td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">Visita técnica Palenque</td><td><div class="cell off"></div></td><td><div class="cell on navy"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">Auditoría profunda</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">Correcciones</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on"></div></td><td><div class="cell off"></div></td></tr>
+          <tr><td class="lbl">Presentación</td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell off"></div></td><td><div class="cell on navy"></div></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note">D3 arranca en S1 porque las plantillas de mensajes requieren aprobación de Meta
-       (días, no horas) — si se empieza tarde, se convierte en el cuello de botella. El resto depende
-       de los accesos entregados en la semana 1.</p>
   </div>
 </section>
 
-<!-- ================= D1 ================= -->
-<section id="d1">
+<!-- ================= PRÓXIMAS MEDIDAS ================= -->
+<section id="medidas">
   <div class="wrap">
-    <div class="kicker">02 · Frente D1</div>
-    <h2>Visibilidad en Google — por qué pagan y no aparecen</h2>
-    <div class="modplan">
-      <div class="mhead"><span class="mid">D1</span><h3>Ads + buscador + ficha del hotel</h3><span class="dur">S1–S2</span></div>
-      <div class="mbody">
-        <div class="acts">
-          <h4>Plan de ataque</h4>
-          <ol>
-            <li><b>Auditoría de la cuenta de Google Ads.</b> Acceso de lectura: qué keywords se pujan, presupuesto real, segmentación geográfica, impresiones perdidas, quality score y — clave — los <b>términos de búsqueda reales</b> que activan el anuncio. Ahí suele estar la respuesta a "pagamos y no figuramos".</li>
-            <li><b>Reestructura de campañas.</b> Keywords de intención real del viajero a Palenque ("hotel en la selva", "hotel cerca de las ruinas", "hotel con alberca palenque"), concordancias correctas, <b>keywords negativas</b> para dejar de pagar clics basura y extensiones con el diferenciador: poza natural, río, reserva.</li>
-            <li><b>Google Business Profile.</b> Ficha optimizada: categorías correctas, atributos, fotos priorizadas, Q&amp;A sembrado, descripción con keywords del destino. Es el activo gratis que aparece antes que el anuncio.</li>
-            <li><b>SEO técnico del sitio.</b> Indexación en Search Console, velocidad, meta títulos con intención de búsqueda, schema de <code>Hotel</code> (estrellas, precio, amenidades) para que Google entienda y enriquezca la ficha en resultados.</li>
-            <li><b>Línea base medible.</b> Antes de tocar nada: captura de impresiones, clics, posición promedio y CTR — para demostrar en S4 exactamente qué se movió.</li>
-          </ol>
-        </div>
-        <div class="side">
-          <h4>Ficha del frente</h4>
-          <div class="kv"><div class="k">Ejecuta</div><div class="v">Analista Ads/SEO</div></div>
-          <div class="kv"><div class="k">Entregable</div><div class="v">Diagnóstico del desperdicio + campañas reestructuradas + ficha GBP optimizada + sitio indexado y medible</div></div>
-          <div class="kv"><div class="k">Requiere</div><div class="v">Acceso de lectura a Google Ads, Google Business Profile, Search Console y administrador del sitio web</div></div>
-          <div class="win">Señal de éxito: encontrar la campaña que paga por clics que nunca fueron del huésped — el hallazgo que paga el frente completo en la primera reunión de resultados.</div>
-        </div>
-      </div>
+    <div class="kicker">04 · Próximas medidas — checklist</div>
+    <h2>Qué extraer el primer día de acceso</h2>
+    <div class="grid3" style="margin-top:24px">
+      <div class="card"><h3>Historial de cambios</h3><p class="muted">Quién tocó la cuenta y cuándo: si "Busqueda by Google" y el borrador fueron recomendaciones auto-aplicadas o el asesor. La respuesta a "¿quién gasta nuestro dinero?"</p></div>
+      <div class="card"><h3>Términos de búsqueda</h3><p class="muted">Las frases reales que activan el anuncio — la fuga documentada clic por clic.</p></div>
+      <div class="card"><h3>Auction insights</h3><p class="muted">Contra quién compiten las subastas: si Chan-Kah, La Aldea o las OTAs se llevan "hotel palenque".</p></div>
+      <div class="card"><h3>Configuración de conversiones</h3><p class="muted">Qué cuenta Google como "conversión" — si los 72/28.72 son clics de WhatsApp disfrazados de ventas, ahí está la demostración del número inflado.</p></div>
+      <div class="card"><h3>Segmentación y presupuesto</h3><p class="muted">A qué mercados le pagan por aparecer — si cobran clics de países/ciudades que no mandan turistas a Palenque.</p></div>
+      <div class="card"><h3>Factibilidad Hotel Center</h3><p class="muted">Con el nombre del motor de reserva: verificar si soporta booking links gratis → Nututún aparece en el carrusel con "sitio oficial" y sin comisión.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= D2 ================= -->
-<section id="d2">
-  <div class="wrap">
-    <div class="kicker">03 · Frente D2</div>
-    <h2>Motor de reserva → estadísticas que deciden</h2>
-    <div class="modplan">
-      <div class="mhead"><span class="mid">D2</span><h3>El motor ya sabe cosas que nadie está viendo</h3><span class="dur">S2</span></div>
-      <div class="mbody">
-        <div class="acts">
-          <h4>Plan de ataque</h4>
-          <ol>
-            <li><b>Reconocimiento del motor.</b> Qué plataforma es, qué expone: API, webhooks, exportaciones (CSV/Excel), o solo reportes manuales. Esto define qué tanto se puede automatizar.</li>
-            <li><b>Extracción y limpieza.</b> Reservas históricas y en curso exportadas y normalizadas: fechas, canal, tarifa, habitación, origen del huésped, antelación de compra, cancelaciones.</li>
-            <li><b>Radiografía estadística.</b> Presentación de la primera lectura cuantificada del negocio: ocupación por periodo, ADR, canal de reserva, lead time, estacionalidad y origen geográfico — con los hallazgos accionables marcados.</li>
-            <li><b>Sembrar la siguiente venta.</b> Documentar qué falta para el tablero en vivo (API del motor) — esa integración es la segunda iteración y se cotiza aparte.</li>
-          </ol>
-        </div>
-        <div class="side">
-          <h4>Ficha del frente</h4>
-          <div class="kv"><div class="k">Ejecuta</div><div class="v">Olmeca Code — análisis de datos</div></div>
-          <div class="kv"><div class="k">Entregable</div><div class="v">Presentación de estadísticas del negocio a partir de la exportación del motor (tablero en vivo con API: segunda iteración cotizable)</div></div>
-          <div class="kv"><div class="k">Requiere</div><div class="v">Credenciales del motor de reserva o exportación de reservas facilitada por recepción</div></div>
-          <div class="win">Señal de éxito: la primera vez que Francisco vea su ocupación, ADR y canales en una pantalla — datos que hoy solo viven dentro del motor.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= D3 ================= -->
-<section id="d3">
-  <div class="wrap">
-    <div class="kicker">04 · Frente D3</div>
-    <h2>WhatsApp automático — check-in y check-out</h2>
-    <div class="modplan">
-      <div class="mhead"><span class="mid">D3</span><h3>El huésped informado en la entrada, reseñando en la salida</h3><span class="dur">S1–S4</span></div>
-      <div class="mbody">
-        <div class="acts">
-          <h4>Plan de ataque</h4>
-          <ol>
-            <li><b>WhatsApp Business API.</b> Alta del número del hotel y plantillas de mensaje sometidas a aprobación de Meta desde la S1 (es el único paso que no controlamos al 100% — por eso arranca primero).</li>
-            <li><b>Disparador de check-in.</b> Al registrarse la entrada: mensaje automático con lo que hay en el hotel — poza natural sobre el Chacamax, reserva, río, restaurante, horarios y tours. Experiencia + venta suave desde el minuto uno.</li>
-            <li><b>Disparador de check-out.</b> A la salida: agradecimiento + solicitud de reseña con <b>links directos a Google y Tripadvisor</b>. Cada reseña nueva alimenta el posicionamiento que piden en D1 — el sistema se paga solo en visibilidad.</li>
-            <li><b>Integración.</b> Ideal: webhook/API del motor de reserva dispara el mensaje. Si el motor no lo permite: lista diaria de check-ins/check-outs exportada y envío programado — mismo resultado, cero fricción para recepción.</li>
-            <li><b>Opt-in y reglas de Meta.</b> Consentimiento registrado en la reserva; plantillas aprobadas, sin spam — la reputación del número del hotel no se juega.</li>
-            <li><b>Panel para mostrador y gerente.</b> Vista de la operación en tiempo real: mensajes enviados/entregados/leídos, clics en los links de reseña, reseñas resultantes y resumen diario — el staff ve el sistema trabajando sin pedir reportes.</li>
-            <li><b>Medición.</b> % de check-outs que dejan reseña → ritmo de reseñas nuevas en Google/Tripadvisor → impacto directo sobre el "share of voice" del destino.</li>
-          </ol>
-        </div>
-        <div class="side">
-          <h4>Ficha del frente</h4>
-          <div class="kv"><div class="k">Ejecuta</div><div class="v">Olmeca Code — desarrollo</div></div>
-          <div class="kv"><div class="k">Entregable</div><div class="v">Flujo WhatsApp en producción + panel con estadísticas para mostrador/gerente: enviados, clics, reseñas generadas, resumen diario</div></div>
-          <div class="kv"><div class="k">Requiere</div><div class="v">Número WhatsApp Business del hotel + textos de mensajes aprobados por el cliente + acceso a eventos del motor de reserva</div></div>
-          <div class="win">Señal de éxito: el primer huésped que deja su reseña de 5★ por WhatsApp automático — y la curva de reseñas empezando a despegar en el tablero.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= NECESITAMOS ================= -->
+<!-- ================= LO QUE PEDIMOS ================= -->
 <section id="requerimientos">
   <div class="wrap">
     <div class="kicker">05 · Lo que pedimos al cliente</div>
-    <h2>Accesos y dos decisiones</h2>
-    <div class="grid3" style="margin-top:28px">
-      <div class="card"><h3>Accesos de lectura</h3><p class="muted">Google Ads, Google Business Profile, Search Console y administrador del sitio web. Sin contraseñas maestras — permisos de lectura/analista bastan para la auditoría.</p></div>
-      <div class="card"><h3>Motor de reserva</h3><p class="muted">Credenciales o contacto del proveedor para habilitar exportaciones/API. Es la pieza que alimenta el tablero <i>y</i> dispara el WhatsApp.</p></div>
-      <div class="card"><h3>WhatsApp Business</h3><p class="muted">Número del hotel para la API (puede ser el actual) y aprobación de los textos de check-in/check-out — qué se dice y con qué tono.</p></div>
-    </div>
-    <div class="grid2" style="margin-top:18px">
-      <div class="card"><h3>Contraparte única</h3><p class="muted">Una persona del hotel con quien validar avances semanales — una sola sesión de 30 minutos por semana.</p></div>
-      <div class="card"><h3>Contenidos del hotel</h3><p class="muted">Lista oficial de amenidades, horarios, tours y cualquier texto que deba decir el mensaje de check-in — lo que quieren que todo huésped sepa desde el día uno.</p></div>
+    <h2>Solo tres cosas</h2>
+    <div class="grid3" style="margin-top:24px">
+      <div class="card"><h3>El nombre del motor de reserva</h3><p class="muted">Qué plataforma usan para las reservaciones — define si el precio directo puede entrar al carrusel patrocinado sin comisión.</p></div>
+      <div class="card"><h3>Las invitaciones de acceso</h3><p class="muted">Aceptar los permisos de usuario: Google Ads, Business Profile, Search Console y el admin del sitio. Se envían como invitación formal — revocables en un clic.</p></div>
+      <div class="card"><h3>La media jornada del 3 de nov</h3><p class="muted">Un espacio con el equipo de trabajo y alguien con permiso de abrir las cuentas — nosotros hacemos el resto.</p></div>
     </div>
   </div>
 </section>
@@ -278,38 +219,26 @@
 <section id="reglas" style="border-bottom:none">
   <div class="wrap">
     <div class="kicker">06 · Reglas de operación</div>
-    <h2>Cómo se trabaja sobre sistemas en producción</h2>
-    <div class="grid2" style="margin-top:28px">
-      <div class="card">
-        <h3>Primero no romper</h3>
-        <p class="muted">Tocamos campañas de Ads y sistemas que ya operan: cada cambio va con respaldo, se prueba en staging cuando existe y siempre hay ruta de reversa. La línea base se captura antes de mover un solo píxel.</p>
-      </div>
-      <div class="card">
-        <h3>Meta manda</h3>
-        <p class="muted">Los mensajes automáticos cumplen las políticas de WhatsApp Business: opt-in registrado, plantillas aprobadas, nada de envíos masivos fuera de regla. La reputación del número del hotel es parte del activo.</p>
-      </div>
-      <div class="card">
-        <h3>Evidencia, siempre</h3>
-        <p class="muted">Cada cambio documentado con capturas de antes/después. Los números de "pagábamos X y aparecíamos Y" vs. los de la semana 4 son la entrega real — no promesas.</p>
-      </div>
-      <div class="card">
-        <h3>Confidencialidad</h3>
-        <p class="muted">Credenciales del cliente almacenadas fuera del repositorio, datos de huéspedes tratados bajo aviso de privacidad y nada de nombres en casos públicos sin autorización.</p>
-      </div>
+    <h2>Cómo se trabaja sobre cuentas en producción</h2>
+    <div class="grid2" style="margin-top:24px">
+      <div class="card"><h3>Primero no romper</h3><p class="muted">Línea base capturada antes de tocar nada; cada cambio documentado con antes/después y reversible. Correcciones de presupuesto o pausas solo con autorización.</p></div>
+      <div class="card"><h3>Permisos, no contraseñas</h3><p class="muted">Todo acceso como usuarios invitados y revocables. Nada de credenciales por WhatsApp ni texto plano — el mapa de acceso se entrega al cierre.</p></div>
+      <div class="card"><h3>Evidencia, siempre</h3><p class="muted">Cada hallazgo con su captura: el informe de términos, el historial, las conversiones. Nada de "confíe en nosotros" — números en pantalla.</p></div>
+      <div class="card"><h3>Confidencialidad</h3><p class="muted">Los datos de la cuenta y del negocio son del cliente; nada sale a casos públicos sin autorización.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= FASE 2 ================= -->
-<section id="fase2" style="border-bottom:none;padding-top:0">
+<!-- ================= FASE SIGUIENTE ================= -->
+<section id="siguiente" style="border-bottom:none;padding-top:0">
   <div class="wrap">
     <div class="next">
-      <div class="kicker">07 · Lo que sigue</div>
-      <h3>Fase 2 — Investigación de mercado (cuando estén listos)</h3>
-      <p>El cliente ya lo dijo: <i>"ya después de eso nos interesaría una investigación de mercado más a fondo"</i>.
-      La propuesta M1 + M2 sigue en pie y aterriza mejor sobre la Fase 1 — porque el tablero de estadísticas
-      del motor de reserva y el flujo de reseñas ya estarán vivos cuando empecemos a medir por qué el viajero
-      elige otra casa. Alcance y cotización: reunión aparte.</p>
+      <div class="kicker">07 · Lo que sigue después del D1</div>
+      <h3>Los frentes que quedaron sobre la mesa</h3>
+      <p>D2 — las estadísticas del motor de reserva ($4,000) y D3 — WhatsApp automático check-in/check-out
+      con panel para mostrador ($12,000). Los dos se vuelven mejores decisiones con el diagnóstico del D1 en mano:
+      sabremos si el motor puede alimentar el carrusel de Google y qué automatizaciones valen la pena primero.
+      La investigación de mercado sigue como horizonte, cuando el cliente esté listo.</p>
     </div>
   </div>
 </section>
@@ -317,7 +246,7 @@
 <footer class="footer">
   <div class="wrap">
     <img src="tusxx.png" alt="The Unknown Shopper"><br>
-    <b>The Unknown Shopper + Olmeca Code</b> · Plan de ataque Fase 1 · Hotel Nututún Palenque<br>
+    <b>The Unknown Shopper + Olmeca Code</b> · Plan de trabajo Frente D1 · Hotel Nututún Palenque<br>
     Documento interno de trabajo © 2026 · Confidencial.
   </div>
 </footer>
