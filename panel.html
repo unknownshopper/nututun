@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel — Hotel Nututún Palenque · Fase 1</title>
+<meta name="description" content="Panel de avance del proyecto: métricas, hallazgos y documentos — Hotel Nututún Palenque.">
+<meta name="author" content="The Unknown Shopper">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f6f4ee">
+<script>document.documentElement.style.display="none";</script>
+<link rel="icon" type="image/png" href="nut.png">
+<style>
+  :root{
+    --bg:#f6f4ee;--paper:#fff;--ink:#23282d;--deep:#1b2733;--line:#e6e1d4;
+    --red:#c0392b;--red-dark:#96271c;--red-soft:#fdf0ee;
+    --navy:#26355c;--navy-soft:#eef1f7;--stone:#7d766a;--radius:14px;
+    --green:#2c5f43;--green-soft:#dcebe1;--amber:#8a6116;--amber-soft:#f7ecd4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--deep)}
+  h2{font-size:1.5rem;margin-bottom:.4em}
+  section{padding:40px 0;border-bottom:1px solid var(--line)}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:26px;height:2px;background:var(--red);display:inline-block}
+
+  .top{display:flex;align-items:center;justify-content:space-between;padding:32px 0 0;gap:18px;flex-wrap:wrap}
+  .top img{height:50px;object-fit:contain}
+  .top .right{display:flex;align-items:center;gap:14px}
+  .top .u{font-size:.8rem;color:var(--stone)}
+  .out{background:transparent;border:1px solid #c9c2ae;color:var(--stone);border-radius:9px;
+    padding:8px 16px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit}
+  .out:hover{border-color:var(--red);color:var(--red)}
+
+  /* ===== Estado del proyecto ===== */
+  .hero{margin-top:30px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--red);
+    border-radius:var(--radius);padding:26px 28px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .hero .tag{display:inline-block;background:var(--red-soft);color:var(--red-dark);border:1px solid #ecc8c1;
+    padding:5px 13px;border-radius:999px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+  .hero h1{font-size:1.9rem;margin:10px 0 6px}
+  .hero p{font-size:.92rem;color:#4a534a;max-width:520px}
+  .hero .prog{min-width:220px}
+  .hero .prog .lbl{font-size:.72rem;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+  .hero .prog .bar{height:10px;background:#f0ede2;border-radius:99px;margin-top:8px;overflow:hidden}
+  .hero .prog .bar i{display:block;height:100%;background:var(--red);border-radius:99px}
+  .hero .prog .pct{font-size:1.5rem;font-weight:800;color:var(--deep);margin-top:8px;font-family:Georgia,serif}
+
+  /* ===== Hitos ===== */
+  .mile{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start}
+  .mile .dot{width:14px;height:14px;border-radius:50%;margin-top:5px;flex-shrink:0;border:3px solid #d6d0c0;background:#fff}
+  .mile.done .dot{border-color:var(--green);background:var(--green)}
+  .mile.now .dot{border-color:var(--red);background:var(--red)}
+  .mile .b b{color:var(--deep);font-size:.95rem}
+  .mile .b .when{font-size:.72rem;color:var(--stone);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+  .mile.now .b .when{color:var(--red)}
+  .mile .b p{font-size:.86rem;color:#4a534a}
+
+  /* ===== Métricas ===== */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:820px){.grid3,.grid2{grid-template-columns:1fr}}
+  .metric{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .metric .k{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
+  .metric .v{font-family:Georgia,serif;font-size:1.9rem;color:var(--deep);margin:8px 0 4px;line-height:1}
+  .metric .v small{font-size:.85rem;color:var(--stone);font-family:inherit}
+  .metric .d{font-size:.8rem;color:#4a534a}
+  .badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.07em;margin-top:10px}
+  .badge.base{background:var(--navy-soft);color:var(--navy)}
+  .badge.pend{background:var(--amber-soft);color:var(--amber)}
+  .badge.hall{background:#f6ded8;color:var(--red-dark)}
+  .badge.ok{background:var(--green-soft);color:var(--green)}
+
+  /* ===== Hallazgos ===== */
+  .find{background:var(--paper);border-left:4px solid var(--red);border-radius:0 var(--radius) var(--radius) 0;
+    padding:15px 20px;margin-bottom:10px;font-size:.9rem;color:#3d453d;box-shadow:0 1px 3px rgba(27,39,51,.04)}
+  .find b{color:var(--deep)}
+
+  /* ===== Documentos ===== */
+  .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:720px){.docs{grid-template-columns:1fr}}
+  .doc{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;text-decoration:none;color:var(--ink);font-size:.88rem;transition:border-color .15s}
+  .doc:hover{border-color:var(--red)}
+  .doc b{color:var(--deep);display:block;font-size:.92rem}
+  .doc span{color:var(--stone);font-size:.78rem}
+
+  .next{background:var(--navy-soft);border:1px solid #d6ddef;border-radius:var(--radius);padding:22px 24px}
+  .next h3{margin-bottom:6px;font-size:1.05rem}
+  .next p{font-size:.88rem;color:#3d453d}
+
+  .footer{padding:32px 0;text-align:center;color:var(--stone);font-size:.8rem}
+  .footer b{color:var(--deep)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <img src="nut.png" alt="Hotel Nututún Palenque">
+    <div class="right">
+      <span class="u" id="who"></span>
+      <button class="out" id="outbtn">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <!-- ===== ESTADO ===== -->
+  <div class="hero">
+    <div>
+      <span class="tag" id="fase">Fase 1 · En ejecución</span>
+      <h1 id="titulo">Por qué pagan Ads y no aparecen</h1>
+      <p id="resumen">Diagnóstico de la cuenta de Google Ads, correcciones aplicadas y presentación de hallazgos.</p>
+    </div>
+    <div class="prog">
+      <div class="lbl">Avance del frente</div>
+      <div class="bar"><i id="bar" style="width:0%"></i></div>
+      <div class="pct" id="pct">0%</div>
+    </div>
+  </div>
+
+  <!-- ===== HITOS ===== -->
+  <section>
+    <div class="kicker">La ruta</div>
+    <h2>Dónde estamos</h2>
+    <div id="hitos" style="margin-top:16px"></div>
+  </section>
+
+  <!-- ===== MÉTRICAS ===== -->
+  <section>
+    <div class="kicker">Lo que estamos midiendo</div>
+    <h2>Los números del negocio</h2>
+    <p style="font-size:.9rem;color:var(--stone);max-width:640px">Datos base conocidos hoy + los que aparecerán conforme avanza la auditoría.</p>
+    <div class="grid3" style="margin-top:20px" id="metricas"></div>
+  </section>
+
+  <!-- ===== HALLAZGOS ===== -->
+  <section>
+    <div class="kicker">Hallazgos</div>
+    <h2>Lo que ya sabemos</h2>
+    <div id="hallazgos" style="margin-top:16px"></div>
+  </section>
+
+  <!-- ===== SIGUIENTE ===== -->
+  <section style="border-bottom:none;padding-bottom:20px">
+    <div class="next" id="siguiente"></div>
+  </section>
+
+  <!-- ===== DOCUMENTOS ===== -->
+  <section style="border-bottom:none;padding-top:10px">
+    <div class="kicker">Sus documentos</div>
+    <div class="docs" id="docs" style="margin-top:14px"></div>
+  </section>
+
+  <div class="footer"><b>The Unknown Shopper + Olmeca Code</b> · Panel del proyecto · Confidencial</div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="auth.js"></script>
+<script>
+/* ============================================================
+   DATOS DEL PANEL — actualizar conforme avanza el proyecto.
+   (Siguiente iteración: esto leerá de Firestore.)
+   ============================================================ */
+const DATA = {
+  fase: "Fase 1 · En ejecución",
+  titulo: "Por qué pagan Ads y no aparecen",
+  resumen: "Diagnóstico de la cuenta de Google Ads, correcciones aplicadas y presentación de hallazgos. Visita técnica realizada el 2 de noviembre.",
+  avance: 25,
+
+  hitos: [
+    {when:"2 nov", t:"Visita técnica en Palenque", p:"Accesos en su presencia, línea base capturada, acceso remoto configurado.", estado:"done"},
+    {when:"4–7 nov", t:"Auditoría profunda", p:"Términos de búsqueda, historial de cambios, subastas, conversiones, ficha de Maps.", estado:"now"},
+    {when:"10–12 nov", t:"Correcciones autorizadas", p:"Keywords negativas, campañas reordenadas, anuncios nuevos, ficha optimizada.", estado:""},
+    {when:"13–14 nov", t:"Presentación de hallazgos", p:"Esto estaba mal → esto ya quedó → esto recomendamos. Con comparativo documentado.", estado:""}
+  ],
+
+  metricas: [
+    {k:"Google — calificación", v:"4.5★", d:"~2,300 reseñas", b:"base", bt:"Dato base"},
+    {k:"Tripadvisor", v:"4.1★", d:"~525 reseñas — la más baja de su set competitivo", b:"base", bt:"Dato base"},
+    {k:"Booking.com", v:"8.7", d:"~408 evaluaciones · Wi-Fi 6.5 el punto débil", b:"base", bt:"Dato base"},
+    {k:"Posición en 'hotel palenque'", v:"Pág. 2", d:"Ausente del carrusel patrocinado y de primeros resultados", b:"hall", bt:"Hallazgo"},
+    {k:"Conversiones reales registradas", v:"—", d:"La cuenta marca 72+28.7 'ventas' — probablemente clics de WhatsApp inflados", b:"pend", bt:"Por verificar"},
+    {k:"Términos de búsqueda reales", v:"—", d:"Qué escribe la gente antes de que salga su anuncio — la fuga", b:"pend", bt:"En auditoría"},
+    {k:"Quién gana las subastas", v:"—", d:"Auction insights: qué competidores aparecen donde ustedes no", b:"pend", bt:"En auditoría"},
+    {k:"Presupuesto desperdiciado", v:"—", d:"Clics pagados a búsquedas que no son de huéspedes", b:"pend", bt:"En auditoría"},
+    {k:"Motor de reserva", v:"—", d:"Plataforma confirmada en la visita — define si su precio directo entra al carrusel", b:"pend", bt:"Por validar"},
+    {k:"Google Hotels", v:"Pay-per-stay", d:"El modelo que les conviene: comisión solo después del check-out — nada se paga por adelantado. Y el 'sitio oficial' puede entrar gratis al carrusel con booking links", b:"hall", bt:"Oportunidad"}
+  ],
+
+  hallazgos: [
+    "<b>Existe una campaña creada por Google, no por ustedes</b> — 'Busqueda by Google' aparece en la cuenta. Si Google modifica solo, pagan decisiones que nadie autorizó. Se confirma en el historial de cambios.",
+    "<b>Campaña Performance Max activa</b> — el tipo de campaña que quema presupuesto en ubicaciones sin control e infla el conteo de conversiones.",
+    "<b>Las 'conversiones' no huelen a reservas</b> — valores fraccionados y valor total bajo sugieren clics de WhatsApp contados como ventas. Números bonitos, negocio vacío.",
+    "<b>La llamada con soporte confirmó el sistema</b> — el asesor propuso más gasto, no entregó datos y culpó al 'algoritmo' en vez de revisar la cuenta.",
+    "<b>El carrusel patrocinado es otro producto</b> — los precios que aparecen en 'Hoteles Patrocinados' salen de feeds de Booking/Skyscanner; el precio directo de Nututún puede entrar gratis vía su motor de reserva."
+  ],
+
+  siguiente: {
+    t: "Lo que sigue",
+    p: "Esta semana la auditoría extrae los datos de la cuenta: términos de búsqueda, historial de cambios y el mapa de subastas. Al finalizar, les presentamos el diagnóstico completo con las correcciones ya aplicadas — semana del 13 de noviembre."
+  },
+
+  docs: [
+    {h:"propuesta.html", t:"Propuesta Fase 1", d:"Los tres frentes a la carta"},
+    {h:"d1.html", t:"Frente D1 — documento de trabajo", d:"Qué revisamos, qué corregimos, qué entregamos"},
+    {h:"accesos.html", t:"Checklist de accesos", d:"Permisos y visita técnica"},
+    {h:"llamada.html", t:"Checklist llamada Google", d:"Guion de la llamada con soporte"},
+    {h:"capacidades.html", t:"Capacidades", d:"Presentación de The Unknown Shopper"}
+  ]
+};
+
+/* ===== Render ===== */
+const el = id => document.getElementById(id);
+el("fase").textContent = DATA.fase;
+el("titulo").textContent = DATA.titulo;
+el("resumen").textContent = DATA.resumen;
+el("bar").style.width = DATA.avance + "%";
+el("pct").textContent = DATA.avance + "%";
+
+el("hitos").innerHTML = DATA.hitos.map(h => `
+  <div class="mile ${h.estado}">
+    <div class="dot"></div>
+    <div class="b"><span class="when">${h.when}</span><br><b>${h.t}</b><p>${h.p}</p></div>
+  </div>`).join("");
+
+el("metricas").innerHTML = DATA.metricas.map(m => `
+  <div class="metric">
+    <div class="k">${m.k}</div>
+    <div class="v">${m.v}</div>
+    <div class="d">${m.d}</div>
+    <span class="badge ${m.b}">${m.bt}</span>
+  </div>`).join("");
+
+el("hallazgos").innerHTML = DATA.hallazgos.map(h => `<div class="find">${h}</div>`).join("");
+el("siguiente").innerHTML = `<h3>${DATA.siguiente.t}</h3><p>${DATA.siguiente.p}</p>`;
+el("docs").innerHTML = DATA.docs.map(d => `<a class="doc" href="${d.h}"><b>${d.t}</b><span>${d.d}</span></a>`).join("");
+
+/* ===== Sesión ===== */
+firebase.auth().onAuthStateChanged(user => {
+  if (user) el("who").textContent = user.email;
+});
+el("outbtn").addEventListener("click", () => {
+  firebase.auth().signOut().then(() => location.href = "index.html");
+});
+</script>
+
+</body>
+</html>

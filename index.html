@@ -97,6 +97,7 @@
     <button class="out" id="outbtn">Cerrar sesión</button>
   </div>
   <div class="docs">
+    <a class="doc" data-roles="admin cliente" href="panel.html"><div class="k">Cliente</div><h3>Panel del proyecto</h3><p>Avance, métricas y hallazgos — la vista del cliente.</p></a>
     <a class="doc" data-roles="admin cliente" href="propuesta.html"><div class="k">Comercial</div><h3>Propuesta Fase 1</h3><p>Los tres frentes a la carta con selector y PDF.</p></a>
     <a class="doc" data-roles="admin" href="agenda.html"><div class="k">Operación</div><h3>Plan de trabajo</h3><p>Antecedentes, hallazgos y calendario del Frente D1.</p></a>
     <a class="doc" data-roles="admin cliente" href="d1.html"><div class="k">Operación</div><h3>Frente D1</h3><p>Documento de trabajo: diagnóstico Ads + correcciones.</p></a>
@@ -121,12 +122,8 @@ const hub = document.getElementById("hub");
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     const role = window.TUS_ROLE(user);
+    if (role !== "admin") { location.replace("panel.html"); return; }
     document.getElementById("who").textContent = user.email + " · " + role;
-    if (role !== "admin") {
-      document.querySelectorAll(".doc").forEach(d => {
-        if (!(d.dataset.roles || "").includes(role)) d.style.display = "none";
-      });
-    }
     loginwrap.style.display = "none";
     hub.style.display = "block";
   }

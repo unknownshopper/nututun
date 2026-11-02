@@ -67,6 +67,27 @@
   .reset:hover{border-color:var(--red);color:var(--red)}
   .notes textarea{width:100%;border:none;background:transparent;font:inherit;color:var(--deep);
     min-height:56px;resize:vertical;outline:none;font-size:.9rem;font-style:normal}
+  details.inst{margin:14px 0 6px 32px;border:1px solid var(--line);border-radius:10px;
+    background:var(--paper);overflow:hidden}
+  details.inst summary{padding:11px 16px;cursor:pointer;font-size:.8rem;font-weight:800;
+    color:var(--red);text-transform:uppercase;letter-spacing:.08em;list-style:none;user-select:none}
+  details.inst summary::before{content:"＋ ";font-weight:800}
+  details.inst[open] summary::before{content:"－ "}
+  details.inst summary::-webkit-details-marker{display:none}
+  .inst-body{padding:4px 18px 16px;border-top:1px dashed #efece1;font-size:.85rem;color:#4a534a}
+  .inst-body h4{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--red);margin:14px 0 6px}
+  .inst-body ul{padding-left:18px}
+  .inst-body li{margin-bottom:6px}
+  .inst-body li b{color:var(--deep)}
+  .attbtn{display:inline-block;margin-top:6px;background:transparent;border:1px dashed #c9c2ae;
+    border-radius:8px;color:var(--stone);font-size:.72rem;padding:4px 10px;cursor:pointer;font-family:inherit}
+  .attbtn:hover{border-color:var(--red);color:var(--red)}
+  .thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .thumb{height:52px;border-radius:6px;border:1px solid var(--line);cursor:zoom-in;position:relative}
+  .thumbwrap{position:relative;display:inline-block}
+  .thumbwrap .del{position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;
+    background:var(--red);color:#fff;border:none;font-size:.6rem;cursor:pointer;line-height:1;padding:0}
 
   .alert{background:var(--red-soft);border:1px solid #ecc8c1;border-radius:var(--radius);
     padding:16px 20px;margin-top:18px;font-size:.9rem;color:#3d453d}
@@ -135,6 +156,24 @@
       <div class="chk"><div class="box"></div><div class="t"><b>Administrador del sitio web</b> — usuario del panel o contacto de quien lo administra<span class="why">Único permiso de edición real que se pide — para corregir indexación y títulos.</span></div></div>
       <div class="chk"><div class="box"></div><div class="t"><b>PREGUNTA CLAVE: ¿qué plataforma de reservas usan?</b><span class="why">Cloudbeds, SiteMinder, motor propio, etc. Define si su precio directo puede entrar al carrusel de Google sin comisión.</span></div></div>
       <div class="fld"><label>Motor de reserva:</label><input data-f="motor" placeholder="¿Cloudbeds, SiteMinder, propio…?"></div>
+
+      <details class="inst">
+        <summary>Ver instrucciones — Activación de Google Hotels</summary>
+        <div class="inst-body">
+          <h4>Requisitos obligatorios</h4>
+          <ul>
+            <li><b>Ficha de Google Business Profile</b> verificada, actualizada y con categoría exacta "Hotel" u "Hospedaje".</li>
+            <li><b>Motor de reservas compatible</b> — el sistema web o Channel Manager debe ser socio de integración de Google Hotels (Cloudbeds, SiteMinder, Roiback, Mirai, etc.). Ellos envían precios y disponibilidad a Google en tiempo real.</li>
+            <li><b>Cuenta de Google Ads vinculada</b> al Hotel Center (la herramienta que gestiona el feed de precios) para lanzar las campañas.</li>
+          </ul>
+          <h4>Pasos de activación</h4>
+          <ul>
+            <li><b>Contactar al Channel Manager</b> — preguntar si incluye conexión con Google Hotel Ads o Google Free Booking Links.</li>
+            <li><b>Activar Free Booking Links primero</b> — Google muestra la tarifa directa gratis debajo de los anuncios pagados: tráfico directo sin comisión.</li>
+            <li><b>Crear campaña tipo "Hotel" en Google Ads</b> — una vez el feed conectado: estrategia de puja <b>Comisión por Estancia</b> (pay-per-stay) + presupuesto diario.</li>
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -241,16 +280,93 @@ document.querySelectorAll("[data-f]").forEach(el => {
   });
 });
 
+// ===== Capturas adjuntas (sección Línea base) =====
+const CAPKEY = "d1caps";
+let caps = {};
+try { caps = JSON.parse(localStorage.getItem(CAPKEY) || "{}"); } catch(e){ caps = {}; }
+
+const baseSection = [...document.querySelectorAll("section")].find(
+  s => (s.querySelector(".kicker") || {}).textContent?.includes("Línea base")
+);
+
+if (baseSection) {
+  baseSection.querySelectorAll(".chk").forEach((el, i) => {
+    const t = el.querySelector(".t");
+    const btn = document.createElement("button");
+    btn.className = "attbtn"; btn.type = "button"; btn.textContent = "📎 captura";
+    const th = document.createElement("div"); th.className = "thumbs";
+    t.appendChild(btn); t.appendChild(th);
+
+    const render = () => {
+      th.innerHTML = "";
+      (caps["c"+i] || []).forEach((d, j) => {
+        const wrap = document.createElement("span"); wrap.className = "thumbwrap";
+        const img = document.createElement("img");
+        img.src = d; img.className = "thumb";
+        img.addEventListener("click", e => { e.stopPropagation(); window.open(d, "_blank"); });
+        const del = document.createElement("button");
+        del.className = "del"; del.textContent = "✕";
+        del.addEventListener("click", e => {
+          e.stopPropagation();
+          caps["c"+i].splice(j, 1);
+          localStorage.setItem(CAPKEY, JSON.stringify(caps));
+          render();
+        });
+        wrap.appendChild(img); wrap.appendChild(del); th.appendChild(wrap);
+      });
+    };
+
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      const inp = document.createElement("input");
+      inp.type = "file"; inp.accept = "image/*"; inp.capture = "environment";
+      inp.addEventListener("change", () => {
+        const f = inp.files[0]; if (!f) return;
+        const rd = new FileReader();
+        rd.onload = () => {
+          const im = new Image();
+          im.onload = () => {
+            const c = document.createElement("canvas");
+            const w = Math.min(1400, im.width);
+            c.width = w; c.height = im.height * w / im.width;
+            c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
+            c.toBlob(async blob => {
+              let stored = null;
+              try {
+                const ref = firebase.storage().ref(`capturas/d1/item${i}/${Date.now()}.jpg`);
+                await ref.put(blob);
+                stored = await ref.getDownloadURL();
+              } catch(e) {
+                stored = c.toDataURL("image/jpeg", .7); // sin señal → queda local
+              }
+              (caps["c"+i] = caps["c"+i] || []).push(stored);
+              try { localStorage.setItem(CAPKEY, JSON.stringify(caps)); }
+              catch(err){ caps["c"+i].pop(); alert("Sin espacio local — sube primero las capturas."); }
+              render();
+            }, "image/jpeg", .75);
+          };
+          im.src = rd.result;
+        };
+        rd.readAsDataURL(f);
+      });
+      inp.click();
+    });
+    render();
+  });
+}
+
 // Reiniciar
 document.getElementById("resetbtn").addEventListener("click", () => {
-  if (!confirm("¿Limpiar todo el checklist?")) return;
+  if (!confirm("¿Limpiar todo el checklist (incluye capturas)?")) return;
   localStorage.removeItem(KEY);
+  localStorage.removeItem(CAPKEY);
   location.reload();
 });
 </script>
 
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
 <script src="auth.js"></script>
 </body>
 </html>
