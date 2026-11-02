@@ -102,10 +102,7 @@
 <div class="wrap">
   <div class="top">
     <img src="nut.png" alt="Hotel Nututún Palenque">
-    <div class="right">
-      <span class="u" id="who"></span>
-      <button class="out" id="outbtn">Cerrar sesión</button>
-    </div>
+    <div class="right"></div>
   </div>
 
   <!-- ===== ESTADO ===== -->
@@ -242,13 +239,7 @@ el("hallazgos").innerHTML = DATA.hallazgos.map(h => `<div class="find">${h}</div
 el("siguiente").innerHTML = `<h3>${DATA.siguiente.t}</h3><p>${DATA.siguiente.p}</p>`;
 el("docs").innerHTML = DATA.docs.map(d => `<a class="doc" href="${d.h}"><b>${d.t}</b><span>${d.d}</span></a>`).join("");
 
-/* ===== Sesión ===== */
-firebase.auth().onAuthStateChanged(user => {
-  if (user) el("who").textContent = user.email;
-});
-el("outbtn").addEventListener("click", () => {
-  firebase.auth().signOut().then(() => location.href = "index.html");
-});
+/* ===== Sesión manejada por nav.js ===== */
 </script>
 
 </body>
