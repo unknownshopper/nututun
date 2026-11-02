@@ -65,6 +65,18 @@
   .reset{background:transparent;border:1px solid #c9c2ae;border-radius:8px;color:var(--stone);
     font-size:.72rem;padding:6px 12px;cursor:pointer;font-family:inherit;margin-top:14px}
   .reset:hover{border-color:var(--red);color:var(--red)}
+  /* ===== Modo solo lectura (rol cliente) ===== */
+  body.readonly .chk{pointer-events:none;cursor:default}
+  body.readonly .chk .box{border-color:#c9c2ae}
+  body.readonly .chk.done .box{background:var(--red)}
+  body.readonly .attbtn,body.readonly .del,body.readonly #resetbtn{display:none}
+  body.readonly .fld input{pointer-events:none;border-bottom-color:transparent}
+  body.readonly .notes{pointer-events:none}
+  body.readonly .notes textarea{pointer-events:none}
+  .robar{display:none;background:var(--navy-soft);border:1px solid #d6ddef;color:var(--navy);
+    font-size:.78rem;font-weight:700;padding:8px 14px;border-radius:99px;margin-left:14px;
+    text-transform:uppercase;letter-spacing:.1em}
+  body.readonly .robar{display:inline-block}
   .notes textarea{width:100%;border:none;background:transparent;font:inherit;color:var(--deep);
     min-height:56px;resize:vertical;outline:none;font-size:.9rem;font-style:normal}
   details.inst{margin:14px 0 6px 32px;border:1px solid var(--line);border-radius:10px;
@@ -119,7 +131,7 @@
       <span class="x">×</span>
       <img class="nut" src="nut.png" alt="Nututun Palenque Hotel">
     </div>
-    <span class="badge-doc">Checklist de campo · Frente D1</span>
+    <span class="badge-doc">Checklist de campo · Frente D1</span><span class="robar">Solo lectura</span>
     <h1>Visita técnica — <em>Palenque, 2 de noviembre</em></h1>
     <div class="meta">
       <div><b>Objetivo del día</b>Accesos + línea base + acceso remoto</div>
@@ -255,36 +267,50 @@
 
 <button class="fab" onclick="window.print()">Descargar PDF</button>
 
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
 <script>
-const KEY = "d1chklst";
-let state = {};
-try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
+// ===== Estado en Firestore: checklists/d1 =====
+const db = firebase.firestore();
+try { db.enablePersistence({synchronizeTabs:true}); } catch(e){}
+const docRef = db.collection("checklists").doc("d1");
 
-// Checkboxes: estado persistente por índice
+// Limpieza: eliminar registros legacy en localStorage de versiones anteriores
+localStorage.removeItem("d1chklst");
+localStorage.removeItem("d1caps");
+
+let state = {};
+let caps = {};
+const _renderers = [];
+let _saveT = null;
+function save(){
+  clearTimeout(_saveT);
+  _saveT = setTimeout(() => docRef.set({state, caps}, {merge:true}), 400);
+}
+
+// Checkboxes
 const chks = document.querySelectorAll(".chk");
 chks.forEach((el, i) => {
-  if (state["c"+i]) el.classList.add("done");
   el.addEventListener("click", () => {
     el.classList.toggle("done");
     state["c"+i] = el.classList.contains("done");
-    localStorage.setItem(KEY, JSON.stringify(state));
+    save();
   });
 });
 
-// Campos de texto: persisten al escribir
+// Campos de texto
 document.querySelectorAll("[data-f]").forEach(el => {
-  if (state[el.dataset.f]) el.value = state[el.dataset.f];
   el.addEventListener("input", () => {
     state[el.dataset.f] = el.value;
-    localStorage.setItem(KEY, JSON.stringify(state));
+    save();
   });
 });
 
 // ===== Capturas adjuntas (sección Línea base) =====
-const CAPKEY = "d1caps";
-let caps = {};
-try { caps = JSON.parse(localStorage.getItem(CAPKEY) || "{}"); } catch(e){ caps = {}; }
-
 const baseSection = [...document.querySelectorAll("section")].find(
   s => (s.querySelector(".kicker") || {}).textContent?.includes("Línea base")
 );
@@ -309,12 +335,13 @@ if (baseSection) {
         del.addEventListener("click", e => {
           e.stopPropagation();
           caps["c"+i].splice(j, 1);
-          localStorage.setItem(CAPKEY, JSON.stringify(caps));
+          save();
           render();
         });
         wrap.appendChild(img); wrap.appendChild(del); th.appendChild(wrap);
       });
     };
+    _renderers.push(render);
 
     btn.addEventListener("click", e => {
       e.stopPropagation();
@@ -340,8 +367,7 @@ if (baseSection) {
                   stored = c.toDataURL("image/jpeg", .7); // sin señal → queda local
                 }
                 (caps["c"+i] = caps["c"+i] || []).push(stored);
-                try { localStorage.setItem(CAPKEY, JSON.stringify(caps)); }
-                catch(err){ caps["c"+i].pop(); alert("Sin espacio local — sube primero las capturas."); }
+                save();
                 render();
               }, "image/jpeg", .75);
             };
@@ -356,18 +382,29 @@ if (baseSection) {
   });
 }
 
+// ===== Rol: cliente = solo lectura =====
+firebase.auth().onAuthStateChanged(user => {
+  if (user && window.TUS_ROLE(user) !== "admin") document.body.classList.add("readonly");
+});
+
+// ===== Estado en vivo de Firestore =====
+docRef.onSnapshot(snap => {
+  if (!snap.exists) return;
+  const d = snap.data();
+  state = d.state || {};
+  caps = d.caps || {};
+  chks.forEach((el, i) => { if (state["c"+i]) el.classList.add("done"); });
+  document.querySelectorAll("[data-f]").forEach(el => {
+    if (state[el.dataset.f] !== undefined && el.value !== state[el.dataset.f]) el.value = state[el.dataset.f];
+  });
+  _renderers.forEach(r => r());
+});
+
 // Reiniciar
 document.getElementById("resetbtn").addEventListener("click", () => {
   if (!confirm("¿Limpiar todo el checklist (incluye capturas)?")) return;
-  localStorage.removeItem(KEY);
-  localStorage.removeItem(CAPKEY);
-  location.reload();
+  docRef.delete().then(() => location.reload());
 });
 </script>
-
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
-<script src="auth.js"></script>
 </body>
 </html>
