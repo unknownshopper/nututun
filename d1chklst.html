@@ -319,35 +319,36 @@ if (baseSection) {
     btn.addEventListener("click", e => {
       e.stopPropagation();
       const inp = document.createElement("input");
-      inp.type = "file"; inp.accept = "image/*"; inp.capture = "environment";
+      inp.type = "file"; inp.accept = "image/*"; inp.capture = "environment"; inp.multiple = true;
       inp.addEventListener("change", () => {
-        const f = inp.files[0]; if (!f) return;
-        const rd = new FileReader();
-        rd.onload = () => {
-          const im = new Image();
-          im.onload = () => {
-            const c = document.createElement("canvas");
-            const w = Math.min(1400, im.width);
-            c.width = w; c.height = im.height * w / im.width;
-            c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
-            c.toBlob(async blob => {
-              let stored = null;
-              try {
-                const ref = firebase.storage().ref(`capturas/d1/item${i}/${Date.now()}.jpg`);
-                await ref.put(blob);
-                stored = await ref.getDownloadURL();
-              } catch(e) {
-                stored = c.toDataURL("image/jpeg", .7); // sin señal → queda local
-              }
-              (caps["c"+i] = caps["c"+i] || []).push(stored);
-              try { localStorage.setItem(CAPKEY, JSON.stringify(caps)); }
-              catch(err){ caps["c"+i].pop(); alert("Sin espacio local — sube primero las capturas."); }
-              render();
-            }, "image/jpeg", .75);
+        [...inp.files].forEach(f => {
+          const rd = new FileReader();
+          rd.onload = () => {
+            const im = new Image();
+            im.onload = () => {
+              const c = document.createElement("canvas");
+              const w = Math.min(1400, im.width);
+              c.width = w; c.height = im.height * w / im.width;
+              c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
+              c.toBlob(async blob => {
+                let stored = null;
+                try {
+                  const ref = firebase.storage().ref(`capturas/d1/item${i}/${Date.now()}_${Math.random().toString(36).slice(2,8)}.jpg`);
+                  await ref.put(blob);
+                  stored = await ref.getDownloadURL();
+                } catch(e) {
+                  stored = c.toDataURL("image/jpeg", .7); // sin señal → queda local
+                }
+                (caps["c"+i] = caps["c"+i] || []).push(stored);
+                try { localStorage.setItem(CAPKEY, JSON.stringify(caps)); }
+                catch(err){ caps["c"+i].pop(); alert("Sin espacio local — sube primero las capturas."); }
+                render();
+              }, "image/jpeg", .75);
+            };
+            im.src = rd.result;
           };
-          im.src = rd.result;
-        };
-        rd.readAsDataURL(f);
+          rd.readAsDataURL(f);
+        });
       });
       inp.click();
     });
