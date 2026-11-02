@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist de campo — Frente D1 · Visita Palenque</title>
+<meta name="description" content="Checklist operativo de la visita técnica a Hotel Nututún Palenque — Frente D1.">
+<meta name="author" content="The Unknown Shopper">
+<meta name="theme-color" content="#f6f4ee">
+<meta name="robots" content="noindex,nofollow">
+<script>document.documentElement.style.display="none";</script>
+<link rel="icon" type="image/png" href="nut.png">
+<style>
+  :root{
+    --bg:#f6f4ee;--paper:#fff;--ink:#23282d;--deep:#1b2733;--line:#e6e1d4;
+    --red:#c0392b;--red-dark:#96271c;--red-soft:#fdf0ee;
+    --navy:#26355c;--navy-soft:#eef1f7;--stone:#7d766a;--radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--deep)}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  section{padding:30px 0;border-bottom:1px solid var(--line)}
+  .lead{font-size:.96rem;color:#3d453d;max-width:720px}
+
+  .cover{
+    background:radial-gradient(900px 420px at 85% 0%,rgba(192,57,43,.05),transparent 60%),
+      linear-gradient(180deg,#fdfcf8 0%,#f6f4ee 100%);
+    padding:40px 0 36px;border-bottom:1px solid var(--line);border-top:4px solid var(--red);
+  }
+  .cover .brandrow{display:flex;align-items:center;gap:22px;margin-bottom:28px;flex-wrap:wrap}
+  .brandrow img{object-fit:contain}
+  .brandrow .tus{height:44px}
+  .brandrow .x{color:var(--red);font-size:1.3rem;font-weight:300}
+  .brandrow .nut{height:64px}
+  .cover h1{color:var(--deep);font-size:2rem;max-width:720px}
+  .cover h1 em{color:var(--red);font-style:normal}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:26px;font-size:.82rem;color:var(--stone)}
+  .cover .meta b{display:block;color:var(--deep);font-size:.9rem;font-weight:600}
+  .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);padding:5px 13px;border-radius:999px;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;font-weight:700}
+
+  .chk{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed #efece1;align-items:flex-start;cursor:pointer}
+  .chk:last-child{border-bottom:none}
+  .chk .box{width:20px;height:20px;border:2px solid var(--red);border-radius:5px;flex-shrink:0;margin-top:2px;
+    display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;
+    color:transparent;transition:all .15s;background:#fff;user-select:none}
+  .chk .box::after{content:"✓"}
+  .chk.done .box{background:var(--red);color:#fff}
+  .chk.done .t{color:#a49d8d}
+  .chk .t{font-size:.9rem;color:#3d453d;flex:1}
+  .chk .t b{color:var(--deep)}
+  .chk.done .t b{color:#a49d8d}
+  .chk .t .why{font-size:.77rem;color:var(--stone);display:block;margin-top:1px}
+  .fld{margin:6px 0 4px 32px;display:flex;align-items:baseline;gap:8px;font-size:.85rem}
+  .fld label{color:var(--stone);white-space:nowrap;font-weight:600}
+  .fld input{flex:1;border:none;border-bottom:1px dashed #c9c2ae;background:transparent;
+    font:inherit;color:var(--deep);padding:2px 4px;outline:none;font-size:.92rem}
+  .fld input:focus{border-bottom-color:var(--red);border-bottom-style:solid}
+  .reset{background:transparent;border:1px solid #c9c2ae;border-radius:8px;color:var(--stone);
+    font-size:.72rem;padding:6px 12px;cursor:pointer;font-family:inherit;margin-top:14px}
+  .reset:hover{border-color:var(--red);color:var(--red)}
+  .notes textarea{width:100%;border:none;background:transparent;font:inherit;color:var(--deep);
+    min-height:56px;resize:vertical;outline:none;font-size:.9rem;font-style:normal}
+
+  .alert{background:var(--red-soft);border:1px solid #ecc8c1;border-radius:var(--radius);
+    padding:16px 20px;margin-top:18px;font-size:.9rem;color:#3d453d}
+  .alert b{color:var(--red-dark)}
+
+  .notes{margin-top:14px;border:1px dashed #c9c2ae;border-radius:var(--radius);
+    padding:12px 14px;min-height:56px;color:var(--stone);font-size:.78rem;font-style:italic}
+
+  .footer{padding:30px 0 26px;text-align:center;color:var(--stone);font-size:.82rem}
+  .footer b{color:var(--deep)}
+  .footer img{height:30px;object-fit:contain;margin-bottom:8px;opacity:.9}
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;border-radius:12px;padding:13px 20px;font-weight:700;font-size:.9rem;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35);font-family:inherit}
+  .fab:hover{background:var(--red-dark)}
+  @media print{
+    .fab{display:none}
+    section{padding:20px 0}
+    .alert{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brandrow">
+      <img class="tus" src="tusxx.png" alt="The Unknown Shopper">
+      <span class="x">×</span>
+      <img class="nut" src="nut.png" alt="Nututun Palenque Hotel">
+    </div>
+    <span class="badge-doc">Checklist de campo · Frente D1</span>
+    <h1>Visita técnica — <em>Palenque, 2 de noviembre</em></h1>
+    <div class="meta">
+      <div><b>Objetivo del día</b>Accesos + línea base + acceso remoto</div>
+      <div><b>Duración</b>~Media jornada</div>
+      <div><b>Regla de oro</b>Mirar todo, tocar nada todavía</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 1. ANTES DE SALIR ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">01 · Antes de salir</div>
+    <div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Laptop + cargador + celular con batería</b> — las capturas de línea base se hacen en sitio.</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Correo de Google que recibirá las invitaciones</b> — verificar que puedes iniciar sesión ahí desde el celular.</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Herramienta de escritorio remoto decidida</b> — Chrome Remote Desktop (más simple, vive en el navegador) o AnyDesk. Descargarla antes para no improvisar con su Wi-Fi.</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Documentos en el teléfono</b> — accesos.html y este checklist, por si no hay señal dentro del hotel.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. ACCESOS ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">02 · En el hotel — accesos en su presencia</div>
+    <p class="lead" style="margin-bottom:12px">Todo como <b>permiso de usuario</b>, nunca contraseña compartida. Que lo hagan ellos en su equipo, con nosotros viendo.</p>
+    <div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Google Ads — agregar usuario con acceso estándar</b><span class="why">Estándar, no solo lectura: vamos a corregir campañas. Y capturar el ID de cuenta (arriba a la derecha, XXX-XXX-XXXX).</span></div></div>
+      <div class="fld"><label>ID de cuenta:</label><input data-f="cid" placeholder="XXX-XXX-XXXX"></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Google Business Profile — agregar como gerente</b><span class="why">La ficha de Maps: reseñas, fotos, atributos, Q&amp;A.</span></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Search Console — agregar como usuario</b><span class="why">Indexación y búsquedas orgánicas.</span></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Google Analytics (si existe) — lector</b></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Administrador del sitio web</b> — usuario del panel o contacto de quien lo administra<span class="why">Único permiso de edición real que se pide — para corregir indexación y títulos.</span></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>PREGUNTA CLAVE: ¿qué plataforma de reservas usan?</b><span class="why">Cloudbeds, SiteMinder, motor propio, etc. Define si su precio directo puede entrar al carrusel de Google sin comisión.</span></div></div>
+      <div class="fld"><label>Motor de reserva:</label><input data-f="motor" placeholder="¿Cloudbeds, SiteMinder, propio…?"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. LÍNEA BASE ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">03 · Línea base — capturar TODO antes de tocar</div>
+    <p class="lead" style="margin-bottom:12px">Cada captura es el "antes" que le da valor al "después". Pantalla completa, fecha visible.</p>
+    <div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Campañas activas + presupuestos + tipo de puja</b></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Historial de cambios</b> — quién creó "Busqueda by Google", la PMax y el borrador<span class="why">La respuesta a "¿quién gasta nuestro dinero?"</span></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Términos de búsqueda reales</b> — exportar el informe completo</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Auction insights</b> — contra quién pierden las subastas</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Configuración de conversiones</b> — qué cuenta como "venta" (¿clics de WhatsApp?)</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Segmentación geográfica + horarios</b> — a quién le pagan por aparecer</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Estado de la ficha de Maps</b> — fotos, categorías, reseñas sin responder</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Estado del sitio</b> — indexación, velocidad, ¿quién lo administra?</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. ACCESO REMOTO ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">04 · Acceso remoto — antes de irte</div>
+    <div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Instalar escritorio remoto en el equipo autorizado</b> — con nombre identificable ("equipo recepción")</div></div>
+      <div class="fld"><label>Equipo:</label><input data-f="equipo" placeholder="¿Cuál equipo?"></div>
+      <div class="fld"><label>Herramienta:</label><input data-f="remote" placeholder="Chrome RD / AnyDesk / otra"></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Probar la conexión desde tu celular/otra red</b> — ahí mismo, no "después veo si jala"</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Verificar que el equipo queda encendido</b> — suspensión/apagado desactivado, o acordar el horario en que estará disponible</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Dejar por escrito cómo desactivarlo</b> — transparencia: que sepan cómo cortarte el acceso cuando quieran</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. OJOS DE CAMPO ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">05 · Ojos de campo — investigación gratis</div>
+    <p class="lead" style="margin-bottom:12px">Ya que estamos dentro: observación silenciosa que alimenta D1, D2, D3 y el estudio futuro.</p>
+    <div>
+      <div class="chk"><div class="box"></div><div class="t"><b>¿Cómo llegan las reservas hoy?</b> — preguntar casual: teléfono, Booking, agencias, WhatsApp</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>¿Quién responde WhatsApp y en cuánto?</b> — el canal que D3 automatizará</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Fotos generales de referencia</b> — poza, lobby, señalización (material visual propio para reportes)</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Cómo está la ficha de Maps vista desde dentro</b> — fotos que el hotel subió vs. la realidad</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Preguntar por temporadas y tipo de huésped</b> — dato de contexto para interpretar las estadísticas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. AL SALIR ================= -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="kicker">06 · Al salir del hotel</div>
+    <div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Verificar desde fuera que el acceso remoto sigue vivo</b></div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Respaldar las capturas de línea base</b> — nube + local, son irreemplazables</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Anotar de memoria lo que no se capturó</b> — observaciones, promesas verbales, nombres</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>Confirmar fecha tentativa de la presentación</b> — "en ~2 semanas les enseño lo que encontramos"</div></div>
+      <div class="chk"><div class="box"></div><div class="t"><b>No prometer resultados todavía</b> — hasta ver los datos completos no se promete nada</div></div>
+    </div>
+
+    <div class="alert"><b>Recordatorio:</b> hoy no se corrige nada. La línea base limpia vale más que un arreglo apurado — todo cambio va después de la auditoría completa y con autorización.</div>
+
+    <div class="notes"><textarea data-f="notas" placeholder="Notas del día: observaciones, nombres, promesas verbales, pendientes…"></textarea></div>
+    <button class="reset" id="resetbtn">Reiniciar checklist</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="tusxx.png" alt="The Unknown Shopper"><br>
+    <b>The Unknown Shopper + Olmeca Code</b> · Checklist de campo Frente D1 · Hotel Nututún Palenque<br>
+    Documento interno © 2026
+  </div>
+</footer>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+<script>
+const KEY = "d1chklst";
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
+
+// Checkboxes: estado persistente por índice
+const chks = document.querySelectorAll(".chk");
+chks.forEach((el, i) => {
+  if (state["c"+i]) el.classList.add("done");
+  el.addEventListener("click", () => {
+    el.classList.toggle("done");
+    state["c"+i] = el.classList.contains("done");
+    localStorage.setItem(KEY, JSON.stringify(state));
+  });
+});
+
+// Campos de texto: persisten al escribir
+document.querySelectorAll("[data-f]").forEach(el => {
+  if (state[el.dataset.f]) el.value = state[el.dataset.f];
+  el.addEventListener("input", () => {
+    state[el.dataset.f] = el.value;
+    localStorage.setItem(KEY, JSON.stringify(state));
+  });
+});
+
+// Reiniciar
+document.getElementById("resetbtn").addEventListener("click", () => {
+  if (!confirm("¿Limpiar todo el checklist?")) return;
+  localStorage.removeItem(KEY);
+  location.reload();
+});
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
