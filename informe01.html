@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Informe D1 — Auditoría Google Ads · Hotel Nututún Palenque</title>
+<meta name="description" content="Primer informe del Frente D1: diagnóstico documentado de la cuenta de Google Ads de Hotel Nututún Palenque.">
+<style>
+  :root{--red:#c0392b;--red-soft:#f8e9e7;--red-dark:#96281b;--ink:#2c2a26;--stone:#7d766a;
+        --paper:#f7f5f0;--deep:#1f1d1a;--navy:#2a4d69;--navy-soft:#eef2f6;--radius:14px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg,#faf9f6);color:var(--ink);line-height:1.6;padding:110px 20px 80px}
+  .wrap{max-width:960px;margin:0 auto;background:var(--paper);border-radius:20px;padding:56px 60px;
+    box-shadow:0 20px 60px rgba(0,0,0,.06)}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--deep)}
+  h1{font-size:2rem;margin:.4em 0}
+  h2{font-size:1.35rem;margin:2.2em 0 .8em;padding-top:1.4em;border-top:1px solid #e5e1d8}
+  h3{font-size:1.05rem;margin:1.6em 0 .5em}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  .cover{border-bottom:3px solid var(--red);padding-bottom:28px;margin-bottom:36px}
+  .cover .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;
+    margin-top:22px;font-size:.85rem}
+  .cover .meta b{display:block;color:var(--deep);font-size:.9rem;font-weight:600}
+  .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);font-size:.68rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:4px 12px;border-radius:20px}
+  p{margin:.6em 0;font-size:.93rem}
+  .lead{font-size:1.05rem;color:var(--deep)}
+  .finding{background:#fff;border-left:4px solid var(--red);border-radius:8px;
+    padding:16px 20px;margin:18px 0}
+  .finding .fnum{display:inline-block;background:var(--red);color:#fff;font-size:.7rem;
+    font-weight:700;padding:2px 9px;border-radius:12px;margin-bottom:8px}
+  .finding b.t{display:block;color:var(--deep);font-size:.95rem;margin-bottom:4px}
+  .finding .why{font-size:.85rem;color:var(--stone)}
+  .evid{margin:14px 0 26px}
+  .evid img{width:100%;border:1px solid #e5e1d8;border-radius:10px;display:block}
+  .evid figcaption{font-size:.78rem;color:var(--stone);margin-top:6px;font-style:italic}
+  .callout{background:var(--navy-soft);border:1px solid #d6ddef;border-radius:var(--radius);
+    padding:16px 20px;margin:20px 0;font-size:.9rem}
+  .callout.red{background:var(--red-soft);border-color:#ecc8c1}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+  th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--stone);padding:8px 10px;border-bottom:2px solid var(--red)}
+  td{padding:8px 10px;border-bottom:1px solid #eee7dc}
+  tr.dead td{background:#fdf1ef;color:var(--red-dark)}
+  .dead-mark{color:var(--red);font-weight:700}
+  ul,ol{margin:.6em 0 .6em 1.4em}
+  li{margin:.35em 0;font-size:.9rem}
+  .fix{background:#fff;border:1px solid #e5e1d8;border-radius:10px;padding:14px 18px;margin:12px 0}
+  .fix b{color:var(--deep)}
+  .fix .tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+  .tag.now{background:var(--red-soft);color:var(--red-dark);border:1px solid #ecc8c1}
+  .tag.next{background:#e9f3ea;color:#2e6b3a;border:1px solid #c8e0cd}
+  .foot{margin-top:48px;padding-top:22px;border-top:1px solid #e5e1d8;font-size:.8rem;color:var(--stone)}
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;padding:13px 22px;border-radius:30px;font-size:.85rem;font-weight:600;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35)}
+  @media(max-width:700px){.wrap{padding:32px 22px}}
+  @media print{body{padding:0}.fab{display:none}.wrap{box-shadow:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="cover">
+    <span class="badge-doc">Informe 01 · Frente D1 — Visibilidad en Google</span>
+    <h1>Auditoría de Google Ads<br>Hotel Nututún Palenque</h1>
+    <div class="meta">
+      <div><b>Cuenta</b>CID 397-733-5101 · hotellnututunmkt@gmail.com</div>
+      <div><b>Periodo analizado</b>4 oct – 3 nov 2026 (últimos 30 días)</div>
+      <div><b>Motor de reservas</b>Easy-Rez (booking.easy-rez.com)</div>
+      <div><b>Ejecutado por</b>The Unknown Shopper + Olmeca Code</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="kicker">Resumen ejecutivo</div>
+    <p class="lead">El hotel invierte <b>~$300 MXN diarios (~$8,000 MXN/mes)</b> en Google Ads, pero durante el periodo auditado el anuncio <b>no se mostraba ni siquiera cuando alguien buscaba "hotel nututun" en Palenque</b>. El gasto no era el problema; la configuración sí.</p>
+    <p>Las causas documentadas: el saldo prepagado se agotó a media semana sin que nadie lo notara, el presupuesto diario limita la entrega, una campaña automática de Google absorbe el 95% de las impresiones, y el sistema contaba como "reserva" lo que en realidad era un simple clic hacia WhatsApp.</p>
+    <div class="callout red"><b>En una frase:</b> pagan $8,000 al mes por un servicio que por diseño estaba destinado a apagarse solo, contarse mal y desaparecer de las búsquedas que sí venden noches.</div>
+  </section>
+
+  <section>
+    <div class="kicker">01 · Lo que encontramos</div>
+
+    <div class="finding">
+      <span class="fnum">H1</span>
+      <b class="t">El saldo se agotó y los anuncios se apagaron 7 días seguidos</b>
+      <p>La cuenta funciona con <b>pagos prepagados</b>. Del 14 al 20 de octubre las impresiones cayeron a <b>0–9 por día</b>; el 21 volvieron a 110–270 diarias. Nadie recargó el saldo ni recibió alerta durante una semana completa.</p>
+      <table>
+        <tr><th>Fecha</th><th>Impresiones</th><th></th>
+        <tr><td>7 – 13 oct</td><td>7 – 278 / día</td><td>servicio normal</td></tr>
+        <tr class="dead"><td>14 – 20 oct</td><td>0 – 9 / día</td><td class="dead-mark">ANUNCIOS APAGADOS</td></tr>
+        <tr><td>21 oct en adelante</td><td>110 – 271 / día</td><td>saldo recargado</td></tr>
+      </table>
+      <p class="why">Evidencia: Informe de serie temporal + historial de actividad de facturación. La intermitencia del servicio coincide exactamente con el saldo.</p>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">H2</span>
+      <b class="t">Aun con saldo, Google declara la campaña "limitada por el presupuesto"</b>
+      <p>La única campaña de búsqueda real ("Busqueda by Google", $200 MXN/día) está marcada por el propio Google como <b>"Entidad apta (limitada)"</b>: hay más búsquedas de las que el presupuesto alcanza a cubrir. El hotel desaparece del SERP aunque esté "activo".</p>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">H3</span>
+      <b class="t">El 95% de las impresiones se las come una campaña que no busca reservas</b>
+      <table>
+        <tr><th>Campaña</th><th>Presupuesto</th><th>Impresiones</th><th>Estado</th></tr>
+        <tr><td>Sales-Performance Max-1</td><td>$100/día</td><td><b>73,150</b></td><td>activa — optimiza para WhatsApp</td></tr>
+        <tr><td>Busqueda by Google</td><td>$200/día</td><td><b>4,193</b></td><td>activa — limitada por presupuesto</td></tr>
+        <tr><td>Website traffic-Search-1</td><td>$11,000 total</td><td>0</td><td>borrador pausado desde enero</td></tr>
+      </table>
+      <p class="why">Performance Max se sirve en display, YouTube y otros canales donde nadie está buscando hotel. La búsqueda — donde sí hay intención de reservar — recibe migajas.</p>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">H4</span>
+      <b class="t">94 de 98 "conversiones" no son reservas: son clics de WhatsApp</b>
+      <p>De las <b>98.47 "conversiones"</b> reportadas, <b>94.47 son "Whatsapp Nututun"</b> y 2 son "Conversación iniciada". La conversión real — <b>"Reserva Online easy rez"</b> — está <b>inactiva con 0.00 registradas</b>. El hotel cree que Ads "convierte" cuando solo genera mensajes.</p>
+      <div class="evid"><img src="evidencia/conversiones.png" alt="Tabla de conversiones de la cuenta">
+        <figcaption>Captura oficial de la cuenta: WhatsApp Nututun 94.47 · Reserva Online easy rez 0.00 (inactiva).</figcaption></div>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">H5</span>
+      <b class="t">Ni buscando "hotel nututun" aparece el anuncio — las palabras clave se anulan entre sí</b>
+      <p>En la herramienta oficial de diagnóstico de Google, buscando <b>"hotel nututun" desde Palenque</b>, el veredicto fue <b>"Tu anuncio no se está mostrando"</b>. Razones documentadas: palabras clave duplicadas compiten contra sí mismas dentro del mismo grupo, y varios términos son genéricos irrelevantes ("reservas hotels" — con typo —, "hotel de reservas", "pagina para reservar hoteles").</p>
+      <div class="evid"><img src="evidencia/busqueda01.png" alt="Diagnóstico: anuncio no mostrado para hotel nututun">
+        <figcaption>Vista previa oficial de Google Ads — "hotel nututun", Palenque, móvil.</figcaption></div>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">H6</span>
+      <b class="t">En "hotel palenque" — la búsqueda que vende — la competencia llena el espacio</b>
+      <p>La misma herramienta muestra que al buscar <b>"hotel palenque"</b> aparecen orgánicamente Hotel Naj Kin, Casssa Vlanca y Hotel Palenque. Nututún, pagando, <b>no aparece ni como anuncio ni en el primer bloque</b>.</p>
+      <div class="evid"><img src="evidencia/busqueda02.png" alt="Vista previa SERP hotel palenque">
+        <figcaption>La competencia ocupa la pantalla mientras el anuncio pagado de Nututún está apagado.</figcaption></div>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">H7</span>
+      <b class="t">Se paga por mostrar anuncios en Arizona y a gente "interesada" en México desde cualquier país</b>
+      <p>La campaña segmenta <b>México + Arizona, EE.UU.</b> y usa la opción por defecto <b>"Presencia o interés"</b>, que muestra anuncios a usuarios de cualquier país que "muestren interés" por México — no solo a viajeros reales en la zona o planeando viajar.</p>
+      <div class="evid">
+        <img src="evidencia/ubicaciones.png" alt="Segmentación México + Arizona">
+        <img src="evidencia/opdeubicacion.png" alt="Opción presencia o interés activada" style="margin-top:10px">
+        <figcaption>Configuración geográfica actual y la opción "Presencia o interés" (default de Google).</figcaption>
+      </div>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">H8</span>
+      <b class="t">Detalles de operación que confirman abandono</b>
+      <ul>
+        <li><b>Un solo anuncio</b> en toda la campaña — sin pruebas, sin variantes.</li>
+        <li><b>Google presiona para aplicar cambios sola</b>: popups de "Añade 7 palabras clave" y "Aplica prácticas recomendadas automáticamente" — el círculo de Google optimizándose para Google.</li>
+        <li><b>Una campaña borrador de $11,000</b> quedó pausada desde enero sin que nadie la activara ni la eliminara.</li>
+        <li><b>Cuenta registrada bajo correo de marketing del hotel</b> — el hotel es dueño de su cuenta (punto a favor, facilita corregir).</li>
+      </ul>
+      <div class="evid"><img src="evidencia/acceso.png" alt="Accesos a la cuenta">
+        <figcaption>Acceso y seguridad de la cuenta.</figcaption></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">02 · Lo que esto significa para el hotel</div>
+    <ul>
+      <li><b>"Pagamos y no aparecemos" no era percepción — era literal.</b> El servicio se apagaba por saldo, se ahogaba por presupuesto y se canibalizaba por keywords mal agrupadas.</li>
+      <li><b>El dinero se iba a donde menos vende.</b> PMax genera "mensajes de WhatsApp" que Google reporta como éxito; la búsqueda con intención real quedó limitada.</li>
+      <li><b>Nadie medía reservas de verdad.</b> Sin la conversión de Easy-Rez activa, no hay forma de saber qué gasto produce noches vendidas.</li>
+      <li><b>La corrección no exige más presupuesto — exige orden.</b> Con el mismo $300/día bien repartidos el hotel puede dominar su marca y competir en "hotel palenque".</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="kicker">03 · Plan de corrección</div>
+
+    <div class="fix"><b>1. Fin del servicio intermitente</b> — pasar de pagos prepagados manuales a pagos automáticos + alerta de saldo bajo configurada al equipo. Nunca más una semana apagados sin saberlo. <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>2. Redistribución de presupuesto</b> — reducir o pausar Performance Max y reasignar a la campaña de búsqueda real, que ya declara demanda insatisfecha. <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>3. Conversiones que sí son reservas</b> — activar y verificar "Reserva Online easy rez" como conversión principal; WhatsApp pasa a ser métrica secundaria, no "venta". <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>4. Limpieza de palabras clave</b> — eliminar duplicados que se anulan, agrupar por intención (marca "nututun" / genérica "hotel palenque" / zona arqueológica), y agregar negativas. <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>5. Geografía con criterio hotelero</b> — cambiar a "Presencia" para no pagar por curiosos de otros continentes; evaluar si Arizona se justifica o se redirige a mercados reales (CDMX, Monterrey, EU-sureste). <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>6. Campaña de marca propia</b> — nadie que busque "hotel nututun" debe ver primero a un OTA. Keyword de marca es barata y de máxima conversión. <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>7. Google Hotels — entrar al carrusel</b> — activar Free Booking Links vía Easy-Rez (socio compatible) y luego campaña Hotel con <b>comisión por estancia</b>: se paga solo cuando el huésped hace check-out. Es el canal donde hoy Booking monetiza la demanda del hotel. <span class="tag next">Siguiente fase</span></div>
+    <div class="fix"><b>8. Recomendaciones automáticas bajo control</b> — revisar y desactivar auto-aplicación; cada cambio de Google quedará documentado en el historial. <span class="tag next">Siguiente fase</span></div>
+  </section>
+
+  <section>
+    <div class="kicker">04 · Evidencia de respaldo</div>
+    <p>Toda la documentación cruda quedó archivada:</p>
+    <ul>
+      <li>Informe de campañas (CSV) — presupuestos, estados, impresiones por campaña</li>
+      <li>Informe de términos de búsqueda (CSV) — frases reales que activaron el anuncio</li>
+      <li>Informe de historial de cambios (CSV) — quién y cuándo se modificó la cuenta</li>
+      <li>Comparativa de subastas (CSV) — competidores en la subasta de búsqueda</li>
+      <li>Serie temporal de impresiones (CSV) — el periodo apagado, día por día</li>
+      <li>Actividad de facturación (CSV) — cargas y agotamiento del saldo</li>
+      <li>Informe de ubicaciones (CSV) — dónde se cobraron los clics</li>
+      <li>Capturas oficiales — conversiones, accesos, segmentación, diagnóstico "anuncio no mostrado"</li>
+    </ul>
+    <div class="callout"><b>Nota metodológica:</b> ninguna cifra de este informe es estimación externa — todo proviene de la propia consola de Google Ads del hotel (CID 397-733-5101), exportada y capturada durante la visita técnica con acceso autorizado.</div>
+  </section>
+
+  <footer class="foot">
+    <b>The Unknown Shopper + Olmeca Code</b> · Frente D1 — Visibilidad en Google<br>
+    Informe 01 · Hotel Nututún Palenque · Generado tras la visita técnica del 3 nov 2026
+  </footer>
+</div>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

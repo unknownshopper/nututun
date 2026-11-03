@@ -6,7 +6,8 @@
       "**/.*",
       "**/*.md",
       "**/node_modules/**",
-      "public/**"
+      "public/**",
+      "docs/**"
     ]
   }
 }

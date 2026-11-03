@@ -1,0 +1,30 @@
+Informe de campaña
+4 de octubre de 2026 - 2 de noviembre de 2026
+Acción de conversión,Estado de la campaña,Campaña,Presupuesto,Nombre de presupuesto,Tipo de presupuesto,Código de moneda,Estado,Motivos del estado,Nivel de optimización,Tipo de campaña,Valor de conv.,Conversiones,Tasa de conv.,Coste/conv.,Impr.,Clics,CTR,Coste
+Whatsapp Nututun,Habilitada,Sales-Performance Max-1,"100,00", --,Diario,MXN,Apto,,"84,13",Rendimiento máximo,"0,00","65,00", --,0,0,0, --,0
+Conversación iniciada,Habilitada,Sales-Performance Max-1,"100,00", --,Diario,MXN,Apto,,"84,13",Rendimiento máximo,"1,00","1,00", --,0,0,0, --,0
+Reserva Online easy rez,Habilitada,Busqueda by Google,"200,00", --,Diario,MXN,Apto (limitado),elemento limitado por el presupuesto,"80,87",Buscar,"0,00","0,00", --,0,0,0, --,0
+Whatsapp Nututun,Habilitada,Busqueda by Google,"200,00", --,Diario,MXN,Apto (limitado),elemento limitado por el presupuesto,"80,87",Buscar,"0,00","29,47", --,0,0,0, --,0
+Vista de una página (booking.easy-rez.com/hotel-nututun-palenque/),Habilitada,Busqueda by Google,"200,00", --,Diario,MXN,Apto (limitado),elemento limitado por el presupuesto,"80,87",Buscar,"0,00","0,00", --,0,0,0, --,0
+Conversación iniciada,Habilitada,Busqueda by Google,"200,00", --,Diario,MXN,Apto (limitado),elemento limitado por el presupuesto,"80,87",Buscar,"0,00","0,00", --,0,0,0, --,0
+ --,Total: Campañas, --, --, --, --,MXN, --,, --, --,"1,00","95,47", --,0,0,0, --,0
+ --,Total: Campañas, --, --, --, --,MXN, --,, --, --,0,0, --,0,0,0, --,0
+ --,Total: Campañas, --, --, --, --, --, --,, --, --,0,0, --,0,0,0, --,0
+Conversación iniciada,Total: Campañas, --, --, --, --, --, --,, --, --,0,0, --,0,0,0, --,0
+Whatsapp Nututun,Total: Campañas, --, --, --, --, --, --,, --, --,0,0, --,0,0,0, --,0
+ --,Total: Campañas, --, --, --, --, --, --,, --, --,0,0, --,0,0,0, --,0
+Conversación iniciada,Total: Campañas, --, --, --, --,MXN, --,, --, --,"1,00","1,00", --,0,0,0, --,0
+Whatsapp Nututun,Total: Campañas, --, --, --, --,MXN, --,, --, --,"0,00","94,47", --,0,0,0, --,0
+,Total: Cuenta,,,,,MXN,,,,,"1,00","95,47","0,82%","84,02",77.343,4.119,"5,33%","8021,59"
+Vista de una página (booking.easy-rez.com/hotel-nututun-palenque/),Total: Cuenta,,,,,,,,,,"0,00","0,00", --,0,0,0, --,0
+Whatsapp Nututun,Total: Cuenta,,,,,,,,,,"0,00","94,47", --,0,0,0, --,0
+Conversación iniciada,Total: Cuenta,,,,,,,,,,"1,00","1,00", --,0,0,0, --,0
+Reserva Online easy rez,Total: Cuenta,,,,,,,,,,"0,00","0,00", --,0,0,0, --,0
+,Total: Buscar,,,,,MXN,,,,Buscar,"0,00","29,47","9,04%","173,54",4.193,326,"7,77%","5115,03"
+,Total: Rendimiento máximo,,,,,MXN,,,,Rendimiento máximo,"1,00","66,00","0,58%","44,04",73.150,3.793,"5,19%","2906,56"
+Conversación iniciada,Total: Rendimiento máximo,,,,,,,,,Rendimiento máximo,"1,00","1,00", --,0,0,0, --,0
+Vista de una página (booking.easy-rez.com/hotel-nututun-palenque/),Total: Buscar,,,,,,,,,Buscar,"0,00","0,00", --,0,0,0, --,0
+Conversación iniciada,Total: Buscar,,,,,,,,,Buscar,"0,00","0,00", --,0,0,0, --,0
+Reserva Online easy rez,Total: Buscar,,,,,,,,,Buscar,"0,00","0,00", --,0,0,0, --,0
+Whatsapp Nututun,Total: Rendimiento máximo,,,,,,,,,Rendimiento máximo,"0,00","65,00", --,0,0,0, --,0
+Whatsapp Nututun,Total: Buscar,,,,,,,,,Buscar,"0,00","29,47", --,0,0,0, --,0
