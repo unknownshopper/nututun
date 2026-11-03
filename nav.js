@@ -25,6 +25,8 @@
     ["panel.html","Panel","cliente"],
     ["accesos.html","Accesos","admin"],
     ["d1chklst.html","Checklist D1","cliente"],
+    ["informe01.html","Informe 01","cliente"],
+    ["informe01B.html","Informe 01B","cliente"],
     ["llamada.html","Llamada Google","admin"],
     ["index.html","Documentos","admin"]
   ];

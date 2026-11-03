@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Informe 01B — Sitio web y funnel de reserva · Hotel Nututún Palenque</title>
+<meta name="description" content="Segundo informe del Frente D1: auditoría del sitio web y del funnel de reserva de Hotel Nututún Palenque.">
+<style>
+  :root{--red:#c0392b;--red-soft:#f8e9e7;--red-dark:#96281b;--ink:#2c2a26;--stone:#7d766a;
+        --paper:#f7f5f0;--deep:#1f1d1a;--navy:#2a4d69;--navy-soft:#eef2f6;--radius:14px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);line-height:1.6;padding:110px 20px 80px;background:#faf9f6}
+  .wrap{max-width:960px;margin:0 auto;background:var(--paper);border-radius:20px;padding:56px 60px;
+    box-shadow:0 20px 60px rgba(0,0,0,.06)}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--deep)}
+  h1{font-size:2rem;margin:.4em 0}
+  h2{font-size:1.35rem;margin:2.2em 0 .8em;padding-top:1.4em;border-top:1px solid #e5e1d8}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  .cover{border-bottom:3px solid var(--red);padding-bottom:28px;margin-bottom:36px}
+  .cover .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;
+    margin-top:22px;font-size:.85rem}
+  .cover .meta b{display:block;color:var(--deep);font-size:.9rem;font-weight:600}
+  .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);font-size:.68rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:4px 12px;border-radius:20px}
+  p{margin:.6em 0;font-size:.93rem}
+  .lead{font-size:1.05rem;color:var(--deep)}
+  .finding{background:#fff;border-left:4px solid var(--red);border-radius:8px;
+    padding:16px 20px;margin:18px 0}
+  .finding .fnum{display:inline-block;background:var(--red);color:#fff;font-size:.7rem;
+    font-weight:700;padding:2px 9px;border-radius:12px;margin-bottom:8px}
+  .finding .fnum.ok{background:#2e6b3a}
+  .finding b.t{display:block;color:var(--deep);font-size:.95rem;margin-bottom:4px}
+  .finding .why{font-size:.85rem;color:var(--stone)}
+  .evid{margin:14px 0 26px}
+  .evid img{width:100%;border:1px solid #e5e1d8;border-radius:10px;display:block}
+  .evid figcaption{font-size:.78rem;color:var(--stone);margin-top:6px;font-style:italic}
+  .callout{background:var(--navy-soft);border:1px solid #d6ddef;border-radius:var(--radius);
+    padding:16px 20px;margin:20px 0;font-size:.9rem}
+  .callout.red{background:var(--red-soft);border-color:#ecc8c1}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+  th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--stone);padding:8px 10px;border-bottom:2px solid var(--red)}
+  td{padding:8px 10px;border-bottom:1px solid #eee7dc}
+  ul{margin:.6em 0 .6em 1.4em}
+  li{margin:.35em 0;font-size:.9rem}
+  .fix{background:#fff;border:1px solid #e5e1d8;border-radius:10px;padding:14px 18px;margin:12px 0}
+  .fix b{color:var(--deep)}
+  .fix .tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+  .tag.now{background:var(--red-soft);color:var(--red-dark);border:1px solid #ecc8c1}
+  .tag.next{background:#e9f3ea;color:#2e6b3a;border:1px solid #c8e0cd}
+  .test{background:#fff;border:1px solid #e5e1d8;border-radius:10px;padding:14px 18px;margin:12px 0}
+  .test .res{font-weight:700}
+  .test .res.pass{color:#2e6b3a}
+  .test .res.fail{color:var(--red)}
+  .test .res.pend{color:#a07b00}
+  .foot{margin-top:48px;padding-top:22px;border-top:1px solid #e5e1d8;font-size:.8rem;color:var(--stone)}
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;padding:13px 22px;border-radius:30px;font-size:.85rem;font-weight:600;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35)}
+  @media(max-width:700px){.wrap{padding:32px 22px}}
+  @media print{body{padding:0}.fab{display:none}.wrap{box-shadow:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="cover">
+    <span class="badge-doc">Informe 01B · Frente D1 — Sitio web y funnel de reserva</span>
+    <h1>Auditoría del sitio web<br>y del proceso de reserva</h1>
+    <div class="meta">
+      <div><b>Sitio</b>Construido en Duda (plataforma de agencias) · hosting AWS</div>
+      <div><b>Motor de reservas</b>Easy-Rez · booking.easy-rez.com/hotel-nututun-palenque</div>
+      <div><b>Pasarela de pago</b>OpenPay (BBVA) · cargo 100% por adelantado</div>
+      <div><b>Ejecutado por</b>The Unknown Shopper + Olmeca Code</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="kicker">Resumen ejecutivo</div>
+    <p class="lead">El sitio web del hotel y su motor de reservas <b>funcionan de punta a punta</b>: el ejercicio de reserva real llegó sin fricción hasta la pantalla de cobro con tarjeta. Lo que no funciona es la <b>medición</b>: el tag que registra cada reserva se rompió hace ~4 semanas — el sitio se republicó el 21 de octubre y días después el tag dejó de cargarse. El mismo proveedor que administra sitio y motor rompió su propio contador.</p>
+    <div class="callout red"><b>En una frase:</b> la caja registradora funciona; el contador de ventas está apagado desde el 6 de octubre y el proveedor no se dio cuenta.</div>
+  </section>
+
+  <section>
+    <div class="kicker">01 · Ejercicio de reserva real</div>
+    <p>Como parte de la visita se simuló la experiencia de un huésped real: entrar al sitio, elegir fechas, seleccionar habitación y avanzar hasta la confirmación de pago.</p>
+
+    <div class="finding">
+      <span class="fnum ok">E1</span>
+      <b class="t">El funnel completo funciona — se llegó hasta el cobro</b>
+      <p>Del sitio → motor Easy-Rez → selección de habitación → datos del huésped → <b>pantalla de pago con tarjeta vía OpenPay (BBVA)</b>. Cargo: <b>MXN $3,500.01 de depósito — el 100% por adelantado</b>, $0.00 a pagar en propiedad.</p>
+      <div class="evid"><img src="evidencia/checkout.png" alt="Pantalla de pago Easy-Rez con OpenPay">
+        <figcaption>Pantalla de cobro real: tarjeta vía OpenPay, depósito del 100% de la estancia.</figcaption></div>
+      <p class="why">El sistema cobra y cobra bien — tarjeta, pasarela bancaria, depósito completo. La infraestructura de venta directa existe y está viva.</p>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">E3</span>
+      <b class="t">En el carrusel de precios de su propia ficha solo venden OTAs — el hotel no aparece</b>
+      <p>En Google Hotels, la ficha de Nututún muestra <b>10+ canales con precio — todos intermediarios</b>: Expedia $2,277, Booking $2,449, Hoteles.com, Best Day, Trip.com $2,049, Despegar, Agoda, Vio.com, Super.com. <b>El "Sitio oficial" no existe</b>: Easy-Rez no está alimentando tarifas a Google, así que ni siquiera el enlace de reserva <b>gratuito</b> (Free Booking Link) está activo. El hotel paga comisión por demanda que ya era suya.</p>
+      <div class="evid"><img src="evidencia/carrusel.png" alt="Comparar precios Google Hotels - solo OTAs">
+        <figcaption>Carrusel de precios en la ficha de Google: 10 OTAs, cero enlace directo del hotel.</figcaption></div>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">E2</span>
+      <b class="t">El 100% de anticipo puede estar frenando reservas</b>
+      <p>Cobrar la estancia completa por adelantado es la política más estricta posible. Frente a Booking (que ofrece "pagar en el hotel" o cancelación gratis), un huésped que duda prefiere el canal donde no le cargan todo hoy. Vale la pena evaluar depósito parcial o primera noche.</p>
+      <p class="why">Punto a levantar con la administración: no es falla técnica, es decisión comercial que afecta la conversión.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">02 · El problema de medición</div>
+
+    <div class="finding">
+      <span class="fnum">M1</span>
+      <b class="t">El contador de reservas se apagó el 6 de octubre — y nadie se enteró</b>
+      <p>La acción de conversión "Reserva Online easy rez" (creada el 15 ene 2026, funcionando bien) dejó de recibir señal del tag. <b>Última reserva medida: 6 oct 2026.</b> El tag dejó de cargarse por completo alrededor del 27 oct. Estado actual en Google: <b>"Configuración errónea"</b>.</p>
+      <p class="why">El sitio y el motor son del mismo proveedor (Easy-Rez: su "WebSite PRO" es Duda reetiquetado). El sitio se republicó el <b>21 oct 2026</b> y alrededor del 27 oct el tag dejó de cargarse — la cronología apunta a esa republicación como el evento que tumbó la medición. El arreglo es un ticket a soporte de Easy-Rez con el ID de conversión 7461874946 en la mano.</p>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">M2</span>
+      <b class="t">Dentro de la consola del hotel, el tag no se puede tocar — lo administra Easy-Rez internamente</b>
+      <p>Se revisó la consola completa de Easy-Rez (Motor de Reservas, Ajustes, Herramientas de Venta, Sitio Web): <b>no existe campo de seguimiento editable</b> para el hotel. El tag de conversión lo inyecta Easy-Rez del lado de su código. La reparación es un ticket a soporte con: <b>Conversion ID 7461874946 · Cuenta 397-733-5101 · última conversión 6 oct 2026</b>.</p>
+      <p class="why">Se verificó también que la consola trae sección "Consultas y Reportes" (Dashboard, Estadísticas, Reportes del Motor y del PMS) — ahí vive la materia prima para el frente de estadísticas de reservas.</p>
+    </div>
+
+    <div class="finding">
+      <span class="fnum">M3</span>
+      <b class="t">El sitio es producto del mismo proveedor del motor (Easy-Rez)</b>
+      <p>www.nututun.com corre sobre <b>"WebSite PRO" de Easy-Rez</b> — su CMS, que es Duda reetiquetado — hospedado en AWS con SSL correcto. Técnicamente sano; el problema es de <b>propiedad</b>: sitio, motor y medición dependen de un solo proveedor, y la interacción del sitio es mínima (<b>8 acciones en 7 días</b>: 6 llamadas, 2 formularios).</p>
+      <table>
+        <tr><th>Aspecto</th><th>Estado</th></tr>
+        <tr><td>Plataforma</td><td>Duda (CMS de agencias)</td></tr>
+        <tr><td>Hosting / servidor</td><td>AWS Virginia · nginx — sano</td></tr>
+        <tr><td>Certificado SSL</td><td>Activo, redirige a HTTPS — correcto</td></tr>
+        <tr><td>Dominio</td><td>Registrado desde antes de 2010 — antigüedad positiva</td></tr>
+        <tr><td>Control editorial</td><td>Depende del proveedor — cuello de botella</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">03 · Qué significa para el hotel</div>
+    <ul>
+      <li><b>La venta directa existe y funciona</b> — no hay que construir el canal, hay que medirlo y hacerlo visible.</li>
+      <li><b>Se opera a ciegas desde el 6 de octubre</b> — cada reserva desde entonces es invisible para la medición: no se sabe de dónde vino ni qué la provocó.</li>
+      <li><b>El proveedor actual tiene un conflicto natural</b> — administra sitio, motor y (en la práctica) la medición de su propio trabajo. Nadie audita al auditor.</li>
+      <li><b>La infraestructura paga</b> — Easy-Rez + OpenPay cobran de verdad; el problema nunca fue tecnológico sino de control y medición.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="kicker">04 · Plan de corrección</div>
+
+    <div class="fix"><b>1. Ticket a Easy-Rez para restaurar el tag</b> — el tracking no se edita desde la consola del hotel: lo inyecta Easy-Rez en su código. Solicitud formal a soporte con Conversion ID 7461874946, cuenta 397-733-5101 y fecha de quiebre (21 oct, republicación del sitio). Prioridad uno: sin esto todo lo demás se mide mal. <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>2. Reserva de prueba end-to-end</b> — completar una reserva real de bajo costo para verificar de una vez: tag de conversión, correo de confirmación, cargo en OpenPay y reporte interno del motor. <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>3. Revisar política de anticipo</b> — proponer a administración evaluar depósito parcial (primera noche) contra el 100% actual, medido por conversión real del motor. <span class="tag next">Siguiente fase</span></div>
+    <div class="fix"><b>4. Claridad de propiedad del sitio</b> — documentar quién puede editar qué: ¿login propio de Duda o todo pasa por la agencia? Sin acceso de edición, cada corrección de medición depende de terceros. <span class="tag now">Inmediato</span></div>
+    <div class="fix"><b>5. Evaluar sitio propio con medición nativa</b> — para la siguiente etapa: sitio administrado donde el tag, los títulos y la velocidad se controlan directamente, con Easy-Rez como motor intacto. <span class="tag next">Siguiente fase</span></div>
+  </section>
+
+  <section>
+    <div class="kicker">05 · Estrategia propuesta</div>
+    <p>Lo documentado define el camino: el hotel no necesita más proveedores — necesita <b>alguien que mida, vigile y controle lo que sus proveedores hacen</b>.</p>
+    <table>
+      <tr><th>Frente</th><th>Movimiento</th><th>Por qué</th></tr>
+      <tr><td><b>Medición</b></td><td>Ticket formal a Easy-Rez + reserva de prueba verificada</td><td>Revivir el contador de ventas real</td></tr>
+      <tr><td><b>Google Ads</b></td><td>Pagos automáticos, redistribución PMax→Search, conversión real como objetivo</td><td>Los $300/día deben comprar noches, no clics de WhatsApp</td></tr>
+      <tr><td><b>Google Hotels</b></td><td><b>Confirmado en ficha: ni siquiera el enlace gratuito está conectado.</b> Pedir a Easy-Rez activar el feed de tarifas → Free Booking Links (gratis) → luego campaña Hotel pay-per-stay</td><td>El carrusel con precio real vale más que el anuncio de texto; se paga solo si el huésped se queda</td></tr>
+      <tr><td><b>Sitio</b></td><td>Documentar quién puede editar qué hoy; a mediano plazo evaluar sitio administrado con medición nativa</td><td>Un solo proveedor sin auditoría ya demostró lo que pasa; el sitio propio es la siguiente etapa, manteniendo Easy-Rez como motor</td></tr>
+      <tr><td><b>Estadísticas</b></td><td>"Consultas y Reportes" del motor como fuente: ocupación, canal, ingresos — el frente D2 ya tiene datos vivos</td><td>Decidir con números del negocio, no con métricas de vanidad</td></tr>
+    </table>
+    <div class="callout"><b>El eje de la estrategia:</b> quedarse con el motor (Easy-Rez cobra y conecta con Google Hotels) pero quitarle el monopolio de la verdad — medición independiente, sitio con control propio y un panel donde el hotel vea sus propios números.</div>
+  </section>
+
+  <section>
+    <div class="kicker">06 · Evidencia de respaldo</div>
+    <ul>
+      <li>Captura de la pantalla de pago (OpenPay · depósito MXN $3,500.01)</li>
+      <li>Detalle de la acción de conversión: "Configuración errónea", última conversión 6 oct 2026</li>
+      <li>Informe tecnológico del sitio (BuiltWith): Duda, AWS, SSL, DNS</li>
+      <li>Detalle de configuración de la conversión (creada 15 ene 2026, conversiones mejoradas activas)</li>
+    </ul>
+    <div class="callout"><b>Nota metodológica:</b> el ejercicio de reserva se ejecutó en vivo durante la visita, con el equipo del hotel presente. Ningún cargo se completó — se documentó hasta la pantalla de pago.</div>
+  </section>
+
+  <footer class="foot">
+    <b>The Unknown Shopper + Olmeca Code</b> · Frente D1 — Visibilidad en Google<br>
+    Informe 01B · Hotel Nututún Palenque · Visitas del 3 nov 2026
+  </footer>
+</div>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

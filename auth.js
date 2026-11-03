@@ -21,7 +21,7 @@ const ROLES = {
   "the@unknownshoppers.com": "admin",
   "ale@nututun.com": "cliente"
 };
-const CLIENT_PAGES = ["panel.html", "propuesta.html", "d1.html", "accesos.html", "llamada.html", "capacidades.html", "d1chklst.html", "informe01.html"];
+const CLIENT_PAGES = ["panel.html", "propuesta.html", "d1.html", "accesos.html", "llamada.html", "capacidades.html", "d1chklst.html", "informe01.html", "informe01B.html"];
 
 window.TUS_ROLE = u => ROLES[(u && u.email || "").toLowerCase()] || "cliente";
 
