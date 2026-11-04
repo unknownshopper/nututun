@@ -27,6 +27,7 @@
     ["d1chklst.html","Checklist D1","cliente"],
     ["informe01.html","Informe 01","cliente"],
     ["informe01B.html","Informe 01B","cliente"],
+    ["informe01C.html","Informe 01C","cliente"],
     ["llamada.html","Llamada Google","admin"],
     ["index.html","Documentos","admin"]
   ];
