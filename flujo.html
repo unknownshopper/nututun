@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Flujo de reserva — Hotel Nututún Palenque</title>
+<meta name="description" content="Diagrama del flujo de reserva en línea de Hotel Nututún Palenque: de la búsqueda en Google al checkout, con puntos de conflicto marcados.">
+<style>
+  :root{--red:#c0392b;--red-soft:#f8e9e7;--red-dark:#96281b;--ink:#2c2a26;--stone:#7d766a;
+        --paper:#f7f5f0;--deep:#1f1d1a;--navy-soft:#eef2f6;--radius:14px;
+        --ok:#2e6b3a;--ok-soft:#e9f3ea}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);line-height:1.55;padding:110px 20px 80px;background:#faf9f6}
+  .wrap{max-width:780px;margin:0 auto;background:var(--paper);border-radius:20px;padding:48px 50px;
+    box-shadow:0 20px 60px rgba(0,0,0,.06)}
+  h1{font-family:Georgia,"Times New Roman",serif;font-size:1.8rem;line-height:1.2;color:var(--deep);margin:.4em 0 .2em}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);font-size:.68rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:4px 12px;border-radius:20px}
+  .sub{font-size:.92rem;color:var(--stone);margin-bottom:34px}
+  /* ===== Flow ===== */
+  .step{display:flex;gap:16px;margin:0}
+  .rail{display:flex;flex-direction:column;align-items:center;width:34px;flex-shrink:0}
+  .dot{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid #c9c2ae;
+    display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;
+    color:var(--stone);z-index:2}
+  .dot.ok{border-color:var(--ok);color:var(--ok)}
+  .dot.conf{border-color:var(--red);color:var(--red);background:var(--red-soft)}
+  .line{width:2px;flex:1;min-height:18px;background:#ddd5c7}
+  .body{flex:1;padding-bottom:26px}
+  .card{background:#fff;border:1px solid #e5e1d8;border-radius:12px;padding:15px 18px;
+    position:relative}
+  .card.conf{border-left:4px solid var(--red)}
+  .card.ok{border-left:4px solid var(--ok)}
+  .card h3{font-size:.95rem;color:var(--deep);margin-bottom:3px}
+  .card .d{font-size:.84rem;color:var(--stone)}
+  .card .sys{display:inline-block;font-size:.68rem;font-weight:600;color:var(--stone);
+    background:#f1ede4;border-radius:10px;padding:2px 8px;margin-top:7px}
+  /* conflict tags */
+  .tag{position:absolute;top:-9px;right:14px;background:var(--red);color:#fff;
+    font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:3px 10px;border-radius:12px;box-shadow:0 2px 6px rgba(192,57,43,.3)}
+  .warn{margin-top:9px;background:var(--red-soft);border-radius:8px;padding:9px 12px;
+    font-size:.8rem;color:var(--red-dark)}
+  .warn b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+  .legend{display:flex;gap:18px;margin:26px 0 4px;font-size:.78rem;color:var(--stone)}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
+  .split{display:flex;gap:10px}
+  .split>div{flex:1}
+  .callout{background:var(--navy-soft);border:1px solid #d6ddef;border-radius:var(--radius);
+    padding:14px 18px;margin-top:8px;font-size:.88rem}
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid #e5e1d8;font-size:.78rem;color:var(--stone)}
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;padding:13px 22px;border-radius:30px;font-size:.85rem;font-weight:600;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35)}
+  @media(max-width:640px){.wrap{padding:30px 20px}.split{flex-direction:column}}
+  @media print{body{padding:0}.fab{display:none}.wrap{box-shadow:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <span class="badge-doc">Frente D1 · Diagrama de flujo</span>
+  <h1>De la búsqueda al cobro</h1>
+  <p class="sub">El camino que hace un huésped para reservar directo — y exactamente dónde se rompe hoy. Documentado durante la visita técnica, nov 2026.</p>
+
+  <div class="legend">
+    <span><i style="background:#c9c2ae"></i>Paso del flujo</span>
+    <span><i style="background:#2e6b3a"></i>Funciona</span>
+    <span><i style="background:#c0392b"></i>Punto de conflicto</span>
+  </div>
+
+  <!-- 1 -->
+  <div class="step">
+    <div class="rail"><div class="dot conf">✕</div><div class="line"></div></div>
+    <div class="body"><div class="card conf"><span class="tag">Conflicto 1</span>
+      <h3>El huésped busca "hotel nututun" / "hotel palenque"</h3>
+      <p class="d">El anuncio pagado <b>no se muestra ni para la marca propia</b> — keywords canibalizadas, presupuesto limitado y saldo que se agota. Quien busca, encuentra OTAs y competidores.</p>
+      <div class="warn"><b>Documentado</b>"Tu anuncio no se está mostrando" — diagnóstico oficial de Google Ads.</div>
+      <span class="sys">Google Ads · CID 397-733-5101</span>
+    </div></div>
+  </div>
+
+  <!-- 2 -->
+  <div class="step">
+    <div class="rail"><div class="dot conf">✕</div><div class="line"></div></div>
+    <div class="body"><div class="card conf"><span class="tag">Conflicto 2</span>
+      <h3>Encuentra la ficha de Google — el carrusel solo vende OTAs</h3>
+      <p class="d">10+ intermediarios con precio (Expedia, Booking, Hoteles.com, Trip.com, Agoda…). <b>El "Sitio oficial" no existe</b>: Easy-Rez no alimenta tarifas a Google.</p>
+      <div class="warn"><b>Documentado</b>Comparador de precios de la ficha — cero enlace directo.</div>
+      <span class="sys">Google Business Profile · Google Hotels</span>
+    </div></div>
+  </div>
+
+  <!-- 3 -->
+  <div class="step">
+    <div class="rail"><div class="dot ok">✓</div><div class="line"></div></div>
+    <div class="body"><div class="card ok">
+      <h3>Entra a nututun.com</h3>
+      <p class="d">Sitio en Duda (WebSite PRO de Easy-Rez), bilingüe, SSL activo, república del 21 oct. Botón "Reservar" apunta correctamente al motor.</p>
+      <span class="sys">www.nututun.com · GA4 + GTM instalados</span>
+    </div></div>
+  </div>
+
+  <!-- 4 -->
+  <div class="step">
+    <div class="rail"><div class="dot ok">✓</div><div class="line"></div></div>
+    <div class="body"><div class="card ok">
+      <h3>Elige fechas y habitación en el motor</h3>
+      <p class="d">Flujo de disponibilidad, tarifas y selección de habitación verificado en vivo.</p>
+      <span class="sys">booking.easy-rez.com/hotel-nututun-palenque</span>
+    </div></div>
+  </div>
+
+  <!-- 5 -->
+  <div class="step">
+    <div class="rail"><div class="dot conf">!</div><div class="line"></div></div>
+    <div class="body"><div class="card conf"><span class="tag">Conflicto 3</span>
+      <h3>Paga el 100% por adelantado — OpenPay</h3>
+      <p class="d">El cobro funciona (tarjeta, BBVA, depósito completo). Pero exigir <b>toda la estancia anticipada</b> compite mal contra OTAs que ofrecen "pagar en el hotel". Fricción comercial, no técnica.</p>
+      <div class="warn"><b>Punto a revisar</b>Política de anticipo vs. conversión del motor.</div>
+      <span class="sys">OpenPay / BBVA · cargo confirmado</span>
+    </div></div>
+  </div>
+
+  <!-- 6 -->
+  <div class="step">
+    <div class="rail"><div class="dot conf">?</div><div class="line"></div></div>
+    <div class="body"><div class="card conf"><span class="tag">Conflicto 4</span>
+      <h3>La reserva se confirma — pero nadie la cuenta</h3>
+      <p class="d">Aquí debería disparar el tag "Reserva Online easy rez". <b>Última medida: 6 oct 2026.</b> Easy-Rez afirma que está instalado; Google marca "configuración errónea". Se verifica con reserva de prueba.</p>
+      <div class="warn"><b>Por verificar</b>Conversion ID 7461874946 · si no dispara, el canal directo lleva un mes a ciegas.</div>
+      <span class="sys">Google Ads conversion tag · Easy-Rez</span>
+    </div></div>
+  </div>
+
+  <!-- 7 -->
+  <div class="step">
+    <div class="rail"><div class="dot ok">✓</div><div class="line"></div></div>
+    <div class="body"><div class="card ok">
+      <h3>Reserva llega al PMS y correo de confirmación</h3>
+      <p class="d">El registro operativo existe — folio, huésped, habitación, canal. Es la materia prima ya exportada para estadísticas (D2).</p>
+      <span class="sys">Easy-Rez PMS · ~4,000 reservas exportadas</span>
+    </div></div>
+  </div>
+
+  <!-- 8 -->
+  <div class="step">
+    <div class="rail"><div class="dot conf">!</div></div>
+    <div class="body"><div class="card conf"><span class="tag">Conflicto 5</span>
+      <h3>Check-in / check-out — la relación termina donde podría empezar</h3>
+      <p class="d">Hoy no hay contacto automatizado: ni mensaje de bienvenida con actividades, ni solicitud de reseña al salir con links directos a Google/Tripadvisor. La reputación crece sola o no crece.</p>
+      <div class="warn"><b>Oportunidad</b>Automatización de mensajes — el frente D3 del proyecto.</div>
+      <span class="sys">Recepción · WhatsApp Business</span>
+    </div></div>
+  </div>
+
+  <div class="callout"><b>El mapa en una línea:</b> el dinero del huésped viaja perfecto hasta el hotel — lo que está roto es el camino para encontrarlos (conflictos 1-2), la medición de quién llegó (4) y la política que frena al final (3, 5).</div>
+</div>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+<footer class="foot">
+  <b>The Unknown Shopper + Olmeca Code</b> · Flujo de reserva en línea · Hotel Nututún Palenque · Nov 2026
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
