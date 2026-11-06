@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Informe D2 — Estadísticas del motor de reservas · Hotel Nututún Palenque</title>
+<meta name="description" content="Frente D2: análisis de las reservas del motor Easy-Rez de Hotel Nututún Palenque — canales, segmentos, ocupación y conversión directa.">
+<style>
+  :root{--red:#c0392b;--red-soft:#f8e9e7;--red-dark:#96281b;--ink:#2c2a26;--stone:#7d766a;
+        --paper:#f7f5f0;--deep:#1f1d1a;--navy-soft:#eef2f6;--radius:14px;
+        --ok:#2e6b3a;--ok-soft:#e9f3ea;--warn:#a07b00;--warn-soft:#fbf3dc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);line-height:1.6;padding:110px 20px 80px;background:#faf9f6}
+  .wrap{max-width:960px;margin:0 auto;background:var(--paper);border-radius:20px;padding:56px 60px;
+    box-shadow:0 20px 60px rgba(0,0,0,.06)}
+  h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.2;color:var(--deep);margin:.4em 0}
+  h2{font-family:Georgia,serif;font-size:1.3rem;color:var(--deep);margin:2em 0 .8em;
+    padding-top:1.3em;border-top:1px solid #e5e1d8}
+  .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;
+    color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--red);display:inline-block}
+  .cover{border-bottom:3px solid var(--red);padding-bottom:28px;margin-bottom:36px}
+  .cover .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;
+    margin-top:22px;font-size:.85rem}
+  .cover .meta b{display:block;color:var(--deep);font-size:.9rem;font-weight:600}
+  .badge-doc{display:inline-block;background:var(--red-soft);border:1px solid #ecc8c1;
+    color:var(--red-dark);font-size:.68rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:4px 12px;border-radius:20px}
+  p{margin:.6em 0;font-size:.93rem}
+  .lead{font-size:1.05rem;color:var(--deep)}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+  .kpi{background:#fff;border:1px solid #e5e1d8;border-radius:12px;padding:16px;text-align:center}
+  .kpi .n{font-family:Georgia,serif;font-size:1.7rem;color:var(--deep);line-height:1}
+  .kpi .n.red{color:var(--red)}
+  .kpi .n.ok{color:var(--ok)}
+  .kpi .l{font-size:.72rem;color:var(--stone);text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+  .finding{background:#fff;border-left:4px solid var(--red);border-radius:8px;
+    padding:16px 20px;margin:18px 0}
+  .finding .fnum{display:inline-block;background:var(--red);color:#fff;font-size:.7rem;
+    font-weight:700;padding:2px 9px;border-radius:12px;margin-bottom:8px}
+  .finding .fnum.ok{background:var(--ok)}
+  .finding b.t{display:block;color:var(--deep);font-size:.95rem;margin-bottom:4px}
+  .finding .why{font-size:.85rem;color:var(--stone)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.85rem}
+  th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--stone);padding:8px 10px;border-bottom:2px solid var(--red)}
+  td{padding:8px 10px;border-bottom:1px solid #eee7dc}
+  td.barcell{width:38%}
+  .bar{height:9px;border-radius:5px;background:var(--red);display:inline-block}
+  .bar.ok{background:var(--ok)}
+  .callout{background:var(--navy-soft);border:1px solid #d6ddef;border-radius:var(--radius);
+    padding:16px 20px;margin:20px 0;font-size:.9rem}
+  .callout.red{background:var(--red-soft);border-color:#ecc8c1}
+  .todo{background:#fff;border:1px dashed #d6cbb5;border-radius:10px;padding:12px 16px;
+    margin:10px 0;font-size:.88rem;display:flex;gap:10px;align-items:baseline}
+  .todo .st{flex-shrink:0;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:2px 8px;border-radius:10px}
+  .st.done{background:var(--ok-soft);color:var(--ok);border:1px solid #c8e0cd}
+  .st.next{background:var(--warn-soft);color:var(--warn);border:1px solid #ecd9a0}
+  .foot{margin-top:48px;padding-top:22px;border-top:1px solid #e5e1d8;font-size:.8rem;color:var(--stone)}
+  .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
+    border:none;padding:13px 22px;border-radius:30px;font-size:.85rem;font-weight:600;
+    cursor:pointer;box-shadow:0 6px 20px rgba(192,57,43,.35)}
+  @media(max-width:700px){.wrap{padding:32px 22px}}
+  @media print{body{padding:0}.fab{display:none}.wrap{box-shadow:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="cover">
+    <span class="badge-doc">Informe D2 · Frente D2 — Estadísticas del motor</span>
+    <h1>Las reservas dicen<br>de dónde viene el negocio</h1>
+    <div class="meta">
+      <div><b>Fuente</b>Reporte de reservaciones · Easy-Rez</div>
+      <div><b>Periodo</b>Nov 2025 – Nov 2026 (~12 meses)</div>
+      <div><b>Registros</b>~4,000 reservas (folios únicos)</div>
+      <div><b>Ejecutado por</b>The Unknown Shopper + Olmeca Code</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="kicker">Resumen ejecutivo</div>
+    <p class="lead">El negocio vive de <b>grupos, agencias y cortesías</b> — no del huésped digital que decide solo. La reserva directa por el sitio web representa apenas <b>el 2% del total</b>: el canal que no paga comisión y que más puede crecer es, hoy, el más chico del mapa.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="n red">2%</div><div class="l">Reservas vía sitio web</div></div>
+      <div class="kpi"><div class="n red">18%</div><div class="l">Habitaciones en cortesía</div></div>
+      <div class="kpi"><div class="n">26%</div><div class="l">Grupos y bloqueos</div></div>
+      <div class="kpi"><div class="n">18.5%</div><div class="l">Tasa de cancelación</div></div>
+      <div class="kpi"><div class="n">1</div><div class="l">Noche típica de estancia</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="kicker">01 · De dónde vienen las reservas</span></h2>
+    <p>Los segmentos que el propio motor registra — la radiografía real del canal:</p>
+    <table>
+      <tr><th>Segmento</th><th>Reservas</th><th></th></tr>
+      <tr><td>Bloqueos de grupos</td><td>849</td><td class="barcell"><span class="bar" style="width:100%"></span></td></tr>
+      <tr><td>Cortesía</td><td>734</td><td class="barcell"><span class="bar" style="width:86%"></span></td></tr>
+      <tr><td>Pasión por Viajes (agencia)</td><td>262</td><td class="barcell"><span class="bar" style="width:31%"></span></td></tr>
+      <tr><td>Grupos eventuales</td><td>205</td><td class="barcell"><span class="bar" style="width:24%"></span></td></tr>
+      <tr><td>Mexcellence Travel (agencia)</td><td>193</td><td class="barcell"><span class="bar" style="width:23%"></span></td></tr>
+      <tr><td>Promo "Agenda ahora y ahorra"</td><td>177</td><td class="barcell"><span class="bar" style="width:21%"></span></td></tr>
+      <tr><td>Particular con reserva</td><td>118</td><td class="barcell"><span class="bar" style="width:14%"></span></td></tr>
+      <tr><td>Explorando Chiapas (agencia)</td><td>114</td><td class="barcell"><span class="bar" style="width:13%"></span></td></tr>
+      <tr><td><b>Sitio web (directo)</b></td><td><b>87</b></td><td class="barcell"><span class="bar ok" style="width:10%"></span></td></tr>
+      <tr><td>Llegada directa (sin reserva)</td><td>86</td><td class="barcell"><span class="bar" style="width:10%"></span></td></tr>
+    </table>
+    <div class="callout red"><b>Lectura:</b> grupos + agencias + cortesías + walk-ins = ~95% del negocio. El huésped que busca en Google y reserva solo — el cliente que no cobra comisión — es hoy un canal residual.</div>
+  </section>
+
+  <section>
+    <h2><span class="kicker">02 · Hallazgos</span></h2>
+
+    <div class="finding"><span class="fnum">D1</span>
+      <b class="t">18% de habitaciones se regalaron — la cortesía sin política visible</b>
+      <p>734 folios marcados "Cortesía" en ~12 meses. Vale revisar: ¿quién autoriza, a quién, y qué retorno tiene? Como política puede ser válida; como costumbre, es una fuga.</p></div>
+
+    <div class="finding"><span class="fnum">D2</span>
+      <b class="t">El sitio web produjo el 2% de las reservas — el canal directo no existe</b>
+      <p>87 folios en un año. Complementa el hallazgo del Frente D1: el funnel cobra bien, pero nadie llega porque el anuncio no se muestra y la ficha vende solo OTAs.</p></div>
+
+    <div class="finding"><span class="fnum">D3</span>
+      <b class="t">El negocio es de grupos y agencias, no del viajero individual</b>
+      <p>26% bloqueos de grupos y otro ~20% en agencias de viajes. Son reservas de menor margen y mayor intermediación — pero también la base que hoy sostiene la ocupación.</p></div>
+
+    <div class="finding"><span class="fnum">D4</span>
+      <b class="t">1 de cada 5.4 reservas se cancela (18.5%)</b>
+      <p>740 cancelaciones en el periodo. Toca revisar la política: el anticipo del 100% en venta directa vs. la flexibilidad que ofrecen las OTAs.</p></div>
+
+    <div class="finding"><span class="fnum">D5</span>
+      <b class="t">Estancia típica: una noche — hotel de paso</b>
+      <p>Media 1.6 noches, mediana 1. El huésped llega de camino a la zona arqueológica u otros destinos. Implicación: el canal directo vende mejor con paquetes que alargan estancia (2+ noches, tours incluidos).</p></div>
+
+    <div class="finding"><span class="fnum ok">D6</span>
+      <b class="t">La habitación que se vende sola</b>
+      <p>"Estándar Superior" concentra el 66% de los folios — el producto estrella que debe encabezar precios del carrusel de Google Hotels cuando el feed se active.</p></div>
+  </section>
+
+  <section>
+    <h2><span class="kicker">03 · En progreso — lo que seguimos agregando</span></h2>
+    <div class="todo"><span class="st done">Listo</span><div>Mix de canales y segmentos del año completo</div></div>
+    <div class="todo"><span class="st done">Listo</span><div>Tasa de cancelación, estancia promedio, producto estrella</div></div>
+    <div class="todo"><span class="st next">Siguiente</span><div>Ocupación mes a mes — temporada alta/baja en números</div></div>
+    <div class="todo"><span class="st next">Siguiente</span><div>Antelación de reserva — con cuántos días compran antes de llegar</div></div>
+    <div class="todo"><span class="st next">Siguiente</span><div>Cruce con el tag de Ads reparado: reservas atribuidas a Google</div></div>
+    <div class="todo"><span class="st next">Siguiente</span><div>Panel vivo del motor — métricas para mostrador y gerencia (iteración conectada a datos en tiempo real)</div></div>
+  </section>
+
+  <footer class="foot">
+    <b>The Unknown Shopper + Olmeca Code</b> · Frente D2 — Estadísticas del motor de reservas<br>
+    Informe en progreso · Hotel Nututún Palenque · Actualizado 4 nov 2026
+  </footer>
+</div>
+
+<button class="fab" onclick="window.print()">Descargar PDF</button>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
