@@ -142,7 +142,78 @@
   </section>
 
   <section>
-    <h2><span class="kicker">03 · En progreso — lo que seguimos agregando</span></h2>
+    <h2><span class="kicker">03 · Temporada, origen del huésped y comportamiento de compra</span></h2>
+    <p>Llegadas por mes con cancelaciones e ingreso registrado (folios futuros hasta 2028 = bloques de grupos ya vendidos):</p>
+    <table>
+      <tr><th>Mes de llegada</th><th>Llegadas</th><th>Cancelaciones</th><th>Ingreso</th></tr>
+      <tr><td>Abr 2026</td><td>38</td><td>18%</td><td>$73,721</td></tr>
+      <tr><td><b>May 2026 — pico del año</b></td><td><b>502</b></td><td>14%</td><td><b>$785,375</b></td></tr>
+      <tr><td>Jun 2026</td><td>131</td><td style="color:var(--red-dark)"><b>43%</b></td><td>$118,334</td></tr>
+      <tr><td>Jul 2026</td><td>84</td><td style="color:var(--red-dark)"><b>73%</b></td><td>$64,613</td></tr>
+      <tr><td>Ago 2026</td><td>78</td><td style="color:var(--red-dark)"><b>46%</b></td><td>$39,719</td></tr>
+      <tr><td>Sep 2026</td><td>346</td><td>21%</td><td>$407,875</td></tr>
+      <tr><td>Oct 2026</td><td>470</td><td>29%</td><td>$474,087</td></tr>
+      <tr><td>Nov 2026</td><td>338</td><td>30%</td><td>$379,740</td></tr>
+      <tr><td>Dic 2026</td><td>248</td><td>35%</td><td>$222,380</td></tr>
+      <tr><td>Ene 2027</td><td>232</td><td>12%</td><td>$74,629</td></tr>
+      <tr><td>Feb 2027</td><td>218</td><td>14%</td><td>$125,499</td></tr>
+    </table>
+
+    <p><b>Origen del huésped</b> — la nacionalidad que más duerme en el hotel:</p>
+    <table>
+      <tr><th>Origen</th><th>Reservas</th><th></th></tr>
+      <tr><td><b>Francia</b></td><td><b>1,227</b></td><td class="barcell"><span class="bar" style="width:100%"></span></td></tr>
+      <tr><td>Chiapas</td><td>485</td><td class="barcell"><span class="bar" style="width:40%"></span></td></tr>
+      <tr><td>Ciudad de México</td><td>475</td><td class="barcell"><span class="bar" style="width:39%"></span></td></tr>
+      <tr><td>Tabasco</td><td>442</td><td class="barcell"><span class="bar" style="width:36%"></span></td></tr>
+      <tr><td>Estado de México</td><td>71</td><td class="barcell"><span class="bar" style="width:6%"></span></td></tr>
+      <tr><td>Polinesia Francesa</td><td>38</td><td class="barcell"><span class="bar" style="width:3%"></span></td></tr>
+      <tr><td>Baja California Sur</td><td>34</td><td class="barcell"><span class="bar" style="width:3%"></span></td></tr>
+      <tr><td>Alemania</td><td>23</td><td class="barcell"><span class="bar" style="width:2%"></span></td></tr>
+    </table>
+
+    <p><b>Antelación de compra</b> — días entre la reserva y la llegada (mediana: 66 días):</p>
+    <table>
+      <tr><th>Ventana</th><th>Reservas</th><th>% del total</th></tr>
+      <tr><td>El mismo día</td><td>359</td><td>11%</td></tr>
+      <tr><td>1–14 días</td><td>708</td><td>21%</td></tr>
+      <tr><td>15–60 días</td><td>590</td><td>17%</td></tr>
+      <tr><td>61–90 días</td><td>238</td><td>7%</td></tr>
+      <tr><td><b>Más de 90 días</b></td><td><b>1,509</b></td><td><b>44%</b></td></tr>
+    </table>
+    <p class="finding" style="border-left-color:var(--navy,#2a4d69)"><b>Dispositivo:</b> de las reservas con dato, <b>67 llegaron por smartphone</b> vs 27 de escritorio — el canal directo se decide en el celular.</p>
+  </section>
+
+  <section>
+    <h2><span class="kicker">04 · Hallazgos de la segunda capa</span></h2>
+
+    <div class="finding"><span class="fnum">D7</span>
+      <b class="t">El huésped número uno es francés — el mercado está en Europa</b>
+      <p>1,227 reservas (31%) vienen de Francia más 38 de Polinesia Francesa — circuitos de touroperadores europeos (los mismos backlinks checos y franceses detectados en Search Console). Implicación directa: la segmentación de Ads con "interés" internacional es correcta, y una campaña futura en francés para "hôtel Palenque" tiene mercado demostrado.</p></div>
+
+    <div class="finding"><span class="fnum">D8</span>
+      <b class="t">El 44% reserva con +90 días — compra de grupos, no de impulso</b>
+      <p>Mediana de antelación: 66 días. El hotel se vende por circuito agendado con meses de anticipación. La capa digital directa capturaría al otro perfil: el 11% que llega el mismo día y el 21% en menos de dos semanas — el huésped que decide hoy.</p></div>
+
+    <div class="finding"><span class="fnum">D9</span>
+      <b class="t">Jun–ago 2026: la cancelación alcanzó 43–73%</b>
+      <p>Contra 12–14% en ene–feb 2027. Un pico anómalo que vale revisar con operación — ¿bloqueo grupal caído, problema de sistema, política? 180 cancelaciones en 3 meses es inventario que pudo revenderse.</p></div>
+
+    <div class="finding"><span class="fnum ok">D10</span>
+      <b class="t">El canal directo se juega en el celular</b>
+      <p>71% de las reservas con dispositivo registrado llegaron por smartphone. El funnel móvil — anuncio → sitio → motor → OpenPay — es el camino que debe verse perfecto en pantalla chica.</p></div>
+  </section>
+
+  <section>
+    <h2><span class="kicker">05 · En progreso — lo que seguimos agregando</span></h2>
+    <div class="todo"><span class="st done">Listo</span><div>Mix de canales y segmentos del año completo</div></div>
+    <div class="todo"><span class="st done">Listo</span><div>Tasa de cancelación, estancia promedio, producto estrella</div></div>
+    <div class="todo"><span class="st done">Listo</span><div>Ocupación mes a mes — temporada alta/baja en números</div></div>
+    <div class="todo"><span class="st done">Listo</span><div>Antelación de reserva — con cuántos días compran antes de llegar</div></div>
+    <div class="todo"><span class="st done">Listo</span><div>Origen del huésped — Francia como mercado principal + dispositivo móvil</div></div>
+    <div class="todo"><span class="st next">Siguiente</span><div>Cruce con el tag de Ads reparado: reservas atribuidas a Google</div></div>
+    <div class="todo"><span class="st next">Siguiente</span><div>Panel vivo del motor — métricas para mostrador y gerencia (iteración conectada a datos en tiempo real)</div></div>
+  </section>
     <div class="todo"><span class="st done">Listo</span><div>Mix de canales y segmentos del año completo</div></div>
     <div class="todo"><span class="st done">Listo</span><div>Tasa de cancelación, estancia promedio, producto estrella</div></div>
     <div class="todo"><span class="st next">Siguiente</span><div>Ocupación mes a mes — temporada alta/baja en números</div></div>
@@ -153,7 +224,7 @@
 
   <footer class="foot">
     <b>The Unknown Shopper + Olmeca Code</b> · Frente D2 — Estadísticas del motor de reservas<br>
-    Informe en progreso · Hotel Nututún Palenque · Actualizado 4 nov 2026
+    Informe en progreso · Hotel Nututún Palenque · Actualizado 9 nov 2026
   </footer>
 </div>
 
