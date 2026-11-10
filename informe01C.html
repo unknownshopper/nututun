@@ -49,6 +49,10 @@
   td{padding:8px 10px;border-bottom:1px solid #eee7dc}
   ul{margin:.6em 0 .6em 1.4em}
   li{margin:.35em 0;font-size:.9rem}
+  .evgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+  .evgrid figure{margin:0;background:#fff;border:1px solid #e5e1d8;border-radius:10px;overflow:hidden}
+  .evgrid img{width:100%;display:block;cursor:zoom-in}
+  .evgrid figcaption{padding:8px 12px;font-size:.75rem;color:var(--stone);border-top:1px solid #f0ece4}
   .foot{margin-top:48px;padding-top:22px;border-top:1px solid #e5e1d8;font-size:.8rem;color:var(--stone)}
   .fab{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--red);color:#fff;
     border:none;padding:13px 22px;border-radius:30px;font-size:.85rem;font-weight:600;
@@ -120,9 +124,9 @@
   <section>
     <h2><span class="kicker">02 · Lo pendiente</span></h2>
 
-    <div class="item pend"><span class="st pend">Pendiente</span>
-      <b class="t">Decisión sobre el feed de Google Hotels</b>
-      <p class="d">Channel Plus vía Easy-Rez ($700 MXN/mes) o Channex directo. Es lo único que mete la tarifa oficial al carrusel — se presenta a dirección como decisión de inversión, no de gasto.</p></div>
+    <div class="item"><span class="st ok">Logrado</span>
+      <b class="t">Feed de Google Hotels conseguido sin costo — 2 meses de Channex cortesía de Easy-Rez</b>
+      <p class="d">En la negociación del 7 nov, Easy-Rez cedió <b>2 meses gratuitos de Channel Plus (Channex)</b> — activación confirmada para el 10–11 nov. El feed de tarifas al carrusel de Google arranca sin gasto: tarifa oficial, disponibilidad en vivo y Free Booking Links. Al término de la cortesía (~ene 2027), dirección decide continuidad a ~$700 MXN/mes ya con resultados medidos.</p></div>
 
     <div class="item pend"><span class="st pend">Pendiente</span>
       <b class="t">Reactivación de campañas con medición real</b>
@@ -145,7 +149,7 @@
     <h2><span class="kicker">03 · Decisiones sobre la mesa</span></h2>
     <table>
       <tr><th>Decisión</th><th>Opciones</th><th>Impacto</th></tr>
-      <tr><td><b>Feed de Google Hotels</b></td><td>Channel Plus $700/mes · Channex directo · no hacer nada</td><td>Una reserva directa paga el mes; cada día sin feed = comisión OTA en su propia ficha</td></tr>
+      <tr><td><b>Feed de Google Hotels</b></td><td><b>Resuelto:</b> 2 meses de Channex cortesía de Easy-Rez (activación 10–11 nov); continuidad ~$700/mes a partir de ene 2027 si rinde</td><td>Tarifa oficial en el carrusel sin costo inicial; la medición decide la renovación con datos reales</td></tr>
       <tr><td><b>Política de anticipo</b></td><td>100% por adelantado (actual) · depósito parcial / primera noche</td><td>Frente a OTAs que ofrecen "pagar en el hotel", el anticipo total puede frenar la conversión directa</td></tr>
       <tr><td><b>Reactivación de Ads</b></td><td>Tras confirmar tag · con campaña de marca mínima ~$50/día</td><td>Defiende "hotel nututun" de las OTAs que pujan por su nombre, a costo mínimo</td></tr>
       <tr><td><b>Sitio web a futuro</b></td><td>Seguir con WebSite PRO/Duda · sitio administrado con medición nativa</td><td>Un proveedor, cero auditoría — el proyecto propone quitar el monopolio de la verdad, no del motor</td></tr>
@@ -167,16 +171,29 @@
       <tr><td><b>Recarga de saldo</b> — último paso, una vez validada la configuración</td><td>Google Ads → Facturación</td><td>Pendiente</td></tr>
     </table>
     <div class="callout"><b>Regla de la sesión:</b> ningún peso entra hasta que la medición y la segmentación estén correctas — el gasto se enciende al final, apuntando a reservas reales.</div>
+
+    <div class="evgrid">
+      <figure><img src="evidencia/conv-activa.png" alt="Conversión activa" onclick="window.open(this.src)"><figcaption><b>El tag revivió</b> — "Reserva Online easy rez" Activa, 1 conv. de $7,816.60 en 7 días</figcaption></figure>
+      <figure><img src="evidencia/sc-indexada.png" alt="URL indexada" onclick="window.open(this.src)"><figcaption><b>Home indexada</b> — HTTPS correcto, indexación prioritaria solicitada</figcaption></figure>
+      <figure><img src="evidencia/sc-rastreo.png" alt="Detalle de rastreo" onclick="window.open(this.src)"><figcaption><b>Rastreo 7 nov</b> — sin sitemap previo; backlinks de operadores checo y francés</figcaption></figure>
+      <figure><img src="evidencia/ads-campanas.png" alt="Campañas" onclick="window.open(this.src)"><figcaption><b>Estado real</b> — saldo agotado; la conversión de $7,816 llegó vía PMax</figcaption></figure>
+      <figure><img src="evidencia/objetivos-antes.png" alt="Objetivos antes" onclick="window.open(this.src)"><figcaption><b>Antes</b> — WhatsApp, vistas y contactos como objetivos de puja</figcaption></figure>
+      <figure><img src="evidencia/objetivos-despues.png" alt="Objetivos después" onclick="window.open(this.src)"><figcaption><b>Después</b> — todo a secundario; solo la reserva puja (la "errónea" es lo correcto)</figcaption></figure>
+      <figure><img src="evidencia/arizona.png" alt="Arizona segmentado" onclick="window.open(this.src)"><figcaption><b>El culpable</b> — Arizona segmentado explícitamente junto a México; eliminado</figcaption></figure>
+      <figure><img src="evidencia/keywords.png" alt="Keywords" onclick="window.open(this.src)"><figcaption><b>Keywords saneadas</b> — marca protegida + destino; genéricas pausadas</figcaption></figure>
+      <figure><img src="evidencia/anuncio.png" alt="Editor de anuncio" onclick="window.open(this.src)"><figcaption><b>Copy de venta directa</b> — "Reserva directa sin comisión", "Tarifa oficial del hotel"</figcaption></figure>
+    </div>
   </section>
 
   <section>
     <h2><span class="kicker">05 · Lo que sigue — orden de ejecución</span></h2>
     <ul>
       <li><b>1. ✓</b> Tag de conversión reactivado — primera reserva medida: $7,816.60 MXN</li>
-      <li><b>2.</b> Decisión de dirección sobre el feed de tarifas (Channel Plus vs. Channex directo)</li>
-      <li><b>3.</b> Reactivar Ads con conversión real como objetivo y presupuesto redistribuido</li>
-      <li><b>4.</b> Free Booking Links activos una vez conectado el feed → el carrusel con precio directo</li>
-      <li><b>5.</b> Presentación a dirección con informes 01, 01B, 01C y el análisis D2</li>
+      <li><b>2. ✓</b> Cuenta saneada: objetivos limpios, Arizona fuera, marca protegida, copy de venta directa</li>
+      <li><b>3.</b> Recarga de saldo controlada (~$1,500–2,000 MXN) → Search de marca y destino encendida</li>
+      <li><b>4.</b> Activación de Channex (10–11 nov) → verificar tarifa oficial en el carrusel de Google Travel</li>
+      <li><b>5.</b> Monitoreo 48–72h: términos de búsqueda, reservas atribuidas y calidad del gasto</li>
+      <li><b>6.</b> Presentación a dirección con informes 01, 01B, 01C y el análisis D2</li>
     </ul>
     <div class="callout"><b>El eje no cambia:</b> quedarse con el motor (cobra y distribuye bien) pero quitarle el monopolio de la verdad — medición verificada, sitio con control y un panel donde el hotel ve sus propios números.<br><br><b>Nota:</b> el sitio web se administra desde el panel que Easy-Rez entrega al hotel — <code>panel.easy-web.app</code> (WebSite PRO sobre Duda): proyectos, estadísticas de interacción, contactos y automatización. El motor de reservas se administra en <code>reservations.easy-rez.com/admin</code>: consultas y reportes, motor, sitio web, traducciones y ajustes.</div>
   </section>
