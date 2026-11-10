@@ -74,7 +74,7 @@
 
   <section>
     <div class="kicker">Resumen</div>
-    <p class="lead">La visita técnica cerró el diagnóstico completo: <b>la demanda existe, el canal directo está clínicamente muerto</b> — el anuncio no aparece ni para su marca, la ficha vende solo a través de 10 intermediarios y el contador de reservas lleva un mes sin señal. Con los accesos otorgados ya se ejecutaron correcciones y se tomó la primera decisión de negocio: <b>pausar el gasto hasta que la medición funcione</b> (~$9,000 MXN/mes protegidos).</p>
+    <p class="lead">La visita técnica cerró el diagnóstico completo: <b>la demanda existe, el canal directo está clínicamente muerto</b> — el anuncio no aparece ni para su marca y la ficha vende solo a través de 10 intermediarios. Tras la intervención con Easy-Rez, <b>el contador de reservas volvió a la vida: ya registra reservas con su valor en pesos</b>. Con los accesos otorgados se ejecutaron correcciones y se tomó la primera decisión de negocio: <b>pausar el gasto hasta confirmar medición estable</b> (~$9,000 MXN/mes protegidos).</p>
   </section>
 
   <section>
@@ -111,14 +111,14 @@
     <div class="item"><span class="st ok">Hecho</span>
       <b class="t">Decisión ejecutiva: pausar toda la inversión en Ads</b>
       <p class="d">Sin medición real, el gasto no se justifica. ~$300 MXN/día (~$9,000/mes) protegidos hasta que el tag confirme reservas.</p></div>
+
+    <div class="item"><span class="st ok">Hecho</span>
+      <b class="t">El tag de conversión volvió a la vida</b>
+      <p class="d">"Reserva Online easy rez" figura <b>Activa</b> y ya registró su primera conversión desde la reparación: <b>1 reserva por $7,816.60 MXN</b> en los últimos 7 días. La medición real volvió — cada reserva directa ahora cuenta y con su valor.</p></div>
   </section>
 
   <section>
     <h2><span class="kicker">02 · Lo pendiente</span></h2>
-
-    <div class="item pend"><span class="st pend">En verificación</span>
-      <b class="t">Reserva de prueba — ¿el tag realmente dispara?</b>
-      <p class="d">Easy-Rez dice que el tag está instalado. La prueba definitiva: una reserva real de bajo costo hasta la confirmación. Si registra → el canal directo simplemente no vendió; si no → el tag sigue roto.</p></div>
 
     <div class="item pend"><span class="st pend">Pendiente</span>
       <b class="t">Decisión sobre el feed de Google Hotels</b>
@@ -153,14 +153,30 @@
   </section>
 
   <section>
-    <h2><span class="kicker">04 · Lo que sigue — orden de ejecución</span></h2>
+    <h2><span class="kicker">04 · Bitácora de cambios — sesión de configuración</span></h2>
+    <p class="d" style="margin-bottom:12px">Correcciones ejecutadas con acceso completo a Ads, Analytics, Search Console y GBP (9 nov 2026). Se documenta cada cambio para trazabilidad.</p>
+    <table>
+      <tr><th>Cambio</th><th>Plataforma</th><th>Estado</th></tr>
+      <tr><td><b>Sitemap enviado</b> — <code>https://www.nututun.com/sitemap.xml</code> declarado a Google; la indexación orgánica no estaba registrada</td><td>Search Console</td><td>✓ Hecho</td></tr>
+      <tr><td><b>Inspección de indexación</b> — home indexada, HTTPS correcto, último rastreo 7 nov; "sin sitemap de referencia" confirmado → se envió y se solicitó indexación prioritaria. Backlinks orgánicos detectados de operadores turísticos internacionales (checo y francés)</td><td>Search Console → Inspección de URLs</td><td>✓ Hecho — datos completos mañana</td></tr>
+      <tr><td><b>Objetivos de conversión corregidos</b> — WhatsApp, vista de página, contacto y mensajes pasaron a secundarios (solo observación). Único objetivo de puja en la cuenta: <b>Reserva Online easy rez</b>. Fin a optimizar por toques de WhatsApp</td><td>Google Ads → Objetivos</td><td>✓ Hecho</td></tr>
+      <tr><td><b>Segmentación geográfica corregida</b> — Arizona eliminada de "Busqueda by Google" (segmentación explícita que quemaba presupuesto fuera de mercado); PMax verificada con solo México. "Presencia o interés" se conserva: capta al turista internacional que planea el viaje</td><td>Google Ads → Ubicaciones</td><td>✓ Hecho</td></tr>
+      <tr><td><b>Keywords de Search saneadas</b> — marca protegida con 4 variantes ([hotel nututun], "hotel nututun", [nututun palenque], [hotel nututun palenque]) + destino ("hoteles en palenque chiapas", [hoteles en palenque]); amplias genéricas pausadas (hotel reserva, página para reservar, hoteles reservación, méxico, riviera, san cristobal)</td><td>Google Ads → Palabras clave</td><td>✓ Hecho</td></tr>
+      <tr><td><b>Copy del anuncio orientado a venta directa</b> — títulos agregados: "Reserva en el sitio oficial", "Reserva directa sin comision", "Tarifa oficial del hotel"; eliminados "Hoteles en San Cristobal" y "Hoteles en Colonia" (irrelevantes)</td><td>Google Ads → Anuncios</td><td>✓ Hecho</td></tr>
+      <tr><td><b>Performance Max contenida</b> — presupuesto $100/día, ya limitada; objetivos limpiados (solo reserva)</td><td>Google Ads</td><td>✓ Revisada</td></tr>
+      <tr><td><b>Recarga de saldo</b> — último paso, una vez validada la configuración</td><td>Google Ads → Facturación</td><td>Pendiente</td></tr>
+    </table>
+    <div class="callout"><b>Regla de la sesión:</b> ningún peso entra hasta que la medición y la segmentación estén correctas — el gasto se enciende al final, apuntando a reservas reales.</div>
+  </section>
+
+  <section>
+    <h2><span class="kicker">05 · Lo que sigue — orden de ejecución</span></h2>
     <ul>
-      <li><b>1.</b> Reserva de prueba → confirmar si el tag dispara (24–48h de resultado en Ads)</li>
-      <li><b>2.</b> Easy-Rez confirma reparación del tag (o escalamiento con evidencia de la prueba)</li>
-      <li><b>3.</b> Decisión de dirección sobre el feed de tarifas (Channel Plus vs. Channex directo)</li>
-      <li><b>4.</b> Reactivar Ads con conversión real como objetivo y presupuesto redistribuido</li>
-      <li><b>5.</b> Activar Free Booking Links una vez conectado el feed → el carrusel con precio directo</li>
-      <li><b>6.</b> Presentación a dirección con informes 01, 01B, 01C y el análisis D2</li>
+      <li><b>1. ✓</b> Tag de conversión reactivado — primera reserva medida: $7,816.60 MXN</li>
+      <li><b>2.</b> Decisión de dirección sobre el feed de tarifas (Channel Plus vs. Channex directo)</li>
+      <li><b>3.</b> Reactivar Ads con conversión real como objetivo y presupuesto redistribuido</li>
+      <li><b>4.</b> Free Booking Links activos una vez conectado el feed → el carrusel con precio directo</li>
+      <li><b>5.</b> Presentación a dirección con informes 01, 01B, 01C y el análisis D2</li>
     </ul>
     <div class="callout"><b>El eje no cambia:</b> quedarse con el motor (cobra y distribuye bien) pero quitarle el monopolio de la verdad — medición verificada, sitio con control y un panel donde el hotel ve sus propios números.<br><br><b>Nota:</b> el sitio web se administra desde el panel que Easy-Rez entrega al hotel — <code>panel.easy-web.app</code> (WebSite PRO sobre Duda): proyectos, estadísticas de interacción, contactos y automatización. El motor de reservas se administra en <code>reservations.easy-rez.com/admin</code>: consultas y reportes, motor, sitio web, traducciones y ajustes.</div>
   </section>
